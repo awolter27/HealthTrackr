@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# HealthTrackr
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project 3
 
-## Available Scripts
+## Website
 
-In the project directory, you can run:
+- URL to come
 
-### `npm start`
+## Goal
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- I’m a physician assistant with experience working with diverse patient populations. I’ve observed a recurring issue where patients are often unable to provide complete and accurate information about their past medical histories. This poses a significant challenge to healthcare providers in delivering optimal care. I understand how difficult it can be to keep track of so much health related information, especially those with complex medical histories featuring numerous diagnoses, medications, allergies, hospitalizations, specialists, etc. So to address this issue, I’m developing an app that simplifies the process of tracking and sharing one’s medical history with healthcare providers across all health networks. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## User Story
 
-### `npm test`
+- As a user, I want to be able to enter and store my complete medical history in one place, so that I can easily provide accurate information to my healthcare providers.
+- As a user, I want to be able to enter and store the details of my entire care team, such as my PCP, OBGYN, optometrist, dentist, dermatologist, pulmonologist, cardiologist, etc.
+- As a user, I want to be able to enter and store prior and upcoming appointments.
+- As a user, I want to be able to add, edit, and delete entries.
+- As a user, I want this app to be intuitive to use.
+- As a user, I want to be able to use this app anywhere.
+- As a user, I want to be able to use this app with screens of all sizes, including computers, tablets, and phones.
+- As a user, I want to be able to share my data with my care team.
+- As a user, I expect my private data to be protected.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Stretch Goals
 
-### `npm run build`
+- I'd like to have an emergency contact section where users authorize these individuals to have access to their medical histories.
+- I'd like to have a section where users can upload important documentation, such as a living will or an advance directive.
+- I'd like to have a feature that reminds users to take their medications.
+- I'd like to have a feature that reminds users of their upcoming appointments.
+- I'd like to have a feature that allows users to export their data in an easy to use form, such as a downloadable PDF.
+- I'd ideally like to somehow store this data locally to eliminate the possibility of HIPPA violations.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Technologies to come
+## Initial Wireframe
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Wireframe Image](public/wireframe.png)
