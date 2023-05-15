@@ -8,7 +8,8 @@ const healthConditions = new mongoose.Schema(
         },
         current: {
             type: Boolean,
-            default: true
+            default: true,
+            required: [true, 'You must enter if your health condition is still active']
         },
         past: {
             type: Boolean,
@@ -18,7 +19,8 @@ const healthConditions = new mongoose.Schema(
             type: number
         },
         symptoms: {
-            type: String
+            type: String,
+            required: [true, 'You must enter the symptoms of your health condition']
         },
         notes: {
             type: String
