@@ -4,27 +4,26 @@ const medications = new mongoose.Schema(
     {
         name: {
             type: String,
-            required: [true, 'You must enter the name of the medication']
+            required: [true, 'You must enter the name of your medication']
         },
-        doseAmount: {
+        dose: {
             type: Number,
-            required: [true, 'You must enter the dose of the medication']
+            required: [true, 'You must enter the dose of your medication']
         },
-        doseUnitOfMeasurement: {
+        unitOfMeasurement: {
             type: String,
-            required: [true, 'You must enter the unit of measurement of the medication']
+            required: [true, 'You must enter the unit of measurement of your medication']
         },
         route: {
             type: String,
-            required: [true, 'You must enter the route of the medication']
+            required: [true, 'You must enter the route of your medication']
         },
         frequency: {
             type: String,
-            required: [true, 'You must enter the frequency of the medication']
+            required: [true, 'You must enter the frequency of your medication']
         },
         reason: {
-            type: String,
-            required: [true, 'You must enter the reason for the medication']
+            type: String
         },
         notes: {
             type: String

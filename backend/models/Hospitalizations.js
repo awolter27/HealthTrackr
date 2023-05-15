@@ -11,7 +11,7 @@ const hospitalizations = new mongoose.Schema(
         },
         reason: {
             type: String,
-            required: [true, 'You must enter the reason of your hospitaization']
+            required: [true, 'You must enter the reason for your hospitaization']
         },
         date: {
             type: Date,
