@@ -11,7 +11,7 @@ const familyHistory = new mongoose.Schema(
             required: [true, 'You must enter the health condition of your family member']
         },
         ageOfDiagnosis: {
-            type: String
+            type: number
         },
         living: {
             type: Boolean,
