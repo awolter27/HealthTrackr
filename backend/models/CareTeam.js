@@ -23,6 +23,12 @@ const careTeam = new mongoose.Schema(
         email: {
             type: String
         },
+        lastAppointment: {
+            type: Date
+        },
+        nextAppointment: {
+            type: Date
+        },
         notes: {
             type: String
         }
