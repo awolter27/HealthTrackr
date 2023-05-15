@@ -8,20 +8,20 @@ const careTeam = new mongoose.Schema(
         },
         name: {
             type: String,
-            required: [true, 'You must enter the name your healthcare provider']
+            required: [true, 'You must enter the name of your healthcare provider']
         },
         specialty: {
             type: String,
-            required: [true, 'You must enter the specialty your healthcare provider']
+            required: [true, 'You must enter the specialty of your healthcare provider']
         },
         address: {
-            type: String,
+            type: String
         },
         phoneNumber: {
-            type: String,
+            type: String
         },
         email: {
-            type: String,
+            type: String
         },
         notes: {
             type: String
