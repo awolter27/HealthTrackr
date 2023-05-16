@@ -2,6 +2,7 @@ require('../config/connection');
 
 module.exports = {
     Allergies: require('./Allergies'),
+    Appointments: require('./Appointments'),
     CareTeam: require('./CareTeam'),
     FamilyHistory: require('./FamilyHistory'),
     HealthConditions: require('./HealthConditions'),

@@ -10,6 +10,7 @@ const app = express();
 
 // Controllers
 const allergiesController = require('./controllers/allergies');
+const appointmentsController = require('./controllers/appointments');
 const careTeamController = require('./controllers/careTeam');
 const familyHistoryController = require('./controllers/familyHistory');
 const healthConditionsController = require('./controllers/healthConditions');
@@ -32,6 +33,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/allergies', allergiesController);
+app.use('/appointments', appointmentsController);
 app.use('/careteam', careTeamController);
 app.use('/familyhistory', familyHistoryController);
 app.use('/healthconditions', healthConditionsController);
