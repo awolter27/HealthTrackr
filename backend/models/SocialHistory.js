@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const socialHistory = new mongoose.Schema(
+const socialHistorySchema = new mongoose.Schema(
     {
         education: [{
             location: {

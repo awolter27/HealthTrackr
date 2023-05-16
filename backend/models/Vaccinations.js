@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const vaccinations = new mongoose.Schema(
+const vaccinationsSchema = new mongoose.Schema(
     {
         name: {
             type: String,

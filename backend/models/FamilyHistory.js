@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const familyHistory = new mongoose.Schema(
+const familyHistorySchema = new mongoose.Schema(
     {
         relationship: {
             type: String,
