@@ -28,7 +28,7 @@ app.use(express.json());
 
 // Routes
 app.get('/', (req, res) => {
-    res.json();
+    res.send('Hello World');
 })
 
 app.use('/allergies', allergiesController);
