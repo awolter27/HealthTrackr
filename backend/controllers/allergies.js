@@ -36,7 +36,7 @@ router.post('', async (req, res, next) => {
 router.put('/:id', async (req, res, next) => {
     try {
         const updatedAllergy = await Allergies.findByIdAndUpdate(req.params.id, req.body);
-        res.redirect(`/books/${req.params.id}`);
+        res.redirect(`/allergies/${req.params.id}`);
     } catch (err) {
         next();
         console.log(err);
