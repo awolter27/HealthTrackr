@@ -4,7 +4,7 @@ const allergiesSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            required: [true, 'You must enter the name your allergy']
+            required: [true, 'You must enter the name of your allergy']
         },
         reaction: {
             type: String,
