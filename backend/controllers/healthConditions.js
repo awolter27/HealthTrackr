@@ -14,8 +14,8 @@ router.get('', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
     try {
-        const myHealthConditions = await HealthConditions.findById(req.params.id);
-        res.json(myHealthConditions);
+        const myHealthCondition = await HealthConditions.findById(req.params.id);
+        res.json(myHealthCondition);
     } catch (err) {
         next();
         console.log(err);
@@ -24,7 +24,7 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('', async (req, res, next) => {
     try {
-        const newHealthConditions = req.body;
+        const newHealthCondition = req.body;
         await HealthConditions.create(req.body);
         res.redirect('/healthconditions');
     } catch (err) {
@@ -35,7 +35,7 @@ router.post('', async (req, res, next) => {
 
 router.put('/:id', async (req, res, next) => {
     try {
-        const updatedHealthConditions = await HealthConditions.findByIdAndUpdate(req.params.id, req.body);
+        const updatedHealthCondition = await HealthConditions.findByIdAndUpdate(req.params.id, req.body);
         res.redirect(`/healthconditions/${req.params.id}`);
     } catch (err) {
         next();
@@ -45,7 +45,7 @@ router.put('/:id', async (req, res, next) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        const deletedHealthConditions = await HealthConditions.findByIdAndDelete(req.params.id);
+        const deletedHealthCondition = await HealthConditions.findByIdAndDelete(req.params.id);
         res.redirect('/healthconditions');
     } catch (err) {
         next();
