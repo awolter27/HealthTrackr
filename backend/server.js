@@ -42,7 +42,7 @@ app.use('/surgeries', surgeriesController);
 app.use('/vaccinations', vaccinationsController);
 
 app.get('/*', (req, res) => {
-    res.json({comment: "You've reached an incorrect URL."});
+    res.json({ comment: "You've reached an incorrect URL." });
 })
 
 // Listen
