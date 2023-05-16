@@ -18,8 +18,10 @@ const healthConditions = new mongoose.Schema(
             type: Number
         },
         symptoms: {
-            type: String,
-            required: [true, 'You must enter the symptoms of your health condition']
+            type: String
+        },
+        treatment: {
+            type: String
         },
         notes: {
             type: String

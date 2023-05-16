@@ -44,10 +44,10 @@ const socialHistory = new mongoose.Schema(
                 type: String
             },
             duration: {
-                type: String
+                type: Number
             },
             frequency: {
-                type: String
+                type: Number
             }
         }],
         sleep: {
@@ -64,7 +64,7 @@ const socialHistory = new mongoose.Schema(
                 type: String
             },
             amount: {
-                type: String
+                type: Number
             },
             startDate: {
                 type: Date
@@ -84,7 +84,7 @@ const socialHistory = new mongoose.Schema(
                 type: String
             },
             amount: {
-                type: String
+                type: Number
             },
             startDate: {
                 type: Date
@@ -103,8 +103,11 @@ const socialHistory = new mongoose.Schema(
             type: {
                 type: String
             },
-            amount: {
+            route: {
                 type: String
+            },
+            amount: {
+                type: Number
             },
             startDate: {
                 type: Date

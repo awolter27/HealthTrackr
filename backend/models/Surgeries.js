@@ -13,6 +13,9 @@ const surgeries = new mongoose.Schema(
             type: Date,
             required: [true, 'You must enter the date of your procedure or surgery']
         },
+        surgeon: {
+            type: String
+        },
         reason: {
             type: String,
             required: [true, 'You must enter the reason for your procedure or surgery']
