@@ -1,5 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import Header from './components/Header';
+import Home from './pages/Home';
+
+import AllergiesDelete from './pages/allergies/AllergiesDelete'
+import AllergiesEdit from './pages/allergies/AllergiesEdit'
+import AllergiesIndex from './pages/allergies/AllergiesIndex'
+import AllergiesNew from './pages/allergies/AllergiesNew'
+import AllergiesShow from './pages/allergies/AllergiesShow'
+
+import Footer from './components/Footer';
+import './styles/index.css';
+import './styles/App.css';
+import './styles/fonts.css';
 
 function App() {
   return (
