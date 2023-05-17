@@ -24,6 +24,8 @@ Project 3
 
 ## Stretch Goals
 
+- I'd like to add in additional controllers, models, and pages, such as vitals, to be more comprehensive.
+- I'd like to update the schemas to be more comprehensive.
 - I'd like to have an emergency contact section where users authorize these individuals to have access to their medical histories.
 - I'd like to have a section where users can upload important documentation, such as a living will or an advance directive.
 - I'd like to have a feature that reminds users to take their medications.
