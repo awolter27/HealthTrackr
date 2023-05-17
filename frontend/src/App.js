@@ -52,7 +52,6 @@ import CareTeamNew from './pages/careTeam/CareTeamNew'
 import CareTeamEdit from './pages/careTeam/CareTeamEdit'
 import CareTeamDelete from './pages/careTeam/CareTeamDelete'
 import Footer from './components/Footer';
-import './styles/index.css';
 import './styles/App.css';
 import './styles/fonts.css';
 
