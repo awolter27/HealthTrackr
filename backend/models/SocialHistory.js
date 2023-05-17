@@ -10,10 +10,10 @@ const socialHistorySchema = new mongoose.Schema(
                 type: String
             },
             startDate: {
-                type: Date
+                type: String
             },
             endDate: {
-                type: Date
+                type: String
             }
         }],
         occupation: [{
@@ -24,10 +24,10 @@ const socialHistorySchema = new mongoose.Schema(
                 type: String
             },
             startDate: {
-                type: Date
+                type: String
             },
             endDate: {
-                type: Date
+                type: String
             }
         }],
         maritalStatus: {
@@ -67,10 +67,10 @@ const socialHistorySchema = new mongoose.Schema(
                 type: Number
             },
             startDate: {
-                type: Date
+                type: String
             },
             quitDate: {
-                type: Date
+                type: String
             }
         }],
         alcohol: [{
@@ -87,10 +87,10 @@ const socialHistorySchema = new mongoose.Schema(
                 type: Number
             },
             startDate: {
-                type: Date
+                type: String
             },
             quitDate: {
-                type: Date
+                type: String
             }
         }],
         substance: [{
@@ -110,10 +110,10 @@ const socialHistorySchema = new mongoose.Schema(
                 type: Number
             },
             startDate: {
-                type: Date
+                type: String
             },
             quitDate: {
-                type: Date
+                type: String
             }
         }],
         notes: {

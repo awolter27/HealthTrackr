@@ -13,7 +13,7 @@ const vaccinationsSchema = new mongoose.Schema(
             type: String
         },
         date: {
-            type: Date,
+            type: String,
             required: [true, 'You must enter the date you recieved your vaccination']
         },
         notes: {
