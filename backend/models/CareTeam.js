@@ -24,10 +24,10 @@ const careTeamSchema = new mongoose.Schema(
             type: String
         },
         lastAppointment: {
-            type: Date
+            type: String
         },
         nextAppointment: {
-            type: Date
+            type: String
         },
         notes: {
             type: String
