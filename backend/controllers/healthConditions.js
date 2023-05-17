@@ -37,6 +37,17 @@ const seededData = [
         notes: "I've noticed my blood pressure slowly increasing since my last visit. I have an appointment with my PCP to discuss increasing the dose of my amlodipine."
     },
     {
+        name: "Seasonal Allergies",
+        currentOrPast: [{
+            current: true,
+            past: false
+        }],
+        ageOfDiagnosis: 13,
+        symptoms: "Sinus Congestion, Nasal Congestion, Sneezing",
+        treatment: "OTC Claritin",
+        notes: "I'm allergic to pollen'."
+    },
+    {
         name: "Chickenpox",
         currentOrPast: [{
             current: false,

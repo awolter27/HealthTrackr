@@ -34,7 +34,7 @@ const seededData = [
         email: "hannahmiller@westviewhospital.com",
         lastAppointment: "12/03/2022",
         nextAppointment: "12/15/2023",
-        notes: "I want to discuss starting birth control."
+        notes: "I want to discuss the results of my last pap smear."
     },
     {
         title: "Dr.",

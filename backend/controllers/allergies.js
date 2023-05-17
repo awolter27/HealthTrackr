@@ -20,7 +20,7 @@ const seededData = [
     },
     {
         name: "Pollen",
-        reaction: "Sinus Congestion, Nasal Congestion",
+        reaction: "Sinus Congestion, Nasal Congestion, Sneezing",
         notes: "Last Allergic Reaction: Seasonal"
     }
 ]

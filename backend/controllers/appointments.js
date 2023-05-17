@@ -34,7 +34,7 @@ const seededData = [
         date: "12/15/2023",
         time: "3:45 pm",
         reason: "Annual Visit",
-        notes: "I want to discuss starting birth control."
+        notes: "I want to discuss the results of my last pap smear."
     }
 ]
 
