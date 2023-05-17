@@ -21,7 +21,7 @@ const appointmentsSchema = new mongoose.Schema(
             required: [true, 'You must enter the address of your appointment']
         },
         date: {
-            type: Date,
+            type: String,
             required: [true, 'You must enter the date of your appointment']
         },
         time: {

@@ -2,6 +2,42 @@ const express = require('express');
 const router = express.Router();
 const { Appointments } = require('../models');
 
+const seededData = [
+    {
+        nameOfAppointment: "Primary Care Appointment",
+        title: "Dr.",
+        nameOfProvider: "Taylor Jones",
+        specialty: "Family Medicine",
+        address: "935 E Birch St.",
+        date: "06/01/2023",
+        time: "8:30 am",
+        reason: "Medication Refill for Amlodipine",
+        notes: "I want to discuss increasing the dose of my anti-hypertensive."
+    },
+    {
+        nameOfAppointment: "Orthopedics Appointment",
+        title: "PA-C",
+        nameOfProvider: "Josh Campbell",
+        specialty: "Orthopedics",
+        address: "383 Main St.",
+        date: "06/29/2023",
+        time: "1:15 pm",
+        reason: "Cortisone Injection in Right Knee",
+        notes: "I want to discuss the critera for a knee replacement."
+    },
+    {
+        nameOfAppointment: "OBGYN Appointment",
+        title: "NP",
+        nameOfProvider: "Hannah Miller",
+        specialty: "OBGYN",
+        address: "24787 Luckey Rd.",
+        date: "12/15/2023",
+        time: "3:45 pm",
+        reason: "Annual Visit",
+        notes: "I want to discuss starting birth control."
+    }
+]
+
 router.get('', async (req, res, next) => {
     try {
         const myAppointments = await Appointments.find({});
@@ -9,6 +45,17 @@ router.get('', async (req, res, next) => {
     } catch (err) {
         next();
         console.log(err);
+    }
+})
+
+router.get('/seed', async (req, res, next) => {
+    try {
+        await Appointments.deleteMany({});
+        await Appointments.insertMany(seededData);
+        res.redirect('/appointments');
+    } catch(err) {
+        console.log(err);
+        next();
     }
 })
 
