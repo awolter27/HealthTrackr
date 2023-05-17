@@ -4,12 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Allison Wolter",
   "license": "ISC",
   "dependencies": {
     "connect-mongo": "^5.0.0",

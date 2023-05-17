@@ -35,4 +35,11 @@ Project 3
 
 ## Technologies
 
-- Technologies to come
+- Connect-Mongo
+- Cors
+- Dotenv
+- Express
+- Method-Override
+- MongoDB
+- Mongoose
+- Nodemon
