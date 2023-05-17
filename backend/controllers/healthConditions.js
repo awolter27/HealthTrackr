@@ -76,8 +76,8 @@ router.get('/seed', async (req, res, next) => {
         await HealthConditions.insertMany(seededData);
         res.redirect('/healthconditions');
     } catch (err) {
-        console.log(err);
         next();
+        console.log(err);
     }
 })
 

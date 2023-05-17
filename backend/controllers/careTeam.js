@@ -65,8 +65,8 @@ router.get('/seed', async (req, res, next) => {
         await CareTeam.insertMany(seededData);
         res.redirect('/careteam');
     } catch(err) {
-        console.log(err);
         next();
+        console.log(err);
     }
 })
 

@@ -17,7 +17,7 @@ const healthConditionsController = require('./controllers/healthConditions');
 const hospitalizationsController = require('./controllers/hospitalizations');
 const medicationsController = require('./controllers/medications');
 const socialHistoryController = require('./controllers/socialHistory');
-const surgeriesController = require('./controllers/socialHistory');
+const surgeriesController = require('./controllers/surgeries');
 const vaccinationsController = require('./controllers/vaccinations');
 
 // Environment Variables

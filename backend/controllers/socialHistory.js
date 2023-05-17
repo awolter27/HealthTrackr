@@ -70,8 +70,8 @@ router.get('/seed', async (req, res, next) => {
         await SocialHistory.insertMany(seededData);
         res.redirect('/socialhistory');
     } catch(err) {
-        console.log(err);
         next();
+        console.log(err);
     }
 })
 
