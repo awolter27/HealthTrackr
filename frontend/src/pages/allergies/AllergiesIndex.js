@@ -1,13 +1,12 @@
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function AllergiesIndex() {
     const [allergies, setAllergies] = useState([]);
 
-
     async function getAllergies() {
         try {
-            let myAllergies = await fetch('http://localhost:4000/allergies');
+            let myAllergies = await fetch('https://healthtrackr.onrender.com/allergies');
             myAllergies = await myAllergies.json();
             setAllergies(myAllergies);
         } catch (err) {
@@ -33,8 +32,8 @@ function AllergiesIndex() {
                         </div>
                     )
                 })}
-                <Link to={`/allergies/new`}>
-                    <h2>new</h2>
+                <Link to={'/allergies/new'}>
+                    <h2>Add Allergy</h2>
                 </Link>
             </>
         )

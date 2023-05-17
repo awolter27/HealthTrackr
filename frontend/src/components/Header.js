@@ -1,7 +1,13 @@
+import { Link } from 'react-router-dom';
+
 function Header() {
     return (
         <>
-            <h1>Header</h1>
+            <header>
+                <nav>
+                    <Link className='link' to='/'>HealthTrackr</Link>
+                </nav>
+            </header>
         </>
     );
 }

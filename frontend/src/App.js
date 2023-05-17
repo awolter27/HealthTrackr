@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
+import Sidebar from './components/Sidebar';
 import Home from './pages/Home';
 import HealthConditionsIndex from './pages/healthConditions/HealthConditionsIndex'
 import HealthConditionsShow from './pages/healthConditions/HealthConditionsShow'
@@ -59,6 +60,7 @@ function App() {
   return (
     <>
       <Header />
+      <Sidebar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/healthconditions'>
