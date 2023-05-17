@@ -6,6 +6,13 @@ const seededData = [
     {
         name: "Westview Hospital",
         location: "24787 Luckey Rd.",
+        dates: "01/03/2021 - 01/04/2021",
+        reason: "Right Hip Replacement",
+        notes: "I had no complications after the surgery."
+    },
+    {
+        name: "Westview Hospital",
+        location: "24787 Luckey Rd.",
         dates: "08/23/2012 - 08/26/2012",
         reason: "Hypertensive Urgency",
         notes: "I was placed on a nicardipine drip in the hospital. Once my blood pressure stabilized, I was placed on amlodipine as an outpatient."

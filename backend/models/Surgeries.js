@@ -10,7 +10,7 @@ const surgeriesSchema = new mongoose.Schema(
             type: String
         },
         date: {
-            type: Date,
+            type: String,
             required: [true, 'You must enter the date of your procedure or surgery']
         },
         surgeon: {
