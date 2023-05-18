@@ -53,16 +53,6 @@ router.post('/new', async (req, res, next) => {
     }
 })
 
-router.get('/:id', async (req, res, next) => {
-    try {
-        const mySurgery = await Surgeries.findById(req.params.id);
-        res.json(mySurgery);
-    } catch (err) {
-        next();
-        console.log(err);
-    }
-})
-
 router.put('/:id/edit', async (req, res, next) => {
     try {
         const updatedSurgery = await Surgeries.findByIdAndUpdate(req.params.id, req.body);

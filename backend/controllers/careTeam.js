@@ -81,16 +81,6 @@ router.post('/new', async (req, res, next) => {
     }
 })
 
-router.get('/:id', async (req, res, next) => {
-    try {
-        const myCareTeam = await CareTeam.findById(req.params.id);
-        res.json(myCareTeam);
-    } catch (err) {
-        next();
-        console.log(err);
-    }
-})
-
 router.put('/:id/edit', async (req, res, next) => {
     try {
         const updatedCareTeam = await CareTeam.findByIdAndUpdate(req.params.id, req.body);

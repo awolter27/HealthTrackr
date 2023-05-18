@@ -58,16 +58,6 @@ router.post('/new', async (req, res, next) => {
     }
 })
 
-router.get('/:id', async (req, res, next) => {
-    try {
-        const myHospitalization = await Hospitalizations.findById(req.params.id);
-        res.json(myHospitalization);
-    } catch (err) {
-        next();
-        console.log(err);
-    }
-})
-
 router.put('/:id/edit', async (req, res, next) => {
     try {
         const updatedHospitalization = await Hospitalizations.findByIdAndUpdate(req.params.id, req.body);

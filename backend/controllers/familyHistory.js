@@ -79,16 +79,6 @@ router.post('/new', async (req, res, next) => {
     }
 })
 
-router.get('/:id', async (req, res, next) => {
-    try {
-        const myFamilyHistory = await FamilyHistory.findById(req.params.id);
-        res.json(myFamilyHistory);
-    } catch (err) {
-        next();
-        console.log(err);
-    }
-})
-
 router.put('/:id/edit', async (req, res, next) => {
     try {
         const updatedFamilyHistory = await FamilyHistory.findByIdAndUpdate(req.params.id, req.body);
