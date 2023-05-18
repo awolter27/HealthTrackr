@@ -6,11 +6,11 @@ const seededData = [
     {
         relationship: "Paternal Grandfather",
         living: {
-            living: false,
+            living: "False",
             age: 0
         },
         deceased: {
-            deceased: true,
+            deceased: "True",
             ageAtDeath: 84
         },
         healthCondition: "Colon Cancer",
@@ -20,11 +20,11 @@ const seededData = [
     {
         relationship: "Father",
         living: {
-            living: true,
+            living: "True",
             age: 61
         },
         deceased: {
-            deceased: false,
+            deceased: "False",
             ageAtDeath: 0
         },
         healthCondition: "Hypertension",
@@ -34,11 +34,11 @@ const seededData = [
     {
         relationship: "Mother",
         living: {
-            living: true,
+            living: "True",
             age: 59
         },
         deceased: {
-            deceased: false,
+            deceased: "False",
             ageAtDeath: 0
         },
         healthCondition: "Osteoarthritis",

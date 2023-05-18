@@ -4,52 +4,52 @@ const { SocialHistory } = require('../models');
 
 const seededData = [
     {
-        education: [{
+        education: {
             location: "Golden Valley Academy",
             degree: "High School Diploma",
             startDate: "08/01/1971",
             endDate: "05/01/1975"
-        }],
-        occupation: [{
+        },
+        occupation: {
             title: "Executive Assistant",
             employer: "Jim Bob's Jerky Emporium",
             startDate: "08/29/1975",
             endDate: "current"
-        }],
+        },
         maritalStatus: "Married",
         children: 2,
         diet: "Fair",
-        exercise: [{
+        exercise: {
             type: "Aerobic",
             duration: 30,
             freqency: 5
-        }],
+        },
         sleep: 7,
-        tobacco: [{
-            current: true,
-            past: false,
+        tobacco: {
+            current: "True",
+            past: "False",
             type: "cigarettes",
             amount: 1,
             startDate: "05/13/1974",
             endDate: "current"
-        }],
-        alcohol: [{
-            current: true,
-            past: false,
+        },
+        alcohol: {
+            current: "True",
+            past: "False",
             type: "wine",
             amount: 3,
             startDate: "21 years old",
             endDate: "current"
-        }],
-        substance: [{
-            current: false,
-            past: false,
+        },
+        substances: {
+            current: "False",
+            past: "False",
             type: "n/a",
             route: "n/a",
             amount: 0,
             startDate: "n/a",
             endDate: "n/a"
-        }],
+        },
         notes: "I am interested in quiting tobacco."
     }
 ]

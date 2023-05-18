@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const socialHistorySchema = new mongoose.Schema(
     {
-        education: [{
+        education: {
             location: {
                 type: String
             },
@@ -15,8 +15,8 @@ const socialHistorySchema = new mongoose.Schema(
             endDate: {
                 type: String
             }
-        }],
-        occupation: [{
+        },
+        occupation: {
             title: {
                 type: String
             },
@@ -29,7 +29,7 @@ const socialHistorySchema = new mongoose.Schema(
             endDate: {
                 type: String
             }
-        }],
+        },
         maritalStatus: {
             type: String
         },
@@ -39,7 +39,7 @@ const socialHistorySchema = new mongoose.Schema(
         diet: {
             type: String
         },
-        exercise: [{
+        exercise: {
             type: {
                 type: String
             },
@@ -49,16 +49,16 @@ const socialHistorySchema = new mongoose.Schema(
             frequency: {
                 type: Number
             }
-        }],
+        },
         sleep: {
             type: Number
         },
-        tobacco: [{
+        tobacco: {
             current: {
-                type: Boolean
+                type: String
             },
             past: {
-                type: Boolean
+                type: String
             },
             type: {
                 type: String
@@ -72,13 +72,13 @@ const socialHistorySchema = new mongoose.Schema(
             quitDate: {
                 type: String
             }
-        }],
-        alcohol: [{
+        },
+        alcohol: {
             current: {
-                type: Boolean
+                type: String
             },
             past: {
-                type: Boolean
+                type: String
             },
             type: {
                 type: String
@@ -92,13 +92,13 @@ const socialHistorySchema = new mongoose.Schema(
             quitDate: {
                 type: String
             }
-        }],
-        substance: [{
+        },
+        substances: {
             current: {
-                type: Boolean
+                type: String
             },
             past: {
-                type: Boolean
+                type: String
             },
             type: {
                 type: String
@@ -115,7 +115,7 @@ const socialHistorySchema = new mongoose.Schema(
             quitDate: {
                 type: String
             }
-        }],
+        },
         notes: {
             type: String
         }

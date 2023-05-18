@@ -6,8 +6,8 @@ const seededData = [
     {
         name: "Tooth Pain",
         currentOrPast: {
-            current: true,
-            past: false
+            current: "True",
+            past: "False"
         },
         ageOfDiagnosis: 53,
         symptoms: "Right Upper Molar Pain",
@@ -17,8 +17,8 @@ const seededData = [
     {
         name: "Osteoarthritis",
         currentOrPast: {
-            current: true,
-            past: false
+            current: "True",
+            past: "False"
         },
         ageOfDiagnosis: 50,
         symptoms: "Joint Pain",
@@ -28,8 +28,8 @@ const seededData = [
     {
         name: "Hypertension",
         currentOrPast: {
-            current: true,
-            past: false
+            current: "True",
+            past: "False"
         },
         ageOfDiagnosis: 38,
         symptoms: "None",
@@ -39,8 +39,8 @@ const seededData = [
     {
         name: "Seasonal Allergies",
         currentOrPast: {
-            current: true,
-            past: false
+            current: "True",
+            past: "False"
         },
         ageOfDiagnosis: 13,
         symptoms: "Sinus Congestion, Nasal Congestion, Sneezing",
@@ -50,8 +50,8 @@ const seededData = [
     {
         name: "Chickenpox",
         currentOrPast: {
-            current: false,
-            past: true
+            current: "False",
+            past: "True"
         },
         ageOfDiagnosis: 3,
         symptoms: "Red, Itchy, Raised Rash",

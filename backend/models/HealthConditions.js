@@ -8,10 +8,10 @@ const healthConditionsSchema = new mongoose.Schema(
         },
         currentOrPast: {
             current: {
-                type: Boolean
+                type: String
             },
             past: {
-                type: Boolean
+                type: String
             }
         },
         ageOfDiagnosis: {

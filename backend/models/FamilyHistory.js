@@ -8,7 +8,7 @@ const familyHistorySchema = new mongoose.Schema(
         },
         living: {
             living: {
-                type: Boolean
+                type: String
             },
             age: {
                 type: Number
@@ -16,7 +16,7 @@ const familyHistorySchema = new mongoose.Schema(
         },
         deceased: {
             deceased: {
-                type: Boolean
+                type: String
             },
             ageAtDeath: {
                 type: Number
