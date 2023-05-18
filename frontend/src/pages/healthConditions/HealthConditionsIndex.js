@@ -11,6 +11,7 @@ function HealthConditionsIndex() {
         try {
             let myHealthConditions = await fetch(`${URL}/healthconditions`);
             myHealthConditions = await myHealthConditions.json();
+            console.log(myHealthConditions)
             setHealthConditions(myHealthConditions);
         } catch (err) {
             console.log(err);

@@ -47,16 +47,18 @@ function SocialHistoryIndex() {
                             {socialhistory.map((socialhistory, idx) => {
                                 return (
                                     <tr key={idx}>
-                                        <td>{socialhistory.education.location} {socialhistory.education.degree} {socialhistory.education.startDate} {socialhistory.education.endDate}</td>
+                                        <td>{socialhistory.education.location} {socialhistory.education.degree}
+                                        {socialhistory.education.startDate}
+                                        {socialhistory.education.endDate}</td>
                                         <td>{socialhistory.occupation.title} {socialhistory.occupation.employer} {socialhistory.occupation.startDate} {socialhistory.occupation.endDate}</td>
                                         <td>{socialhistory.maritalStatus}</td>
                                         <td>{socialhistory.children}</td>
                                         <td>{socialhistory.diet}</td>
                                         <td>{socialhistory.exercise.type} {socialhistory.exercise.duration} {socialhistory.exercise.frequency}</td>
                                         <td>{socialhistory.sleep}</td>
-                                        <td>{socialhistory.tobacco.current} {socialhistory.tobacco.past} {socialhistory.tobacco.type} {socialhistory.tobacco.amount} {socialhistory.tobacco.startDate} {socialhistory.tobacco.endDate}</td>
-                                        <td>{socialhistory.alcohol.current} {socialhistory.alcohol.past} {socialhistory.alcohol.type} {socialhistory.alcohol.amount} {socialhistory.alcohol.startDate} {socialhistory.alcohol.endDate}</td>
-                                        <td>{socialhistory.substances.current} {socialhistory.substances.past} {socialhistory.substances.type} {socialhistory.substances.route}{socialhistory.substances.amount} {socialhistory.substances.startDate} {socialhistory.substances.endDate}</td>
+                                        <td>{socialhistory.tobacco.current} {socialhistory.tobacco.past} {socialhistory.tobacco.type} {socialhistory.tobacco.amount} {socialhistory.tobacco.startDate} {socialhistory.tobacco.quitDate}</td>
+                                        <td>{socialhistory.alcohol.current} {socialhistory.alcohol.past} {socialhistory.alcohol.type} {socialhistory.alcohol.amount} {socialhistory.alcohol.startDate} {socialhistory.alcohol.quitDate}</td>
+                                        <td>{socialhistory.substances.current} {socialhistory.substances.past} {socialhistory.substances.type} {socialhistory.substances.route} {socialhistory.substances.amount} {socialhistory.substances.startDate} {socialhistory.substances.quitDate}</td>
                                         <td>{socialhistory.notes}</td>
                                         <td>
                                             <Link className='index-edit-link' to={'/socialhistory/:id/edit'}>
