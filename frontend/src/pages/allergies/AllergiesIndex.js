@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 function AllergiesIndex() {
     const [allergies, setAllergies] = useState([]);
 
+    const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
+
     async function getAllergies() {
         try {
-            let myAllergies = await fetch('https://healthtrackr.onrender.com/allergies');
+            let myAllergies = await fetch(`${URL}/allergies`);
             myAllergies = await myAllergies.json();
             setAllergies(myAllergies);
         } catch (err) {

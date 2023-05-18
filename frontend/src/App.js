@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-import Sidebar from './components/Sidebar';
 import Home from './pages/Home';
 import HealthConditionsIndex from './pages/healthConditions/HealthConditionsIndex'
 import HealthConditionsShow from './pages/healthConditions/HealthConditionsShow'
@@ -52,7 +51,6 @@ import CareTeamShow from './pages/careTeam/CareTeamShow'
 import CareTeamNew from './pages/careTeam/CareTeamNew'
 import CareTeamEdit from './pages/careTeam/CareTeamEdit'
 import CareTeamDelete from './pages/careTeam/CareTeamDelete'
-import Footer from './components/Footer';
 import './styles/App.css';
 import './styles/fonts.css';
 
@@ -60,7 +58,6 @@ function App() {
   return (
     <>
       <Header />
-      <Sidebar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/healthconditions'>
@@ -134,7 +131,6 @@ function App() {
           <Route path=':id/delete' element={<CareTeamDelete />} />
         </Route>
       </Routes>
-      <Footer />
     </>
   );
 }

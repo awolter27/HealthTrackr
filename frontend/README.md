@@ -37,8 +37,10 @@ Project 3
 
 ## Technologies
 
+- Bootstrap
 - Dotenv
 - React
+- React-Bootstrap
 - React-DOM
 - React-Router
 - React-Router-DOM
