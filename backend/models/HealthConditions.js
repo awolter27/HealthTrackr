@@ -6,14 +6,14 @@ const healthConditionsSchema = new mongoose.Schema(
             type: String,
             required: [true, 'You must enter the name of your health condition']
         },
-        currentOrPast: [{
+        currentOrPast: {
             current: {
                 type: Boolean
             },
             past: {
                 type: Boolean
             }
-        }],
+        },
         ageOfDiagnosis: {
             type: Number
         },

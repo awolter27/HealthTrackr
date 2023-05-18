@@ -5,10 +5,10 @@ const { HealthConditions } = require('../models');
 const seededData = [
     {
         name: "Tooth Pain",
-        currentOrPast: [{
+        currentOrPast: {
             current: true,
             past: false
-        }],
+        },
         ageOfDiagnosis: 53,
         symptoms: "Right Upper Molar Pain",
         treatment: "OTC Pain Relief, Meloxicam",
@@ -16,10 +16,10 @@ const seededData = [
     },
     {
         name: "Osteoarthritis",
-        currentOrPast: [{
+        currentOrPast: {
             current: true,
             past: false
-        }],
+        },
         ageOfDiagnosis: 50,
         symptoms: "Joint Pain",
         treatment: "Meloxicam, Cortisone Injections",
@@ -27,10 +27,10 @@ const seededData = [
     },
     {
         name: "Hypertension",
-        currentOrPast: [{
+        currentOrPast: {
             current: true,
             past: false
-        }],
+        },
         ageOfDiagnosis: 38,
         symptoms: "None",
         treatment: "Lifestyle Modifications, Amlodipine",
@@ -38,10 +38,10 @@ const seededData = [
     },
     {
         name: "Seasonal Allergies",
-        currentOrPast: [{
+        currentOrPast: {
             current: true,
             past: false
-        }],
+        },
         ageOfDiagnosis: 13,
         symptoms: "Sinus Congestion, Nasal Congestion, Sneezing",
         treatment: "OTC Claritin",
@@ -49,10 +49,10 @@ const seededData = [
     },
     {
         name: "Chickenpox",
-        currentOrPast: [{
+        currentOrPast: {
             current: false,
             past: true
-        }],
+        },
         ageOfDiagnosis: 3,
         symptoms: "Red, Itchy, Raised Rash",
         treatment: "Symptomatic Care",
