@@ -1,26 +1,32 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  background-color: rgb(213, 228, 211);
   color: black;
   font-family: 'Lato', sans-serif;
-  ;
+}
+
+.left-container {
+  background-color: rgb(38, 146, 121);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  width: 15%;
+}
+
+.right-container {
+  background-image: linear-gradient(0deg, rgba(224, 225, 205, 1) 35%, rgba(213, 228, 211, 1) 65%, rgba(204, 230, 220, 1) 100%);
+  height: 100%;
+  position: fixed;
+  right: 0;
+  width: 85%;
 }
 
 nav {
   align-items: center;
-  background-color: rgb(38, 146, 121);
   justify-content: space-evenly;
   height: 100vh;
-  width: fit-content;
 }
 
 #nav-home-link {
-  border: white solid 2px;
+  border: white solid 1.5px;
   border-radius: 5%;
   color: white;
   font-size: 2em;
@@ -34,7 +40,121 @@ nav {
   font-weight: 300;
 }
 
-#nav-home-link:hover,
-.nav-link:hover {
-  color: rgb(213, 228, 211);
+#nav-home-link:hover {
+  color: white;
+}
+
+.nav-link:hover,
+#nav-home-link:focus,
+.nav-link:focus {
+  color: white;
+  font-weight: 500;
+}
+
+.index-container {
+  left: 50%;
+  margin: 0 auto;
+  overflow-x: auto;
+  overflow-y: auto;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+}
+
+.index-header {
+  font-size: 3.5em;
+  font-weight: 400;
+  margin-bottom: 4%;
+  text-align: center;
+}
+
+.table-container {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+table {
+  table-layout: absolute;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+.table-bordered {
+  border: black solid 1px;
+  text-align: center;
+}
+
+thead {
+  background-color: rgb(193, 194, 174);
+}
+
+th {
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+td {
+  font-size: 1.4em;
+  font-weight: 300;
+}
+
+.index-edit-link,
+.index-delete-link {
+  background-color: rgb(38, 146, 121);
+  border: black solid 1px;
+  border-radius: 5%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 3% 0;
+  padding: 5px 10px;
+  text-decoration: none;
+  width: auto;
+}
+
+.index-edit-text,
+.index-delete-text {
+  color: white;
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.index-edit-text:hover,
+.index-delete-text:hover,
+.index-edit-text:focus,
+.index-delete-text:focus {
+  color: white;
+  font-weight: 500;
+}
+
+.index-new-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 4%;
+}
+
+.index-new-link {
+  background-color: rgb(38, 146, 121);
+  border: black solid 1px;
+  border-radius: 5%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 8px 15px;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.index-new-text {
+  color: white;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.index-new-text:hover,
+.index-new-text:focus {
+  color: white;
+  font-weight: 500;
 }

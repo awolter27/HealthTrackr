@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function AllergiesIndex() {
     const [allergies, setAllergies] = useState([]);
@@ -23,20 +24,43 @@ function AllergiesIndex() {
     function loaded(allergies) {
         return (
             <>
-                {allergies.map((allergy, idx) => {
-                    return (
-                        <div key={idx}>
-                            <Link to={`/allergies/${allergy._id}`}>
-                                <h2>Allergy: {allergy.name}</h2>
-                            </Link>
-                            <h2>Reaction: {allergy.reaction}</h2>
-                            <h2>Notes: {allergy.notes}</h2>
-                        </div>
-                    )
-                })}
-                <Link to={'/allergies/new'}>
-                    <h2>Add Allergy</h2>
-                </Link>
+                <div className='index-container'>
+                    <h1 className='index-header'>Allergies</h1>
+                    <table className='table table-bordered table-hover'>
+                        <thead>
+                            <tr>
+                                <th>ALLERGY</th>
+                                <th>REACTION</th>
+                                <th>NOTES</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {allergies.map((allergy, idx) => {
+                                return (
+                                    <tr key={idx}>
+                                        <td>{allergy.name}</td>
+                                        <td>{allergy.reaction}</td>
+                                        <td>{allergy.notes}</td>
+                                        <td>
+                                            <Link className='index-edit-link' to={'/allergies/:id/edit'}>
+                                                <h2 className='index-edit-text'>Edit</h2>
+                                            </Link>
+                                            <Link className='index-delete-link' to={'/allergies/:id/delete'}>
+                                                <h2 className='index-delete-text'>Delete</h2>
+                                            </Link>
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                    <div className='index-new-container'>
+                        <Link className='index-new-link' to={'/allergies/new'}>
+                            <h2 className='index-new-text'>Add Allergy</h2>
+                        </Link>
+                    </div>
+                </div>
             </>
         )
     }

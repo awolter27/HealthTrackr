@@ -1,12 +1,12 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Header() {
     return (
         <>
             <header>
-                <nav className="nav flex-column">
-                    <Link className='nav-link' id='nav-home-link' to='/'>HealthTrackr</Link>
+                <nav className='nav flex-column'>
+                    <Link className='nav-link' id='nav-home-link' to='/'>HealthTrackr+</Link>
                     <Link className='nav-link' to='/healthconditions'>Health Conditions</Link>
                     <Link className='nav-link' to='/allergies'>Allergies</Link>
                     <Link className='nav-link' to='/medications'>Medications</Link>

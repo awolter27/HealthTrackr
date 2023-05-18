@@ -1,12 +1,15 @@
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function AppointmentsIndex() {
     const [appointments, setAppointments] = useState([]);
 
+    const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
+
     async function getAppointments() {
         try {
-            let myAppointments = await fetch('http://localhost:4000/appointments');
+            let myAppointments = await fetch(`${URL}/appointments`);
             myAppointments = await myAppointments.json();
             setAppointments(myAppointments);
         } catch (err) {
@@ -21,26 +24,51 @@ function AppointmentsIndex() {
     function loaded(appointments) {
         return (
             <>
-                {appointments.map((appointment, idx) => {
-                    return (
-                        <div key={idx}>
-                            <Link to={`/appointments/${appointment._id}`}>
-                                <h2>Appointment: {appointment.nameOfAppointment}</h2>
-                            </Link>
-                            <h2>Provider: {appointment.title} {appointment.nameOfProvider}</h2>
-
-                            <h2>Specialty: {appointment.specialty}</h2>
-                            <h2>Address: {appointment.address}</h2>
-                            <h2>Date: {appointment.date}</h2>
-                            <h2>Time: {appointment.time}</h2>
-                            <h2>Reason: {appointment.reason}</h2>
-                            <h2>Notes: {appointment.notes}</h2>
-                        </div>
-                    )
-                })}
-                <Link to={`/appointments/new`}>
-                    <h2>new</h2>
-                </Link>
+                <div className='index-container'>
+                    <h1 className='index-header'>Appointments</h1>
+                    <table className='table table-bordered table-hover'>
+                        <thead>
+                            <tr>
+                                <th>APPOINTMENT</th>
+                                <th>PROVIDER</th>
+                                <th>SPECIALTY</th>
+                                <th>ADDRESS</th>
+                                <th>DATE</th>
+                                <th>REASON</th>
+                                <th>NOTES</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {appointments.map((appointment, idx) => {
+                                return (
+                                    <tr key={idx}>
+                                        <td>{appointment.nameOfAppointment}</td>
+                                        <td>{appointment.title} {appointment.nameOfProvider}</td>
+                                        <td>{appointment.specialty}</td>
+                                        <td>{appointment.address}</td>
+                                        <td>{appointment.date} {appointment.time}</td>
+                                        <td>{appointment.reason}</td>
+                                        <td>{appointment.notes}</td>
+                                        <td>
+                                            <Link className='index-edit-link' to={'/appointments/:id/edit'}>
+                                                <h2 className='index-edit-text'>Edit</h2>
+                                            </Link>
+                                            <Link className='index-delete-link' to={'/appointments/:id/delete'}>
+                                                <h2 className='index-delete-text'>Delete</h2>
+                                            </Link>
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                    <div className='index-new-container'>
+                        <Link className='index-new-link' to={'/appointments/new'}>
+                            <h2 className='index-new-text'>Add Appointment</h2>
+                        </Link>
+                    </div>
+                </div>
             </>
         )
     }
