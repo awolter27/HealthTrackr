@@ -5,42 +5,42 @@ const { FamilyHistory } = require('../models');
 const seededData = [
     {
         relationship: "Paternal Grandfather",
-        living: [{
+        living: {
             living: false,
             age: 0
-        }],
-        deceased: [{
+        },
+        deceased: {
             deceased: true,
             ageAtDeath: 84
-        }],
+        },
         healthCondition: "Colon Cancer",
         ageOfDiagnosis: 79,
         notes: "He underwent radiation, chemotherapy, and surgery."
     },
     {
         relationship: "Father",
-        living: [{
+        living: {
             living: true,
             age: 61
-        }],
-        deceased: [{
+        },
+        deceased: {
             deceased: false,
             ageAtDeath: 0
-        }],
+        },
         healthCondition: "Hypertension",
         ageOfDiagnosis: 40,
         notes: "He takes lisinopril."
     },
     {
         relationship: "Mother",
-        living: [{
+        living: {
             living: true,
             age: 59
-        }],
-        deceased: [{
+        },
+        deceased: {
             deceased: false,
             ageAtDeath: 0
-        }],
+        },
         healthCondition: "Osteoarthritis",
         ageOfDiagnosis: 55,
         notes: "She uses OTC naproxen."

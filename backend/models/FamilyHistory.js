@@ -6,22 +6,22 @@ const familyHistorySchema = new mongoose.Schema(
             type: String,
             required: [true, 'You must enter the relationship to your family member']
         },
-        living: [{
+        living: {
             living: {
                 type: Boolean
             },
             age: {
                 type: Number
             }
-        }],
-        deceased: [{
+        },
+        deceased: {
             deceased: {
                 type: Boolean
             },
             ageAtDeath: {
                 type: Number
             }
-        }],
+        },
         healthCondition: {
             type: String,
             required: [true, 'You must enter the health condition of your family member']
