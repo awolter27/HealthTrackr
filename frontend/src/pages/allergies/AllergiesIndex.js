@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 function AllergiesIndex() {
     const [allergies, setAllergies] = useState([]);
@@ -23,44 +25,31 @@ function AllergiesIndex() {
 
     function loaded(allergies) {
         return (
-            <Container>
-                <div className='index-container mt-5'>
-                    <h1 className='index-header'>Allergies</h1>
-                    <table className='table table-bordered table-hover'>
-                        <thead>
-                            <tr>
-                                <th>ALLERGY</th>
-                                <th>REACTION</th>
-                                <th>NOTES</th>
-                                <th>ACTIONS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {allergies.map((allergy, idx) => {
-                                return (
-                                    <tr key={idx}>
-                                        <td>{allergy.name}</td>
-                                        <td>{allergy.reaction}</td>
-                                        <td>{allergy.notes}</td>
-                                        <td>
-                                            <Link className='index-edit-link' to={'/allergies/:id/edit'}>
-                                                <h2 className='index-edit-text'>Edit</h2>
-                                            </Link>
-                                            <Link className='index-delete-link' to={'/allergies/:id/delete'}>
-                                                <h2 className='index-delete-text'>Delete</h2>
-                                            </Link>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </table>
-                    <div className='index-new-container'>
-                        <Link className='index-new-link' to={'/allergies/new'}>
-                            <h2 className='index-new-text'>Add Allergy</h2>
-                        </Link>
-                    </div>
-                </div>
+            <Container fluid>
+                <h1 className='index-header'>Allergies</h1>
+                {allergies.map((allergy, idx) => {
+                    return (
+                        <Card key={idx}>
+                            <Card.Header as="h5">{allergy.name}</Card.Header>
+                            <Card.Body>
+                                <Card.Title>Reaction</Card.Title>
+                                <Card.Text>{allergy.reaction}</Card.Text>
+                                <Card.Title>Notes</Card.Title>
+                                <Card.Text>{allergy.notes}</Card.Text>
+                                <Card.Title>Actions</Card.Title>
+                                <Link className='index-edit-link' to={'/allergies/:id/edit'}>
+                                    <h2 className='index-edit-text'>Edit</h2>
+                                </Link>
+                                <Link className='index-delete-link' to={'/allergies/:id/delete'}>
+                                    <h2 className='index-delete-text'>Delete</h2>
+                                </Link>
+                            </Card.Body>
+                        </Card>
+                    )
+                })}
+                <Link className='index-new-link' to={'/allergies/new'}>
+                    <h2 className='index-new-text'>Add Allergy</h2>
+                </Link>
             </Container>
         )
     }
