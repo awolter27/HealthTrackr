@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
 
 function AllergiesIndex() {
     const [allergies, setAllergies] = useState([]);
@@ -23,8 +23,8 @@ function AllergiesIndex() {
 
     function loaded(allergies) {
         return (
-            <>
-                <div className='index-container'>
+            <Container>
+                <div className='index-container mt-5'>
                     <h1 className='index-header'>Allergies</h1>
                     <table className='table table-bordered table-hover'>
                         <thead>
@@ -61,7 +61,7 @@ function AllergiesIndex() {
                         </Link>
                     </div>
                 </div>
-            </>
+            </Container>
         )
     }
 

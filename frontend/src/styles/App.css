@@ -1,54 +1,31 @@
 body {
+  background-attachment: fixed;
+  background-image: linear-gradient(0deg, rgba(224, 225, 205, 1) 35%, rgba(213, 228, 211, 1) 65%, rgba(204, 230, 220, 1) 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   color: black;
   font-family: 'Lato', sans-serif;
 }
 
-.left-container {
+#nav {
   background-color: rgb(38, 146, 121);
-  height: 100%;
-  left: 0;
-  position: fixed;
-  width: 15%;
 }
 
-.right-container {
-  background-image: linear-gradient(0deg, rgba(224, 225, 205, 1) 35%, rgba(213, 228, 211, 1) 65%, rgba(204, 230, 220, 1) 100%);
-  height: 100%;
-  position: fixed;
-  right: 0;
-  width: 85%;
-}
-
-nav {
-  align-items: center;
-  justify-content: space-evenly;
-  height: 100vh;
-}
-
-#nav-home-link {
-  border: white solid 1.5px;
-  border-radius: 5%;
+#nav-menu {
   color: white;
-  font-size: 2em;
+  text-align: right;
+}
+
+#nav-heading:hover,
+#nav-menu:hover {
+  font-size: 1em;
   font-weight: 400;
-  margin: 0 10px;
 }
 
-.nav-link {
-  color: white;
-  font-size: 1.5em;
-  font-weight: 300;
-}
-
-#nav-home-link:hover {
-  color: white;
-}
-
-.nav-link:hover,
-#nav-home-link:focus,
-.nav-link:focus {
-  color: white;
-  font-weight: 500;
+div .navbar-nav {
+  align-items: end;
+  width: fit-content;
 }
 
 .index-container {
@@ -62,7 +39,7 @@ nav {
   width: 90%;
 }
 
-.index-header {
+*/ .index-header {
   font-size: 3.5em;
   font-weight: 400;
   margin-bottom: 4%;

@@ -41,80 +41,77 @@ import CareTeamIndex from './pages/careTeam/CareTeamIndex'
 import CareTeamNew from './pages/careTeam/CareTeamNew'
 import CareTeamEdit from './pages/careTeam/CareTeamEdit'
 import CareTeamDelete from './pages/careTeam/CareTeamDelete'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/App.css';
 import './styles/fonts.css';
 
 function App() {
   return (
     <>
-      <div className='left-container'>
-        <Header />
-      </div>
-      <div className='right-container'>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/healthconditions'>
-            <Route path='' element={<HealthConditionsIndex />} />
-            {/* <Route path='new' element={<HealthConditionsNew />} />
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/healthconditions'>
+          <Route path='' element={<HealthConditionsIndex />} />
+          {/* <Route path='new' element={<HealthConditionsNew />} />
             <Route path=':id/edit' element={<HealthConditionsEdit />} />
             <Route path=':id/delete' element={<HealthConditionsDelete />} /> */}
-          </Route>
-          <Route path='/allergies'>
-            <Route path='' element={<AllergiesIndex />} />
-            {/* <Route path='new' element={<AllergiesNew />} />
+        </Route>
+        <Route path='/allergies'>
+          <Route path='' element={<AllergiesIndex />} />
+          {/* <Route path='new' element={<AllergiesNew />} />
             <Route path=':id/edit' element={<AllergiesEdit />} />
             <Route path=':id/delete' element={<AllergiesDelete />} /> */}
-          </Route>
-          <Route path='/medications'>
-            <Route path='' element={<MedicationsIndex />} />
-            {/* <Route path='new' element={<MedicationsNew />} />
+        </Route>
+        <Route path='/medications'>
+          <Route path='' element={<MedicationsIndex />} />
+          {/* <Route path='new' element={<MedicationsNew />} />
             <Route path=':id/edit' element={<MedicationsEdit />} />
             <Route path=':id/delete' element={<MedicationsDelete />} /> */}
-          </Route>
-          <Route path='/surgeries'>
-            <Route path='' element={<SurgeriesIndex />} />
-            {/* <Route path='new' element={<SurgeriesNew />} />
+        </Route>
+        <Route path='/surgeries'>
+          <Route path='' element={<SurgeriesIndex />} />
+          {/* <Route path='new' element={<SurgeriesNew />} />
             <Route path=':id/edit' element={<SurgeriesEdit />} />
             <Route path=':id/delete' element={<SurgeriesDelete />} /> */}
-          </Route>
-          <Route path='/hospitalizations'>
-            <Route path='' element={<HospitalizationsIndex />} />
-            {/* <Route path='new' element={<HospitalizationsNew />} />
+        </Route>
+        <Route path='/hospitalizations'>
+          <Route path='' element={<HospitalizationsIndex />} />
+          {/* <Route path='new' element={<HospitalizationsNew />} />
             <Route path=':id/edit' element={<HospitalizationsEdit />} />
             <Route path=':id/delete' element={<HospitalizationsDelete />} /> */}
-          </Route>
-          <Route path='/socialhistory'>
-            <Route path='' element={<SocialHistoryIndex />} />
-            {/* <Route path='new' element={<SocialHistoryNew />} />
+        </Route>
+        <Route path='/socialhistory'>
+          <Route path='' element={<SocialHistoryIndex />} />
+          {/* <Route path='new' element={<SocialHistoryNew />} />
             <Route path=':id/edit' element={<SocialHistoryEdit />} />
             <Route path=':id/delete' element={<SocialHistoryDelete />} /> */}
-          </Route>
-          <Route path='/familyhistory'>
-            <Route path='' element={<FamilyHistoryIndex />} />
-            {/* <Route path='new' element={<FamilyHistoryNew />} />
+        </Route>
+        <Route path='/familyhistory'>
+          <Route path='' element={<FamilyHistoryIndex />} />
+          {/* <Route path='new' element={<FamilyHistoryNew />} />
             <Route path=':id/edit' element={<FamilyHistoryEdit />} />
             <Route path=':id/delete' element={<FamilyHistoryDelete />} /> */}
-          </Route>
-          <Route path='/vaccinations'>
-            <Route path='' element={<VaccinationsIndex />} />
-            {/* <Route path='new' element={<VaccinationsNew />} />
+        </Route>
+        <Route path='/vaccinations'>
+          <Route path='' element={<VaccinationsIndex />} />
+          {/* <Route path='new' element={<VaccinationsNew />} />
             <Route path=':id/edit' element={<VaccinationsEdit />} />
             <Route path=':id/delete' element={<VaccinationsDelete />} /> */}
-          </Route>
-          <Route path='/appointments'>
-            <Route path='' element={<AppointmentsIndex />} />
-            {/* <Route path='new' element={<AppointmentsNew />} />
+        </Route>
+        <Route path='/appointments'>
+          <Route path='' element={<AppointmentsIndex />} />
+          {/* <Route path='new' element={<AppointmentsNew />} />
             <Route path=':id/edit' element={<AppointmentsEdit />} />
             <Route path=':id/delete' element={<AppointmentsDelete />} /> */}
-          </Route>
-          <Route path='/careteam'>
-            <Route path='' element={<CareTeamIndex />} />
-            {/* <Route path='new' element={<CareTeamNew />} />
+        </Route>
+        <Route path='/careteam'>
+          <Route path='' element={<CareTeamIndex />} />
+          {/* <Route path='new' element={<CareTeamNew />} />
             <Route path=':id/edit' element={<CareTeamEdit />} />
             <Route path=':id/delete' element={<CareTeamDelete />} /> */}
-          </Route>
-        </Routes>
-      </div>
+        </Route>
+      </Routes>
     </>
   );
 }
