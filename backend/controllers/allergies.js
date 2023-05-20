@@ -57,6 +57,16 @@ router.post('/new', async (req, res, next) => {
     }
 })
 
+router.get('/:id', async (req, res, next) => {
+    try {
+        const myAllergy = await Allergies.findById(req.params.id);
+        res.json(myAllergy);
+    } catch (err) {
+        next();
+        console.log(err);
+    }
+})
+
 router.put('/:id/edit', async (req, res, next) => {
     try {
         const updatedAllergy = await Allergies.findByIdAndUpdate(req.params.id, req.body);

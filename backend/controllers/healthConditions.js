@@ -92,6 +92,16 @@ router.post('/new', async (req, res, next) => {
     }
 })
 
+router.get('/:id', async (req, res, next) => {
+    try {
+        const myHealthCondition = await HealthConditions.findById(req.params.id);
+        res.json(myHealthCondition);
+    } catch (err) {
+        next();
+        console.log(err);
+    }
+})
+
 router.put('/:id/edit', async (req, res, next) => {
     try {
         const updatedHealthCondition = await HealthConditions.findByIdAndUpdate(req.params.id, req.body);

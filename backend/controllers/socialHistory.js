@@ -14,7 +14,7 @@ const seededData = [
             title: "Executive Assistant",
             employer: "Jim Bob's Jerky Emporium",
             startDate: "08/29/1975",
-            endDate: "current"
+            endDate: "Current"
         },
         maritalStatus: "Married",
         children: 2,
@@ -22,24 +22,24 @@ const seededData = [
         exercise: {
             type: "Aerobic",
             duration: 30,
-            freqency: 5
+            frequency: 5
         },
         sleep: 7,
         tobacco: {
             current: "True",
             past: "False",
-            type: "cigarettes",
+            type: "Cigarettes",
             amount: 1,
             startDate: "05/13/1974",
-            endDate: "current"
+            quitDate: "Current"
         },
         alcohol: {
             current: "True",
             past: "False",
-            type: "wine",
+            type: "Wine",
             amount: 3,
             startDate: "21 years old",
-            endDate: "current"
+            quitDate: "Current"
         },
         substances: {
             current: "False",
@@ -48,7 +48,7 @@ const seededData = [
             route: "n/a",
             amount: 0,
             startDate: "n/a",
-            endDate: "n/a"
+            quitDate: "n/a"
         },
         notes: "I am interested in quiting tobacco."
     }
@@ -80,6 +80,16 @@ router.post('/new', async (req, res, next) => {
         const newSocialHistory = req.body;
         await SocialHistory.create(req.body);
         res.redirect('/socialhistory');
+    } catch (err) {
+        next();
+        console.log(err);
+    }
+})
+
+router.get('/:id', async (req, res, next) => {
+    try {
+        const mySocialHistory = await SocialHistory.findById(req.params.id);
+        res.json(mySocialHistory);
     } catch (err) {
         next();
         console.log(err);
