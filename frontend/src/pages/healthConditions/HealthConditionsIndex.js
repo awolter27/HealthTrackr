@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function HealthConditionsIndex() {
     const [healthconditions, setHealthConditions] = useState([]);
@@ -10,7 +14,6 @@ function HealthConditionsIndex() {
         try {
             let myHealthConditions = await fetch(`${URL}/healthconditions`);
             myHealthConditions = await myHealthConditions.json();
-            console.log(myHealthConditions)
             setHealthConditions(myHealthConditions);
         } catch (err) {
             console.log(err);
@@ -23,53 +26,50 @@ function HealthConditionsIndex() {
 
     function loaded(healthconditions) {
         return (
-            <>
-                <div className='index-container'>
-                    <h1 className='index-header'>Health Conditions</h1>
-                    <table className='table table-bordered table-hover'>
-                        <thead>
-                            <tr>
-                                <th>HEALTH CONDITION</th>
-                                <th>CURRENT</th>
-                                <th>PAST</th>
-                                <th>AGE OF DIAGNOSIS</th>
-                                <th>SYMPTOMS</th>
-                                <th>TREATMENT</th>
-                                <th>NOTES</th>
-                                <th>ACTIONS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {healthconditions.map((healthcondition, idx) => {
-                                return (
-                                    <tr key={idx}>
-                                        <td>{healthcondition.name}</td>
-                                        <td>{healthcondition.currentOrPast.current}</td>
-                                        <td>{healthcondition.currentOrPast.past}</td>
-                                        <td>{healthcondition.ageOfDiagnosis}</td>
-                                        <td>{healthcondition.symptoms}</td>
-                                        <td>{healthcondition.treatment}</td>
-                                        <td>{healthcondition.notes}</td>
-                                        <td>
-                                            <Link className='index-edit-link' to={'/healthconditions/:id/edit'}>
-                                                <h2 className='index-edit-text'>Edit</h2>
-                                            </Link>
-                                            <Link className='index-delete-link' to={'/healthconditions/:id/delete'}>
-                                                <h2 className='index-delete-text'>Delete</h2>
-                                            </Link>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </table>
-                    <div className='index-new-container'>
-                        <Link className='index-new-link' to={'/healthconditions/new'}>
-                            <h2 className='index-new-text'>Add Health Condition</h2>
+            <Container fluid>
+                <Row className='py-5 justify-content-end'>
+                    <Col sm={4} className='text-center'>
+                        <h1 className='fs-1 fw-normal ms-sm-3'>Health Conditions</h1>
+                    </Col>
+                    <Col sm={4} className='text-center text-sm-end pe-sm-3'>
+                        <Link to={'/healthconditions/new'}>
+                            <button className='text-white fs-5 fw-light px-3 py-1 rounded-3' id='index-new-link'>Add Health Condition</button>
                         </Link>
-                    </div>
-                </div>
-            </>
+                    </Col>
+                </Row>
+                {healthconditions.map((healthcondition, idx) => {
+                    return (
+                        <div className='d-flex justify-content-center'>
+                            <Card key={idx} border="dark" className='mb-5 text-center' id='card'>
+                                <Card.Header className='fs-3' id='card-header'>{healthcondition.name}</Card.Header>
+                                <Card.Body>
+                                    <Card.Title className='fs-4'>Current</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{healthcondition.currentOrPast.current}</Card.Text>
+                                    <Card.Title className='fs-4'>Past</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{healthcondition.currentOrPast.past}</Card.Text>
+                                    <Card.Title className='fs-4'>Age At Diagnosis</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{healthcondition.ageOfDiagnosis} years old</Card.Text>
+                                    <Card.Title className='fs-4'>Symptoms</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{healthcondition.symptoms}</Card.Text>
+                                    <Card.Title className='fs-4'>Treatment</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{healthcondition.treatment}</Card.Text>
+                                    <Card.Title className='fs-4'>Notes</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{healthcondition.notes}</Card.Text>
+                                    <Card.Title className='fs-4'>Actions</Card.Title>
+                                    <div className='d-flex justify-content-center'>
+                                        <Link className='me-3' to={'/healthconditions/:id/edit'}>
+                                            <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-edit-link">Edit</button>
+                                        </Link>
+                                        <Link className='ms-3' to={'/healthconditions/:id/delete'}>
+                                            <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-delete-link">Delete</button>
+                                        </Link>
+                                    </div>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                    )
+                })}
+            </Container>
         )
     }
 
