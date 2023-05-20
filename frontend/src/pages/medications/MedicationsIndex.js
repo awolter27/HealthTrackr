@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function MedicationsIndex() {
     const [medications, setMedications] = useState([]);
@@ -22,51 +26,48 @@ function MedicationsIndex() {
 
     function loaded(medications) {
         return (
-            <>
-                <div className='index-container'>
-                    <h1 className='index-header'>Medications</h1>
-                    <table className='table table-bordered table-hover'>
-                        <thead>
-                            <tr>
-                                <th>MEDICATION</th>
-                                <th>DOSE</th>
-                                <th>ROUTE</th>
-                                <th>FREQUENCY</th>
-                                <th>REASON</th>
-                                <th>NOTES</th>
-                                <th>ACTIONS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {medications.map((medication, idx) => {
-                                return (
-                                    <tr key={idx}>
-                                        <td>{medication.name}</td>
-                                        <td>{medication.dose} {medication.unitOfMeasurement}</td>
-                                        <td>{medication.route}</td>
-                                        <td>{medication.frequency}</td>
-                                        <td>{medication.reason}</td>
-                                        <td>{medication.notes}</td>
-                                        <td>
-                                            <Link className='index-edit-link' to={'/medications/:id/edit'}>
-                                                <h2 className='index-edit-text'>Edit</h2>
-                                            </Link>
-                                            <Link className='index-delete-link' to={'/medications/:id/delete'}>
-                                                <h2 className='index-delete-text'>Delete</h2>
-                                            </Link>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </table>
-                    <div className='index-new-container'>
-                        <Link className='index-new-link' to={'/medications/new'}>
-                            <h2 className='index-new-text'>Add Medication</h2>
+            <Container fluid>
+                <Row className='py-5 justify-content-end'>
+                    <Col sm={4} className='text-center'>
+                        <h1 className='fs-1 fw-normal ms-sm-3'>Medications</h1>
+                    </Col>
+                    <Col sm={4} className='text-center text-sm-end pe-sm-3'>
+                        <Link to={'/medications/new'}>
+                            <button className='text-white fs-5 fw-light px-3 py-1 rounded-3' id='index-new-link'>Add Medication</button>
                         </Link>
-                    </div>
-                </div>
-            </>
+                    </Col>
+                </Row>
+                {medications.map((medication, idx) => {
+                    return (
+                        <div className='d-flex justify-content-center'>
+                            <Card key={idx} border="dark" className='mb-4 text-center' id='card'>
+                                <Card.Header className='fs-3' id='card-header'>{medication.name}</Card.Header>
+                                <Card.Body>
+                                    <Card.Title className='fs-4'>Dose</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{medication.dose} {medication.unitOfMeasurement}</Card.Text>
+                                    <Card.Title className='fs-4'>Route</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{medication.route}</Card.Text>
+                                    <Card.Title className='fs-4'>Frequency</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{medication.frequency}</Card.Text>
+                                    <Card.Title className='fs-4'>Reason</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{medication.reason}</Card.Text>
+                                    <Card.Title className='fs-4'>Notes</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{medication.notes}</Card.Text>
+                                    <Card.Title className='fs-4'>Actions</Card.Title>
+                                    <div className='d-flex justify-content-center'>
+                                        <Link className='me-3' to={'/medications/:id/edit'}>
+                                            <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-edit-link">Edit</button>
+                                        </Link>
+                                        <Link className='ms-3' to={'/medications/:id/delete'}>
+                                            <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-delete-link">Delete</button>
+                                        </Link>
+                                    </div>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                    )
+                })}
+            </Container>
         )
     }
 
