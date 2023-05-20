@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function AllergiesIndex() {
     const [allergies, setAllergies] = useState([]);
@@ -26,30 +27,42 @@ function AllergiesIndex() {
     function loaded(allergies) {
         return (
             <Container fluid>
-                <h1 className='index-header'>Allergies</h1>
+                <Row className='py-5'>
+                    <Col>
+                    </Col>
+                    <Col>
+                        <h1 className='fs-1 fw-normal text-center'>Allergies</h1>
+                    </Col>
+                    <Col className='text-end'>
+                        <Link to={'/allergies/new'}>
+                            <button className='text-white fs-5 fw-light px-3 py-1 rounded-3' id='index-new-link'>Add Allergy</button>
+                        </Link>
+                    </Col>
+                </Row>
                 {allergies.map((allergy, idx) => {
                     return (
-                        <Card key={idx}>
-                            <Card.Header as="h5">{allergy.name}</Card.Header>
-                            <Card.Body>
-                                <Card.Title>Reaction</Card.Title>
-                                <Card.Text>{allergy.reaction}</Card.Text>
-                                <Card.Title>Notes</Card.Title>
-                                <Card.Text>{allergy.notes}</Card.Text>
-                                <Card.Title>Actions</Card.Title>
-                                <Link className='index-edit-link' to={'/allergies/:id/edit'}>
-                                    <h2 className='index-edit-text'>Edit</h2>
-                                </Link>
-                                <Link className='index-delete-link' to={'/allergies/:id/delete'}>
-                                    <h2 className='index-delete-text'>Delete</h2>
-                                </Link>
-                            </Card.Body>
-                        </Card>
+                        <div className='d-flex justify-content-center'>
+                            <Card key={idx} border="dark" className='mb-4 text-center' id='card'>
+                                <Card.Header className='fs-3' id='card-header'>{allergy.name}</Card.Header>
+                                <Card.Body>
+                                    <Card.Title className='fs-4'>Reaction</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{allergy.reaction}</Card.Text>
+                                    <Card.Title className='fs-4'>Notes</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{allergy.notes}</Card.Text>
+                                    <Card.Title className='fs-4'>Actions</Card.Title>
+                                    <div className='d-flex justify-content-center'>
+                                        <Link className='me-3' to={'/allergies/:id/edit'}>
+                                            <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-edit-link">Edit</button>
+                                        </Link>
+                                        <Link className='ms-3' to={'/allergies/:id/delete'}>
+                                            <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-delete-link">Delete</button>
+                                        </Link>
+                                    </div>
+                                </Card.Body>
+                            </Card>
+                        </div>
                     )
                 })}
-                <Link className='index-new-link' to={'/allergies/new'}>
-                    <h2 className='index-new-text'>Add Allergy</h2>
-                </Link>
             </Container>
         )
     }

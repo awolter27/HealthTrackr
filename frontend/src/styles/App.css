@@ -24,11 +24,25 @@ body {
 }
 
 .dropdown-item:focus {
- background-color: rgb(230, 233, 236);
- color: black;
-} 
+  background-color: rgb(230, 233, 236);
+  color: black;
+}
 
 div .navbar-nav {
   align-items: end;
   width: fit-content;
+}
+
+#card {
+  width: 85vw;
+}
+
+#card-header {
+  background-color: rgb(236, 236, 236);
+}
+
+#index-new-link,
+#index-edit-link,
+#index-delete-link {
+  background-color: rgb(38, 146, 121);
 }
