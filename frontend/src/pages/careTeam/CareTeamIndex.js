@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function CareTeamIndex() {
     const [careteam, setCareTeam] = useState([]);
@@ -22,55 +26,52 @@ function CareTeamIndex() {
 
     function loaded(careteam) {
         return (
-            <>
-                <div className='index-container'>
-                    <h1 className='index-header'>Care Team</h1>
-                    <table className='table table-bordered table-hover'>
-                        <thead>
-                            <tr>
-                                <th>PROVIDER</th>
-                                <th>SPECIALTY</th>
-                                <th>ADDRESS</th>
-                                <th>PHONE NUMBER</th>
-                                <th>EMAIL</th>
-                                <th>LAST APPOINTMENT</th>
-                                <th>NEXT APPOINTMENT</th>
-                                <th>NOTES</th>
-                                <th>ACTIONS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {careteam.map((careteam, idx) => {
-                                return (
-                                    <tr key={idx}>
-                                        <td>{careteam.title} {careteam.name}</td>
-                                        <td>{careteam.specialty}</td>
-                                        <td>{careteam.address}</td>
-                                        <td>{careteam.phoneNumber}</td>
-                                        <td>{careteam.email}</td>
-                                        <td>{careteam.lastAppointment}</td>
-                                        <td>{careteam.nextAppointment}</td>
-                                        <td>{careteam.notes}</td>
-                                        <td>
-                                            <Link className='index-edit-link' to={'/careteam/:id/edit'}>
-                                                <h2 className='index-edit-text'>Edit</h2>
-                                            </Link>
-                                            <Link className='index-delete-link' to={'/careteam/:id/delete'}>
-                                                <h2 className='index-delete-text'>Delete</h2>
-                                            </Link>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </table>
-                    <div className='index-new-container'>
-                        <Link className='index-new-link' to={'/careteam/new'}>
-                            <h2 className='index-new-text'>Add Provider</h2>
+            <Container fluid>
+                <Row className='py-5 justify-content-end'>
+                    <Col sm={4} className='text-center'>
+                        <h1 className='fs-1 fw-normal ms-sm-3'>Care Team</h1>
+                    </Col>
+                    <Col sm={4} className='text-center text-sm-end pe-sm-3'>
+                        <Link to={'/careteam/new'}>
+                            <button className='text-white fs-5 fw-light px-3 py-1 rounded-3' id='index-new-link'>Add Provider</button>
                         </Link>
-                    </div>
-                </div>
-            </>
+                    </Col>
+                </Row>
+                {careteam.map((careteam, idx) => {
+                    return (
+                        <div className='d-flex justify-content-center'>
+                            <Card key={idx} border="dark" className='mb-4 text-center' id='card'>
+                                <Card.Header className='fs-3' id='card-header'>{careteam.title} {careteam.name}</Card.Header>
+                                <Card.Body>
+                                    <Card.Title className='fs-4'>Specialty</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{careteam.specialty}</Card.Text>
+                                    <Card.Title className='fs-4'>Address</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{careteam.address}</Card.Text>
+                                    <Card.Title className='fs-4'>Phone Number</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{careteam.phoneNumber}</Card.Text>
+                                    <Card.Title className='fs-4'>Email</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{careteam.email}</Card.Text>
+                                    <Card.Title className='fs-4'>Last Appointment</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{careteam.lastAppointment}</Card.Text>
+                                    <Card.Title className='fs-4'>Next Appointment</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{careteam.nextAppointment}</Card.Text>
+                                    <Card.Title className='fs-4'>Notes</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{careteam.notes}</Card.Text>
+                                    <Card.Title className='fs-4'>Actions</Card.Title>
+                                    <div className='d-flex justify-content-center'>
+                                        <Link className='me-3' to={'/careteam/:id/edit'}>
+                                            <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-edit-link">Edit</button>
+                                        </Link>
+                                        <Link className='ms-3' to={'/careteam/:id/delete'}>
+                                            <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-delete-link">Delete</button>
+                                        </Link>
+                                    </div>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                    )
+                })}
+            </Container>
         )
     }
 
