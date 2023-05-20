@@ -60,10 +60,10 @@ function FamilyHistoryIndex() {
                                     <Card.Text className='fs-5 fw-light'>{familyhistory.notes}</Card.Text>
                                     <Card.Title className='fs-4'>Actions</Card.Title>
                                     <div className='d-flex justify-content-center'>
-                                        <Link className='me-3' to={'/familyhistory/:id/edit'}>
+                                        <Link className='me-3' to={`/familyhistory/${familyhistory._id}/edit`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-edit-link">Edit</button>
                                         </Link>
-                                        <Link className='ms-3' to={'/familyhistory/:id/delete'}>
+                                        <Link className='ms-3' to={`/familyhistory/${familyhistory._id}/delete`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-delete-link">Delete</button>
                                         </Link>
                                     </div>

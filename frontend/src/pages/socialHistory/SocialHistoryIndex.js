@@ -53,10 +53,10 @@ function SocialHistoryIndex() {
                                     <Card.Text className='fs-5 fw-light'>{socialhistory.education.endDate}</Card.Text>
                                     <Card.Title className='fs-4'>Actions</Card.Title>
                                     <div className='d-flex justify-content-center'>
-                                        <Link className='me-3' to={'/socialhistory/:id/edit'}>
+                                        <Link className='me-3' to={`/socialhistory/${socialhistory._id}/edit`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-edit-link">Edit</button>
                                         </Link>
-                                        <Link className='ms-3' to={'/socialhistory/:id/delete'}>
+                                        <Link className='ms-3' to={`/socialhistory/${socialhistory._id}/delete`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-delete-link">Delete</button>
                                         </Link>
                                     </div>
@@ -75,10 +75,10 @@ function SocialHistoryIndex() {
                                     <Card.Text className='fs-5 fw-light'>{socialhistory.occupation.endDate}</Card.Text>
                                     <Card.Title className='fs-4'>Actions</Card.Title>
                                     <div className='d-flex justify-content-center'>
-                                        <Link className='me-3' to={'/socialhistory/:id/edit'}>
+                                        <Link className='me-3' to={`/socialhistory/${socialhistory._id}/edit`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-edit-link">Edit</button>
                                         </Link>
-                                        <Link className='ms-3' to={'/socialhistory/:id/delete'}>
+                                        <Link className='ms-3' to={`/socialhistory/${socialhistory._id}/delete`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-delete-link">Delete</button>
                                         </Link>
                                     </div>
@@ -90,10 +90,10 @@ function SocialHistoryIndex() {
                                     <Card.Text className='fs-5 fw-light'>{socialhistory.maritalStatus}</Card.Text>
                                     <Card.Title className='fs-4'>Actions</Card.Title>
                                     <div className='d-flex justify-content-center'>
-                                        <Link className='me-3' to={'/socialhistory/:id/edit'}>
+                                        <Link className='me-3' to={`/socialhistory/${socialhistory._id}/edit`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-edit-link">Edit</button>
                                         </Link>
-                                        <Link className='ms-3' to={'/socialhistory/:id/delete'}>
+                                        <Link className='ms-3' to={`/socialhistory/${socialhistory._id}/delete`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-delete-link">Delete</button>
                                         </Link>
                                     </div>
@@ -105,10 +105,10 @@ function SocialHistoryIndex() {
                                     <Card.Text className='fs-5 fw-light'>{socialhistory.children} Children</Card.Text>
                                     <Card.Title className='fs-4'>Actions</Card.Title>
                                     <div className='d-flex justify-content-center'>
-                                        <Link className='me-3' to={'/socialhistory/:id/edit'}>
+                                        <Link className='me-3' to={`/socialhistory/${socialhistory._id}/edit`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-edit-link">Edit</button>
                                         </Link>
-                                        <Link className='ms-3' to={'/socialhistory/:id/delete'}>
+                                        <Link className='ms-3' to={`/socialhistory/${socialhistory._id}/delete`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-delete-link">Delete</button>
                                         </Link>
                                     </div>
@@ -120,10 +120,10 @@ function SocialHistoryIndex() {
                                     <Card.Text className='fs-5 fw-light'>{socialhistory.diet}</Card.Text>
                                     <Card.Title className='fs-4'>Actions</Card.Title>
                                     <div className='d-flex justify-content-center'>
-                                        <Link className='me-3' to={'/socialhistory/:id/edit'}>
+                                        <Link className='me-3' to={`/socialhistory/${socialhistory._id}/edit`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-edit-link">Edit</button>
                                         </Link>
-                                        <Link className='ms-3' to={'/socialhistory/:id/delete'}>
+                                        <Link className='ms-3' to={`/socialhistory/${socialhistory._id}/delete`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-delete-link">Delete</button>
                                         </Link>
                                     </div>
@@ -140,10 +140,10 @@ function SocialHistoryIndex() {
                                     <Card.Text className='fs-5 fw-light'>{socialhistory.exercise.frequency} days per week</Card.Text>
                                     <Card.Title className='fs-4'>Actions</Card.Title>
                                     <div className='d-flex justify-content-center'>
-                                        <Link className='me-3' to={'/socialhistory/:id/edit'}>
+                                        <Link className='me-3' to={`/socialhistory/${socialhistory._id}/edit`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-edit-link">Edit</button>
                                         </Link>
-                                        <Link className='ms-3' to={'/socialhistory/:id/delete'}>
+                                        <Link className='ms-3' to={`/socialhistory/${socialhistory._id}/delete`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-delete-link">Delete</button>
                                         </Link>
                                     </div>
@@ -155,10 +155,10 @@ function SocialHistoryIndex() {
                                     <Card.Text className='fs-5 fw-light'>{socialhistory.sleep} hours per night</Card.Text>
                                     <Card.Title className='fs-4'>Actions</Card.Title>
                                     <div className='d-flex justify-content-center'>
-                                        <Link className='me-3' to={'/socialhistory/:id/edit'}>
+                                        <Link className='me-3' to={`/socialhistory/${socialhistory._id}/edit`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-edit-link">Edit</button>
                                         </Link>
-                                        <Link className='ms-3' to={'/socialhistory/:id/delete'}>
+                                        <Link className='ms-3' to={`/socialhistory/${socialhistory._id}/delete`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-delete-link">Delete</button>
                                         </Link>
                                     </div>
@@ -181,10 +181,10 @@ function SocialHistoryIndex() {
                                     <Card.Text className='fs-5 fw-light'>{socialhistory.tobacco.quitDate}</Card.Text>
                                     <Card.Title className='fs-4'>Actions</Card.Title>
                                     <div className='d-flex justify-content-center'>
-                                        <Link className='me-3' to={'/socialhistory/:id/edit'}>
+                                        <Link className='me-3' to={`/socialhistory/${socialhistory._id}/edit`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-edit-link">Edit</button>
                                         </Link>
-                                        <Link className='ms-3' to={'/socialhistory/:id/delete'}>
+                                        <Link className='ms-3' to={`/socialhistory/${socialhistory._id}/delete`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-delete-link">Delete</button>
                                         </Link>
                                     </div>
@@ -207,10 +207,10 @@ function SocialHistoryIndex() {
                                     <Card.Text className='fs-5 fw-light'>{socialhistory.alcohol.quitDate}</Card.Text>
                                     <Card.Title className='fs-4'>Actions</Card.Title>
                                     <div className='d-flex justify-content-center'>
-                                        <Link className='me-3' to={'/socialhistory/:id/edit'}>
+                                        <Link className='me-3' to={`/socialhistory/${socialhistory._id}/edit`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-edit-link">Edit</button>
                                         </Link>
-                                        <Link className='ms-3' to={'/socialhistory/:id/delete'}>
+                                        <Link className='ms-3' to={`/socialhistory/${socialhistory._id}/delete`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-delete-link">Delete</button>
                                         </Link>
                                     </div>
@@ -237,10 +237,10 @@ function SocialHistoryIndex() {
                                     {console.log(socialhistory.substances.endDate)}
                                     <Card.Title className='fs-4'>Actions</Card.Title>
                                     <div className='d-flex justify-content-center'>
-                                        <Link className='me-3' to={'/socialhistory/:id/edit'}>
+                                        <Link className='me-3' to={`/socialhistory/${socialhistory._id}/edit`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-edit-link">Edit</button>
                                         </Link>
-                                        <Link className='ms-3' to={'/socialhistory/:id/delete'}>
+                                        <Link className='ms-3' to={`/socialhistory/${socialhistory._id}/delete`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-delete-link">Delete</button>
                                         </Link>
                                     </div>
@@ -252,10 +252,10 @@ function SocialHistoryIndex() {
                                     <Card.Text className='fs-5 fw-light'>{socialhistory.notes}</Card.Text>
                                     <Card.Title className='fs-4'>Actions</Card.Title>
                                     <div className='d-flex justify-content-center'>
-                                        <Link className='me-3' to={'/socialhistory/:id/edit'}>
+                                        <Link className='me-3' to={`/socialhistory/${socialhistory._id}/edit`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-edit-link">Edit</button>
                                         </Link>
-                                        <Link className='ms-3' to={'/socialhistory/:id/delete'}>
+                                        <Link className='ms-3' to={`/socialhistory/${socialhistory._id}/delete`}>
                                             <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-delete-link">Delete</button>
                                         </Link>
                                     </div>
