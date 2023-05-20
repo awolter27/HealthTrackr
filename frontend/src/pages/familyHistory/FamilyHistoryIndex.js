@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function FamilyHistoryIndex() {
     const [familyhistory, setFamilyHistory] = useState([]);
@@ -22,55 +26,53 @@ function FamilyHistoryIndex() {
 
     function loaded(familyhistory) {
         return (
-            <>
-                <div className='index-container'>
-                    <h1 className='index-header'>Family History</h1>
-                    <table className='table table-bordered table-hover'>
-                        <thead>
-                            <tr>
-                                <th>RELATIONSHIP</th>
-                                <th>LIVING</th>
-                                <th>AGE</th>
-                                <th>DECEASED</th>
-                                <th>AGE AT DEATH</th>
-                                <th>HEALTH CONDITION</th>
-                                <th>AGE OF DIAGNOSIS</th>
-                                <th>NOTES</th>
-                                <th>ACTIONS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {familyhistory.map((familyhistory, idx) => {
-                                return (
-                                    <tr key={idx}>
-                                        <td>{familyhistory.relationship}</td>
-                                        <td>{familyhistory.living.living}</td>
-                                        <td>{familyhistory.living.age}</td>
-                                        <td>{familyhistory.deceased.deceased}</td>
-                                        <td>{familyhistory.deceased.ageAtDeath}</td>
-                                        <td>{familyhistory.healthCondition}</td>
-                                        <td>{familyhistory.ageOfDiagnosis}</td>
-                                        <td>{familyhistory.notes}</td>
-                                        <td>
-                                            <Link className='index-edit-link' to={'/familyhistory/:id/edit'}>
-                                                <h2 className='index-edit-text'>Edit</h2>
-                                            </Link>
-                                            <Link className='index-delete-link' to={'/familyhistory/:id/delete'}>
-                                                <h2 className='index-delete-text'>Delete</h2>
-                                            </Link>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </table>
-                    <div className='index-new-container'>
-                        <Link className='index-new-link' to={'/familyhistory/new'}>
-                            <h2 className='index-new-text'>Add Family History</h2>
+            <Container fluid>
+                <Row className='py-5 justify-content-end'>
+                    <Col sm={4} className='text-center'>
+                        <h1 className='fs-1 fw-normal ms-sm-3'>Family History</h1>
+                    </Col>
+                    <Col sm={4} className='text-center text-sm-end pe-sm-3'>
+                        <Link to={'/familyhistory/new'}>
+                            <button className='text-white fs-5 fw-light px-3 py-1 rounded-3' id='index-new-link'>Add Family History</button>
                         </Link>
-                    </div>
-                </div>
-            </>
+                    </Col>
+                </Row>
+                {familyhistory.map((familyhistory, idx) => {
+                    return (
+                        <div className='d-flex justify-content-center'>
+                            <Card key={idx} border="dark" className='mb-5 text-center' id='card'>
+                                <Card.Header className='fs-3' id='card-header'>{familyhistory.relationship}</Card.Header>
+                                <Card.Body>
+                                    <Card.Title className='fs-4'>Living</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{familyhistory.living.living}</Card.Text>
+                                    <Card.Title className='fs-4'>Age</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{familyhistory.living.age} years old</Card.Text>
+                                    <Card.Title className='fs-4'>Deceased</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{familyhistory.deceased.deceased}</Card.Text>
+                                    <Card.Title className='fs-4'>Age At Death</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{familyhistory.deceased.ageAtDeath} years old</Card.Text>
+                                    <Card.Title className='fs-4'>Health Condition</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{familyhistory.healthCondition}</Card.Text>
+                                    <Card.Title className='fs-4'>Age At Diagnosis</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{familyhistory.ageOfDiagnosis} years old</Card.Text>
+                    
+                                    <Card.Title className='fs-4'>Notes</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{familyhistory.notes}</Card.Text>
+                                    <Card.Title className='fs-4'>Actions</Card.Title>
+                                    <div className='d-flex justify-content-center'>
+                                        <Link className='me-3' to={'/familyhistory/:id/edit'}>
+                                            <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-edit-link">Edit</button>
+                                        </Link>
+                                        <Link className='ms-3' to={'/familyhistory/:id/delete'}>
+                                            <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-delete-link">Delete</button>
+                                        </Link>
+                                    </div>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                    )
+                })}
+            </Container>
         )
     }
 

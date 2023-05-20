@@ -40,7 +40,7 @@ function CareTeamIndex() {
                 {careteam.map((careteam, idx) => {
                     return (
                         <div className='d-flex justify-content-center'>
-                            <Card key={idx} border="dark" className='mb-4 text-center' id='card'>
+                            <Card key={idx} border="dark" className='mb-5 text-center' id='card'>
                                 <Card.Header className='fs-3' id='card-header'>{careteam.title} {careteam.name}</Card.Header>
                                 <Card.Body>
                                     <Card.Title className='fs-4'>Specialty</Card.Title>
