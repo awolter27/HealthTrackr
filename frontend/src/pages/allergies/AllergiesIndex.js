@@ -27,13 +27,11 @@ function AllergiesIndex() {
     function loaded(allergies) {
         return (
             <Container fluid>
-                <Row className='py-5'>
-                    <Col>
+                <Row className='py-5 justify-content-end'>
+                    <Col sm={4} className='text-center'>
+                        <h1 className='fs-1 fw-normal ms-sm-3'>Allergies</h1>
                     </Col>
-                    <Col>
-                        <h1 className='fs-1 fw-normal text-center'>Allergies</h1>
-                    </Col>
-                    <Col className='text-end'>
+                    <Col sm={4} className='text-center text-sm-end pe-sm-3'>
                         <Link to={'/allergies/new'}>
                             <button className='text-white fs-5 fw-light px-3 py-1 rounded-3' id='index-new-link'>Add Allergy</button>
                         </Link>

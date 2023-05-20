@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function AppointmentsIndex() {
     const [appointments, setAppointments] = useState([]);
@@ -22,53 +26,50 @@ function AppointmentsIndex() {
 
     function loaded(appointments) {
         return (
-            <>
-                <div className='index-container'>
-                    <h1 className='index-header'>Appointments</h1>
-                    <table className='table table-bordered table-hover'>
-                        <thead>
-                            <tr>
-                                <th>APPOINTMENT</th>
-                                <th>PROVIDER</th>
-                                <th>SPECIALTY</th>
-                                <th>ADDRESS</th>
-                                <th>DATE</th>
-                                <th>REASON</th>
-                                <th>NOTES</th>
-                                <th>ACTIONS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {appointments.map((appointment, idx) => {
-                                return (
-                                    <tr key={idx}>
-                                        <td>{appointment.nameOfAppointment}</td>
-                                        <td>{appointment.title} {appointment.nameOfProvider}</td>
-                                        <td>{appointment.specialty}</td>
-                                        <td>{appointment.address}</td>
-                                        <td>{appointment.date} {appointment.time}</td>
-                                        <td>{appointment.reason}</td>
-                                        <td>{appointment.notes}</td>
-                                        <td>
-                                            <Link className='index-edit-link' to={'/appointments/:id/edit'}>
-                                                <h2 className='index-edit-text'>Edit</h2>
-                                            </Link>
-                                            <Link className='index-delete-link' to={'/appointments/:id/delete'}>
-                                                <h2 className='index-delete-text'>Delete</h2>
-                                            </Link>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </table>
-                    <div className='index-new-container'>
-                        <Link className='index-new-link' to={'/appointments/new'}>
-                            <h2 className='index-new-text'>Add Appointment</h2>
+            <Container fluid>
+                <Row className='py-5 justify-content-end'>
+                    <Col sm={4} className='text-center'>
+                        <h1 className='fs-1 fw-normal ms-sm-3'>Appointments</h1>
+                    </Col>
+                    <Col sm={4} className='text-center text-sm-end pe-sm-3'>
+                        <Link to={'/appointments/new'}>
+                            <button className='text-white fs-5 fw-light px-3 py-1 rounded-3' id='index-new-link'>Add Appointment</button>
                         </Link>
-                    </div>
-                </div>
-            </>
+                    </Col>
+                </Row>
+                {appointments.map((appointment, idx) => {
+                    return (
+                        <div className='d-flex justify-content-center'>
+                            <Card key={idx} border="dark" className='mb-4 text-center' id='card'>
+                                <Card.Header className='fs-3' id='card-header'>{appointment.nameOfAppointment}</Card.Header>
+                                <Card.Body>
+                                    <Card.Title className='fs-4'>Provider</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{appointment.title} {appointment.nameOfProvider}</Card.Text>
+                                    <Card.Title className='fs-4'>Specialty</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{appointment.specialty}</Card.Text>
+                                    <Card.Title className='fs-4'>Address</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{appointment.address}</Card.Text>
+                                    <Card.Title className='fs-4'>Date</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{appointment.date} {appointment.time}</Card.Text>
+                                    <Card.Title className='fs-4'>Reason</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{appointment.reason}</Card.Text>
+                                    <Card.Title className='fs-4'>Notes</Card.Title>
+                                    <Card.Text className='fs-5 fw-light'>{appointment.notes}</Card.Text>
+                                    <Card.Title className='fs-4'>Actions</Card.Title>
+                                    <div className='d-flex justify-content-center'>
+                                        <Link className='me-3' to={'/appointments/:id/edit'}>
+                                            <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-edit-link">Edit</button>
+                                        </Link>
+                                        <Link className='ms-3' to={'/appointments/:id/delete'}>
+                                            <button type="button" className='text-white fs-5 fw-light  px-3 py-1 rounded-3' id="index-delete-link">Delete</button>
+                                        </Link>
+                                    </div>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                    )
+                })}
+            </Container>
         )
     }
 
