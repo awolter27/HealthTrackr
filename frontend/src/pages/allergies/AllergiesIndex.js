@@ -6,9 +6,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 function AllergiesIndex() {
-    const [allergies, setAllergies] = useState([]);
-
     const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
+
+    const [allergies, setAllergies] = useState([]);
 
     async function getAllergies() {
         try {
@@ -19,10 +19,6 @@ function AllergiesIndex() {
             console.log(err);
         }
     }
-
-    useEffect(() => {
-        getAllergies();
-    }, []);
 
     function loaded(allergies) {
         return (
@@ -70,6 +66,10 @@ function AllergiesIndex() {
             <h1>Loading...</h1>
         )
     }
+
+    useEffect(() => {
+        getAllergies();
+    }, []);
 
     return (
         <>
