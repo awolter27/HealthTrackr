@@ -33,7 +33,7 @@ function AllergiesEdit() {
     async function handleSumbit(e) {
         try {
             e.preventDefault();
-            await fetch(`http://localhost:4000/allergies/${id}`, {
+            await fetch(`${URL}/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -59,10 +59,6 @@ function AllergiesEdit() {
             </>
         )
     }
-    console.log(allergy)
-    console.log(id)
-
-
 
     function loading() {
         return (
