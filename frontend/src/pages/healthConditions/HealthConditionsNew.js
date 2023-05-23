@@ -72,7 +72,7 @@ function HealthConditionsNew() {
                 <Card border="dark" className='text-center' id='card'>
                     <Form onSubmit={handleSumbit} className='mx-5'>
                         <Form.Group className="my-3">
-                            <Form.Label className="fs-3 ms-3">Health Condition <span className='text-danger'>*</span></Form.Label>
+                            <Form.Label className="fs-3 ms-4">Health Condition <span className='text-danger'>*</span></Form.Label>
                             <Form.Control required name='name' onChange={handleChange} as="textarea" type="text" placeholder="Osteoporosis" className="fs-5 fw-light text-center" />
                         </Form.Group>
                         <Form.Group className="mb-3">
