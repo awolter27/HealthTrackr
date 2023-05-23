@@ -77,7 +77,7 @@ function AppointmentsNew() {
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label className="fs-3">Provider Title</Form.Label>
-                            <Form.Control name='title' onChange={handleChange} as="textarea" type="text" placeholder="Dr." className="fs-5 fw-light text-center" />
+                            <Form.Control required name='title' onChange={handleChange} as="textarea" type="text" placeholder="Dr." className="fs-5 fw-light text-center" />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label className="fs-3">Provider Name</Form.Label>

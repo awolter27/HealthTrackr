@@ -7,7 +7,8 @@ const appointmentsSchema = new mongoose.Schema(
             required: [true, 'You must enter the name of your appointment']
         },
         title: {
-            type: String
+            type: String,
+            required: [true, 'You must enter the title of your healthcare provider']
         },
         nameOfProvider: {
             type: String,
