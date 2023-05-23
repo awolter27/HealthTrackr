@@ -68,7 +68,7 @@ router.get('/seed', async (req, res, next) => {
     }
 })
 
-router.post('/new', async (req, res, next) => {
+router.post('', async (req, res, next) => {
     try {
         const newFamilyHistory = req.body;
         await FamilyHistory.create(req.body);

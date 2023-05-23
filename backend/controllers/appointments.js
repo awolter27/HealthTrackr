@@ -59,7 +59,7 @@ router.get('/seed', async (req, res, next) => {
     }
 })
 
-router.post('/new', async (req, res, next) => {
+router.post('', async (req, res, next) => {
     try {
         const newAppointment = req.body;
         await Appointments.create(req.body);

@@ -70,7 +70,7 @@ router.get('/seed', async (req, res, next) => {
     }
 })
 
-router.post('/new', async (req, res, next) => {
+router.post('', async (req, res, next) => {
     try {
         const newCareTeam = req.body;
         await CareTeam.create(req.body);
