@@ -72,15 +72,15 @@ function AppointmentsNew() {
                 <Card border="dark" className='text-center' id='card'>
                     <Form onSubmit={handleSumbit} className='mx-5'>
                         <Form.Group className="my-3">
-                            <Form.Label className="fs-3">Appointment</Form.Label>
+                            <Form.Label className="fs-3 ms-4">Appointment <span className='text-danger'>*</span></Form.Label>
                             <Form.Control required name='nameOfAppointment' onChange={handleChange} as="textarea" type="text" placeholder="Cardiology Appointment" className="fs-5 fw-light text-center" />
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Form.Label className="fs-3">Provider Title</Form.Label>
+                            <Form.Label className="fs-3 ms-4">Provider Title <span className='text-danger'>*</span></Form.Label>
                             <Form.Control required name='title' onChange={handleChange} as="textarea" type="text" placeholder="Dr." className="fs-5 fw-light text-center" />
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Form.Label className="fs-3">Provider Name</Form.Label>
+                            <Form.Label className="fs-3 ms-4">Provider Name <span className='text-danger'>*</span></Form.Label>
                             <Form.Control required name='nameOfProvider' onChange={handleChange} as="textarea" type="text" placeholder="Julia Brown" className="fs-5 fw-light text-center" />
                         </Form.Group>
                         <Form.Group className="mb-3">
@@ -88,15 +88,15 @@ function AppointmentsNew() {
                             <Form.Control name='specialty' onChange={handleChange} as="textarea" type="text" placeholder="Cardiology" className="fs-5 fw-light text-center" />
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Form.Label className="fs-3">Address</Form.Label>
+                            <Form.Label className="fs-3 ms-4">Address <span className='text-danger'>*</span></Form.Label>
                             <Form.Control required name='address' onChange={handleChange} as="textarea" type="text" placeholder="962 Flynn Street" className="fs-5 fw-light text-center" />
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Form.Label className="fs-3">Date</Form.Label>
+                            <Form.Label className="fs-3 ms-4">Date <span className='text-danger'>*</span></Form.Label>
                             <Form.Control required name='date' onChange={handleChange} as="textarea" type="text" placeholder="06/23/2020" className="fs-5 fw-light text-center" />
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Form.Label className="fs-3">Time</Form.Label>
+                            <Form.Label className="fs-3 ms-4">Time <span className='text-danger'>*</span></Form.Label>
                             <Form.Control required name='time' onChange={handleChange} as="textarea" type="text" placeholder="2:30 pm" className="fs-5 fw-light text-center" />
                         </Form.Group>
                         <Form.Group className="mb-3">
@@ -111,7 +111,7 @@ function AppointmentsNew() {
                             <Form.Label className="fs-3">Actions</Form.Label>
                             <div>
                                 <button type="submit" className="text-white fs-5 fw-light me-3 mb-3 px-3 py-1 rounded-3" id="new-submit-link">Submit</button>
-                                <button type="button" className="text-white fs-5 fw-light ms-3 mb-3 px-3 py-1 rounded-3" id="new-cancel-link" onClick={goBack}>Cancel</button>
+                                <button type="button" className="text-white fs-5 fw-light ms-4 mb-3 px-3 py-1 rounded-3" id="new-cancel-link" onClick={goBack}>Cancel</button>
                             </div>
                         </Form.Group>
                     </Form>

@@ -66,11 +66,11 @@ function AllergiesNew() {
                 <Card border="dark" className='text-center' id='card'>
                     <Form onSubmit={handleSumbit} className='mx-5'>
                         <Form.Group className="my-3">
-                            <Form.Label className="fs-3">Allergy</Form.Label>
+                            <Form.Label className="fs-3 ms-4">Allergy <span className='text-danger'>*</span></Form.Label>
                             <Form.Control required name="name" onChange={handleChange} as="textarea" type="text" placeholder="Sulfonamides" className="fs-5 fw-light text-center" />
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Form.Label className="fs-3">Reaction</Form.Label>
+                            <Form.Label className="fs-3 ms-4">Reaction <span className='text-danger'>*</span></Form.Label>
                             <Form.Control required name="reaction" onChange={handleChange} as="textarea" type="text" placeholder="Rhinitis" className="fs-5 fw-light text-center" />
                         </Form.Group>
                         <Form.Group className="mb-3">

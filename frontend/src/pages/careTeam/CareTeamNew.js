@@ -72,15 +72,15 @@ function CareTeamNew() {
                 <Card border="dark" className='text-center' id='card'>
                     <Form onSubmit={handleSumbit} className='mx-5'>
                         <Form.Group className="my-3">
-                            <Form.Label className="fs-3">Provider Title</Form.Label>
+                            <Form.Label className="fs-3 ms-4">Provider Title <span className='text-danger'>*</span></Form.Label>
                             <Form.Control required name='title' onChange={handleChange} as="textarea" type="text" placeholder="Dr." className="fs-5 fw-light text-center" />
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Form.Label className="fs-3">Provider Name</Form.Label>
+                            <Form.Label className="fs-3 ms-4">Provider Name <span className='text-danger'>*</span></Form.Label>
                             <Form.Control required name='name' onChange={handleChange} as="textarea" type="text" placeholder="Julia Brown" className="fs-5 fw-light text-center" />
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Form.Label className="fs-3">Specialty</Form.Label>
+                            <Form.Label className="fs-3 ms-4">Specialty <span className='text-danger'>*</span></Form.Label>
                             <Form.Control required name='specialty' onChange={handleChange} as="textarea" type="text" placeholder="Cardiology" className="fs-5 fw-light text-center" />
                         </Form.Group>
                         <Form.Group className="mb-3">
