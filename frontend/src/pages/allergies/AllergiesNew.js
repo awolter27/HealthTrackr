@@ -61,21 +61,21 @@ function AllergiesNew() {
 
     return (
         <Container fluid>
-            <h1 className='fs-1 fw-normal text-center my-5'>Add New Allergy </h1>
+            <h1 className='fs-1 fw-normal text-center my-5'>Add New Allergy</h1>
             <div className='d-flex justify-content-center mb-5'>
                 <Card border="dark" className='text-center' id='card'>
                     <Form onSubmit={handleSumbit} className='mx-5'>
                         <Form.Group className="my-3">
                             <Form.Label className="fs-3">Allergy</Form.Label>
-                            <Form.Control as="textarea" type="text" placeholder="Sulfonamides" className="fs-5 fw-light text-center" />
+                            <Form.Control required name="name" onChange={handleChange} as="textarea" type="text" placeholder="Sulfonamides" className="fs-5 fw-light text-center" />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label className="fs-3">Reaction</Form.Label>
-                            <Form.Control as="textarea" type="text" placeholder="Rhinitis" className="fs-5 fw-light text-center" />
+                            <Form.Control required name="reaction" onChange={handleChange} as="textarea" type="text" placeholder="Rhinitis" className="fs-5 fw-light text-center" />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label className="fs-3">Notes</Form.Label>
-                            <Form.Control as="textarea" type="text" placeholder="I was told I was allergic to sulfonamides by my parents" className="fs-5 fw-light text-center" />
+                            <Form.Control name="notes" onChange={handleChange} as="textarea" type="text" placeholder="I was told I was allergic to sulfonamides by my parents" className="fs-5 fw-light text-center" />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label className="fs-3">Actions</Form.Label>
