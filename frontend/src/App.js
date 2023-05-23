@@ -1,46 +1,46 @@
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
-import HealthConditionsIndex from './pages/healthConditions/HealthConditionsIndex'
-import HealthConditionsNew from './pages/healthConditions/HealthConditionsNew'
-import HealthConditionsEdit from './pages/healthConditions/HealthConditionsEdit'
-import HealthConditionsDelete from './pages/healthConditions/HealthConditionsDelete'
-import AllergiesIndex from './pages/allergies/AllergiesIndex'
-import AllergiesNew from './pages/allergies/AllergiesNew'
-import AllergiesEdit from './pages/allergies/AllergiesEdit'
-import AllergiesDelete from './pages/allergies/AllergiesDelete'
-import MedicationsIndex from './pages/medications/MedicationsIndex'
-import MedicationsNew from './pages/medications/MedicationsNew'
-import MedicationsEdit from './pages/medications/MedicationsEdit'
-import MedicationsDelete from './pages/medications/MedicationsDelete'
-import SurgeriesIndex from './pages/surgeries/SurgeriesIndex'
-import SurgeriesNew from './pages/surgeries/SurgeriesNew'
-import SurgeriesEdit from './pages/surgeries/SurgeriesEdit'
-import SurgeriesDelete from './pages/surgeries/SurgeriesDelete'
-import HospitalizationsIndex from './pages/hospitalizations/HospitalizationsIndex'
-import HospitalizationsNew from './pages/hospitalizations/HospitalizationsNew'
-import HospitalizationsEdit from './pages/hospitalizations/HospitalizationsEdit'
-import HospitalizationsDelete from './pages/hospitalizations/HospitalizationsDelete'
-import SocialHistoryIndex from './pages/socialHistory/SocialHistoryIndex'
-import SocialHistoryNew from './pages/socialHistory/SocialHistoryNew'
-import SocialHistoryEdit from './pages/socialHistory/SocialHistoryEdit'
-import SocialHistoryDelete from './pages/socialHistory/SocialHistoryDelete'
-import FamilyHistoryIndex from './pages/familyHistory/FamilyHistoryIndex'
-import FamilyHistoryNew from './pages/familyHistory/FamilyHistoryNew'
-import FamilyHistoryEdit from './pages/familyHistory/FamilyHistoryEdit'
-import FamilyHistoryDelete from './pages/familyHistory/FamilyHistoryDelete'
-import VaccinationsIndex from './pages/vaccinations/VaccinationsIndex'
-import VaccinationsNew from './pages/vaccinations/VaccinationsNew'
-import VaccinationsEdit from './pages/vaccinations/VaccinationsEdit'
-import VaccinationsDelete from './pages/vaccinations/VaccinationsDelete'
-import AppointmentsIndex from './pages/appointments/AppointmentsIndex'
-import AppointmentsNew from './pages/appointments/AppointmentsNew'
-import AppointmentsEdit from './pages/appointments/AppointmentsEdit'
-import AppointmentsDelete from './pages/appointments/AppointmentsDelete'
-import CareTeamIndex from './pages/careTeam/CareTeamIndex'
-import CareTeamNew from './pages/careTeam/CareTeamNew'
-import CareTeamEdit from './pages/careTeam/CareTeamEdit'
-import CareTeamDelete from './pages/careTeam/CareTeamDelete'
+import HealthConditionsIndex from './pages/healthConditions/HealthConditionsIndex';
+import HealthConditionsNew from './pages/healthConditions/HealthConditionsNew';
+import HealthConditionsEdit from './pages/healthConditions/HealthConditionsEdit';
+import HealthConditionsDelete from './pages/healthConditions/HealthConditionsDelete';
+import AllergiesIndex from './pages/allergies/AllergiesIndex';
+import AllergiesNew from './pages/allergies/AllergiesNew';
+import AllergiesEdit from './pages/allergies/AllergiesEdit';
+import AllergiesDelete from './pages/allergies/AllergiesDelete';
+import MedicationsIndex from './pages/medications/MedicationsIndex';
+import MedicationsNew from './pages/medications/MedicationsNew';
+import MedicationsEdit from './pages/medications/MedicationsEdit';
+import MedicationsDelete from './pages/medications/MedicationsDelete';
+import SurgeriesIndex from './pages/surgeries/SurgeriesIndex';
+import SurgeriesNew from './pages/surgeries/SurgeriesNew';
+import SurgeriesEdit from './pages/surgeries/SurgeriesEdit';
+import SurgeriesDelete from './pages/surgeries/SurgeriesDelete';
+import HospitalizationsIndex from './pages/hospitalizations/HospitalizationsIndex';
+import HospitalizationsNew from './pages/hospitalizations/HospitalizationsNew';
+import HospitalizationsEdit from './pages/hospitalizations/HospitalizationsEdit';
+import HospitalizationsDelete from './pages/hospitalizations/HospitalizationsDelete';
+import SocialHistoryIndex from './pages/socialHistory/SocialHistoryIndex';
+import SocialHistoryNew from './pages/socialHistory/SocialHistoryNew';
+import SocialHistoryEdit from './pages/socialHistory/SocialHistoryEdit';
+import SocialHistoryDelete from './pages/socialHistory/SocialHistoryDelete';
+import FamilyHistoryIndex from './pages/familyHistory/FamilyHistoryIndex';
+import FamilyHistoryNew from './pages/familyHistory/FamilyHistoryNew';
+import FamilyHistoryEdit from './pages/familyHistory/FamilyHistoryEdit';
+import FamilyHistoryDelete from './pages/familyHistory/FamilyHistoryDelete';
+import VaccinationsIndex from './pages/vaccinations/VaccinationsIndex';
+import VaccinationsNew from './pages/vaccinations/VaccinationsNew';
+import VaccinationsEdit from './pages/vaccinations/VaccinationsEdit';
+import VaccinationsDelete from './pages/vaccinations/VaccinationsDelete';
+import AppointmentsIndex from './pages/appointments/AppointmentsIndex';
+import AppointmentsNew from './pages/appointments/AppointmentsNew';
+import AppointmentsEdit from './pages/appointments/AppointmentsEdit';
+import AppointmentsDelete from './pages/appointments/AppointmentsDelete';
+import CareTeamIndex from './pages/careTeam/CareTeamIndex';
+import CareTeamNew from './pages/careTeam/CareTeamNew';
+import CareTeamEdit from './pages/careTeam/CareTeamEdit';
+import CareTeamDelete from './pages/careTeam/CareTeamDelete';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/App.css';
 import './styles/fonts.css';
@@ -111,7 +111,7 @@ function App() {
           <Route path=':id/edit' element={<CareTeamEdit />} />
           <Route path=':id/delete' element={<CareTeamDelete />} />
         </Route>
-      </Routes>
+      </Routes >
     </>
   );
 }
