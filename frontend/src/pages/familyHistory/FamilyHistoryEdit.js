@@ -32,7 +32,6 @@ function FamilyHistoryEdit() {
                 currentLevel = currentLevel[nestedKeys[i]];
             }
             currentLevel[nestedKeys[nestedKeys.length - 1]] = updatedValue;
-
             setFamilyHistory(updatedFamilyHistory);
         } else {
             setFamilyHistory((currentState) => ({
