@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { useNavigate } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
@@ -11,8 +10,6 @@ function AllergiesEdit() {
     const [allergy, setAllergy] = useState(null);
 
     const { id } = useParams();
-
-    const navigate = useNavigate();
 
     async function getAllergy() {
         try {
