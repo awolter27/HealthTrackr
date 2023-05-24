@@ -37,6 +37,7 @@ function AllergiesDelete() {
     function loaded() {
         return (
             <Container fluid>
+                <h1 className='fs-1 fw-normal ms-sm-3 py-5 text-center'>Allergies</h1>
                 <div className='d-flex justify-content-center'>
                     <Card border="dark" className='mb-5 text-center' id='card'>
                         <Card.Header className='fs-3' id='card-header'>{allergy.name}</Card.Header>
@@ -48,10 +49,10 @@ function AllergiesDelete() {
                             <Card.Title className='fs-4'>Actions</Card.Title>
                             <div className='d-flex justify-content-center'>
                                 <Link className='me-3' to={`/allergies`}>
-                                    <button type="button" onClick={deleteMyAllergy} className='text-white fs-5 fw-light px-3 py-1 rounded-3' id="delete-delete-link">Delete</button>
+                                    <button type="button" onClick={deleteMyAllergy} className='btn btn-danger text-white fs-5 fw-light px-3 py-1 border border-dark rounded-3'>Delete</button>
                                 </Link>
                                 <Link className='ms-3' to={`/allergies`}>
-                                    <button type="button" className='text-white fs-5 fw-light px-3 py-1 rounded-3' id="delete-cancel-link">Cancel</button>
+                                    <button type="button" className='btn btn-secondary text-white fs-5 fw-light px-3 py-1 border border-dark rounded-3'>Cancel</button>
                                 </Link>
                             </div>
                         </Card.Body>

@@ -107,8 +107,8 @@ function AppointmentsNew() {
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Actions</Form.Label>
                                 <div>
-                                    <button type="submit" className="text-white fs-5 fw-light me-3 mb-3 px-3 py-1 rounded-3" id="new-submit-link">Submit</button>
-                                    <button type="button" className="text-white fs-5 fw-light ms-4 mb-3 px-3 py-1 rounded-3" id="new-cancel-link" onClick={goBack}>Cancel</button>
+                                    <button type="submit" className="btn btn-success text-white fs-5 fw-light me-3 mb-3 px-3 py-1 border border-dark rounded-3">Submit</button>
+                                    <button type="button" className="btn btn-secondary text-white fs-5 fw-light ms-3 mb-3 px-3 py-1 border border-dark rounded-3" onClick={goBack}>Cancel</button>
                                 </div>
                             </Form.Group>
                         </Form>

@@ -43,8 +43,6 @@ div .navbar-nav {
 
 #index-new-link,
 #index-edit-link,
-#index-delete-link,
-#new-submit-link, 
-#new-cancel-link {
+#index-delete-link {
   background-color: rgb(38, 146, 121);
 }
