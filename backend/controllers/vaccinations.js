@@ -82,7 +82,7 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
-router.put('/:id/edit', async (req, res, next) => {
+router.put('/:id', async (req, res, next) => {
     try {
         const updatedVaccination = await Vaccinations.findByIdAndUpdate(req.params.id, req.body);
         res.redirect(`/vaccinations/${req.params.id}`);
@@ -92,7 +92,7 @@ router.put('/:id/edit', async (req, res, next) => {
     }
 })
 
-router.delete('/:id/delete', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const deletedVaccination = await Vaccinations.findByIdAndDelete(req.params.id);
         res.redirect('/vaccinations');

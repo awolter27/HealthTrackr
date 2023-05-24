@@ -67,7 +67,7 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
-router.put('/:id/edit', async (req, res, next) => {
+router.put('/:id', async (req, res, next) => {
     try {
         const updatedAllergy = await Allergies.findByIdAndUpdate(req.params.id, req.body);
         res.redirect(`/allergies/${req.params.id}`);
@@ -77,7 +77,7 @@ router.put('/:id/edit', async (req, res, next) => {
     }
 })
 
-router.delete('/:id/delete', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const deletedAllergy = await Allergies.findByIdAndDelete(req.params.id);
         res.redirect('/allergies');
