@@ -6,9 +6,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 function SurgeriesIndex() {
-    const [surgeries, setSurgeries] = useState([]);
-
     const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
+
+    const [surgeries, setSurgeries] = useState([]);
 
     async function getSurgeries() {
         try {
@@ -19,10 +19,6 @@ function SurgeriesIndex() {
             console.log(err);
         }
     }
-
-    useEffect(() => {
-        getSurgeries();
-    }, []);
 
     function loaded(surgeries) {
         return (
@@ -76,6 +72,10 @@ function SurgeriesIndex() {
             <h1>Loading...</h1>
         )
     }
+
+    useEffect(() => {
+        getSurgeries();
+    }, []);
 
     return (
         <>

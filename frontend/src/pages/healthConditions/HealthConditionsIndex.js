@@ -6,9 +6,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 function HealthConditionsIndex() {
-    const [healthconditions, setHealthConditions] = useState([]);
-
     const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
+
+    const [healthconditions, setHealthConditions] = useState([]);
 
     async function getHealthConditions() {
         try {
@@ -19,10 +19,6 @@ function HealthConditionsIndex() {
             console.log(err);
         }
     }
-
-    useEffect(() => {
-        getHealthConditions();
-    }, []);
 
     function loaded(healthconditions) {
         return (
@@ -78,6 +74,10 @@ function HealthConditionsIndex() {
             <h1>Loading...</h1>
         )
     }
+
+    useEffect(() => {
+        getHealthConditions();
+    }, []);
 
     return (
         <>

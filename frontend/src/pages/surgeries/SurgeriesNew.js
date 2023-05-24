@@ -7,8 +7,6 @@ import Form from 'react-bootstrap/Form';
 function SurgeriesNew() {
     const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
 
-    const navigate = useNavigate();
-
     const [surgeries, setSurgeries] = useState([]);
 
     const [surgeriesForm, setSurgeriesForm] = useState({
@@ -20,6 +18,8 @@ function SurgeriesNew() {
         notes: ""
     })
 
+    const navigate = useNavigate();
+
     async function getSurgeries() {
         try {
             let mySurgeries = await fetch(`${URL}/surgeries`);
@@ -29,10 +29,6 @@ function SurgeriesNew() {
             console.log(err);
         }
     }
-
-    useEffect(() => {
-        getSurgeries();
-    }, []);
 
     function handleChange(e) {
         setSurgeriesForm((previousFormState) => ({
@@ -62,47 +58,65 @@ function SurgeriesNew() {
         window.history.back();
     }
 
+    function loaded() {
+        return (
+            <Container fluid>
+                <h1 className='fs-1 fw-normal text-center my-5'>Add New Surgery</h1>
+                <div className='d-flex justify-content-center mb-5'>
+                    <Card border="dark" className='text-center' id='card'>
+                        <Form onSubmit={handleSumbit} className='mx-5'>
+                            <Form.Group className="my-3">
+                                <Form.Label className="fs-3 ms-4">Surgery <span className='text-danger'>*</span></Form.Label>
+                                <Form.Control required name="name" onChange={handleChange} as="textarea" type="text" placeholder="Tonsillectomy" className="fs-5 fw-light text-center" />
+                            </Form.Group>
+                            <Form.Group className="mb-3">
+                                <Form.Label className="fs-3">Location</Form.Label>
+                                <Form.Control name="location" onChange={handleChange} as="textarea" type="text" placeholder="Luna Memorial Hospital" className="fs-5 fw-light text-center" />
+                            </Form.Group>
+                            <Form.Group className="mb-3">
+                                <Form.Label className="fs-3 ms-4">Date <span className='text-danger'>*</span></Form.Label>
+                                <Form.Control required name="date" onChange={handleChange} as="textarea" type="text" placeholder="11/19/1970" className="fs-5 fw-light text-center" />
+                            </Form.Group>
+                            <Form.Group className="mb-3">
+                                <Form.Label className="fs-3">Surgeon</Form.Label>
+                                <Form.Control name="surgeon" onChange={handleChange} as="textarea" type="text" placeholder="Dr. Benson Hanks" className="fs-5 fw-light text-center" />
+                            </Form.Group>
+                            <Form.Group className="mb-3">
+                                <Form.Label className="fs-3 ms-4">Reason <span className='text-danger'>*</span></Form.Label>
+                                <Form.Control required name="reason" onChange={handleChange} as="textarea" type="text" placeholder="Tonsillitis" className="fs-5 fw-light text-center" />
+                            </Form.Group>
+                            <Form.Group className="mb-3">
+                                <Form.Label className="fs-3">Notes</Form.Label>
+                                <Form.Control name="notes" onChange={handleChange} as="textarea" type="text" placeholder="I had no complications." className="fs-5 fw-light text-center" />
+                            </Form.Group>
+                            <Form.Group className="mb-3">
+                                <Form.Label className="fs-3">Actions</Form.Label>
+                                <div>
+                                    <button type="submit" className="text-white fs-5 fw-light me-3 mb-3 px-3 py-1 rounded-3" id="new-submit-link">Submit</button>
+                                    <button type="button" className="text-white fs-5 fw-light ms-3 mb-3 px-3 py-1 rounded-3" id="new-cancel-link" onClick={goBack}>Cancel</button>
+                                </div>
+                            </Form.Group>
+                        </Form>
+                    </Card>
+                </div>
+            </Container >
+        )
+    }
+
+    function loading() {
+        return (
+            <h1>Loading...</h1>
+        )
+    }
+
+    useEffect(() => {
+        getSurgeries();
+    }, []);
+
     return (
-        <Container fluid>
-            <h1 className='fs-1 fw-normal text-center my-5'>Add New Surgery</h1>
-            <div className='d-flex justify-content-center mb-5'>
-                <Card border="dark" className='text-center' id='card'>
-                    <Form onSubmit={handleSumbit} className='mx-5'>
-                        <Form.Group className="my-3">
-                            <Form.Label className="fs-3 ms-4">Surgery <span className='text-danger'>*</span></Form.Label>
-                            <Form.Control required name="name" onChange={handleChange} as="textarea" type="text" placeholder="Tonsillectomy" className="fs-5 fw-light text-center" />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label className="fs-3">Location</Form.Label>
-                            <Form.Control name="location" onChange={handleChange} as="textarea" type="text" placeholder="Luna Memorial Hospital" className="fs-5 fw-light text-center" />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label className="fs-3 ms-4">Date <span className='text-danger'>*</span></Form.Label>
-                            <Form.Control required name="date" onChange={handleChange} as="textarea" type="text" placeholder="11/19/1970" className="fs-5 fw-light text-center" />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label className="fs-3">Surgeon</Form.Label>
-                            <Form.Control name="surgeon" onChange={handleChange} as="textarea" type="text" placeholder="Dr. Benson Hanks" className="fs-5 fw-light text-center" />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label className="fs-3 ms-4">Reason <span className='text-danger'>*</span></Form.Label>
-                            <Form.Control required name="reason" onChange={handleChange} as="textarea" type="text" placeholder="Tonsillitis" className="fs-5 fw-light text-center" />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label className="fs-3">Notes</Form.Label>
-                            <Form.Control name="notes" onChange={handleChange} as="textarea" type="text" placeholder="I had no complications." className="fs-5 fw-light text-center" />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label className="fs-3">Actions</Form.Label>
-                            <div>
-                                <button type="submit" className="text-white fs-5 fw-light me-3 mb-3 px-3 py-1 rounded-3" id="new-submit-link">Submit</button>
-                                <button type="button" className="text-white fs-5 fw-light ms-3 mb-3 px-3 py-1 rounded-3" id="new-cancel-link" onClick={goBack}>Cancel</button>
-                            </div>
-                        </Form.Group>
-                    </Form>
-                </Card>
-            </div>
-        </Container >
+        <>
+            {surgeries ? loaded() : loading()}
+        </>
     )
 }
 

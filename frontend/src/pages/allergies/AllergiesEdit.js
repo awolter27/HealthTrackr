@@ -19,10 +19,6 @@
 //         }
 //     }
 
-//     useEffect(() => {
-//         getAllergy();
-//     }, []);
-
 //     function handleChange(e) {
 //         setAllergy((currentState) => ({
 //             ...currentState,
@@ -65,6 +61,10 @@
 //             <h1>Loading...</h1>
 //         )
 //     }
+
+//     useEffect(() => {
+//         getAllergy();
+//     }, []);
 
 //     return (
 //         <>

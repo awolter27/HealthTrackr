@@ -6,9 +6,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 function CareTeamIndex() {
-    const [careteam, setCareTeam] = useState([]);
-
     const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
+
+    const [careteam, setCareTeam] = useState([]);
 
     async function getCareTeam() {
         try {
@@ -19,10 +19,6 @@ function CareTeamIndex() {
             console.log(err);
         }
     }
-
-    useEffect(() => {
-        getCareTeam();
-    }, []);
 
     function loaded(careteam) {
         return (
@@ -80,6 +76,10 @@ function CareTeamIndex() {
             <h1>Loading...</h1>
         )
     }
+
+    useEffect(() => {
+        getCareTeam();
+    }, []);
 
     return (
         <>

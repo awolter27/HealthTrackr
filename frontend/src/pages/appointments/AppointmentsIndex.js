@@ -6,9 +6,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 function AppointmentsIndex() {
-    const [appointments, setAppointments] = useState([]);
-
     const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
+
+    const [appointments, setAppointments] = useState([]);
 
     async function getAppointments() {
         try {
@@ -19,10 +19,6 @@ function AppointmentsIndex() {
             console.log(err);
         }
     }
-
-    useEffect(() => {
-        getAppointments();
-    }, []);
 
     function loaded(appointments) {
         return (
@@ -78,6 +74,10 @@ function AppointmentsIndex() {
             <h1>Loading...</h1>
         )
     }
+
+    useEffect(() => {
+        getAppointments();
+    }, []);
 
     return (
         <>

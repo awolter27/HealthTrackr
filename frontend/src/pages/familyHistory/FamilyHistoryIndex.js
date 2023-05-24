@@ -6,9 +6,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 function FamilyHistoryIndex() {
-    const [familyhistory, setFamilyHistory] = useState([]);
-
     const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
+
+    const [familyhistory, setFamilyHistory] = useState([]);
 
     async function getFamilyHistory() {
         try {
@@ -19,10 +19,6 @@ function FamilyHistoryIndex() {
             console.log(err);
         }
     }
-
-    useEffect(() => {
-        getFamilyHistory();
-    }, []);
 
     function loaded(familyhistory) {
         return (
@@ -55,7 +51,7 @@ function FamilyHistoryIndex() {
                                     <Card.Text className='fs-5 fw-light'>{familyhistory.healthCondition}</Card.Text>
                                     <Card.Title className='fs-4'>Age At Diagnosis</Card.Title>
                                     <Card.Text className='fs-5 fw-light'>{familyhistory.ageOfDiagnosis} years old</Card.Text>
-                    
+
                                     <Card.Title className='fs-4'>Notes</Card.Title>
                                     <Card.Text className='fs-5 fw-light'>{familyhistory.notes}</Card.Text>
                                     <Card.Title className='fs-4'>Actions</Card.Title>
@@ -81,6 +77,10 @@ function FamilyHistoryIndex() {
             <h1>Loading...</h1>
         )
     }
+
+    useEffect(() => {
+        getFamilyHistory();
+    }, []);
 
     return (
         <>
