@@ -37,7 +37,7 @@ function FamilyHistoryDelete() {
     function loaded() {
         return (
             <Container fluid>
-                <h1 className='fs-1 fw-normal ms-sm-3 py-5 text-center'>Family History</h1>
+                <h1 className='fs-1 fw-normal ms-sm-3 py-5 text-center'>Delete Family History</h1>
                 <div className='d-flex justify-content-center'>
                     <Card border="dark" className='mb-5 text-center' id='card'>
                         <Card.Header className='fs-3' id='card-header'>{familyHistory.relationship}</Card.Header>
