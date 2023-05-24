@@ -90,7 +90,7 @@ router.put('/:id', async (req, res, next) => {
     }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res, next) => {
     try {
         const deletedAppointment = await Appointments.findByIdAndDelete(req.params.id);
         res.redirect('/appointments');

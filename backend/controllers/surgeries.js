@@ -73,7 +73,7 @@ router.put('/:id', async (req, res, next) => {
     }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res, next) => {
     try {
         const deletedSurgery = await Surgeries.findByIdAndDelete(req.params.id);
         res.redirect('/surgeries');

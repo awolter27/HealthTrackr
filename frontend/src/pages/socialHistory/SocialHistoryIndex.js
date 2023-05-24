@@ -229,8 +229,6 @@ function SocialHistoryIndex() {
                                     <Card.Text className='fs-5 fw-light'>{socialhistory.substances.startDate}</Card.Text>
                                     <Card.Title className='fs-4'>Quit Date</Card.Title>
                                     <Card.Text className='fs-5 fw-light'>{socialhistory.substances.quitDate}</Card.Text>
-                                    {console.log(socialhistory.substances.startDate)}
-                                    {console.log(socialhistory.substances.endDate)}
                                     <Card.Title className='fs-4'>Actions</Card.Title>
                                     <div className='d-flex justify-content-center'>
                                         <Link className='me-3' to={`/socialhistory/${socialhistory._id}/edit`}>

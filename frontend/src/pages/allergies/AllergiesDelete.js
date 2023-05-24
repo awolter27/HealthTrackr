@@ -72,7 +72,6 @@ function AllergiesDelete() {
         getAllergy();
     }, []);
 
-
     return (
         <>
             {allergy ? loaded() : loading()}

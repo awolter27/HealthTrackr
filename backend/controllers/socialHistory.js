@@ -106,7 +106,7 @@ router.put('/:id', async (req, res, next) => {
     }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res, next) => {
     try {
         const deletedSocialHistory = await SocialHistory.findByIdAndDelete(req.params.id);
         res.redirect('/socialhistory');

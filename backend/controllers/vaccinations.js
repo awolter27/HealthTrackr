@@ -92,7 +92,7 @@ router.put('/:id', async (req, res, next) => {
     }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res, next) => {
     try {
         const deletedVaccination = await Vaccinations.findByIdAndDelete(req.params.id);
         res.redirect('/vaccinations');
