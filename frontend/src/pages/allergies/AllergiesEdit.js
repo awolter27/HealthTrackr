@@ -1,76 +1,103 @@
-// import { useEffect, useState } from "react";
-// import { useParams } from "react-router";
-// import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom";
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
+import Form from 'react-bootstrap/Form';
 
-// function AllergiesEdit() {
-//     const { id } = useParams();
-//     const [allergy, setAllergy] = useState(null);
-//     const navigate = useNavigate();
+function AllergiesEdit() {
+    const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
 
-//     const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
+    const [allergy, setAllergy] = useState(null);
 
-//     async function getAllergy() {
-//         try {
-//             let myAllergy = await fetch(`${URL}/allergies/${id}`);
-//             myAllergy = await myAllergy.json();
-//             setAllergy(myAllergy);
-//         } catch (err) {
-//             console.log(err);
-//         }
-//     }
+    const { id } = useParams();
 
-//     function handleChange(e) {
-//         setAllergy((currentState) => ({
-//             ...currentState,
-//             [e.target.name]: e.target.value
-//         }))
-//     }
+    const navigate = useNavigate();
 
-//     async function handleSumbit(e) {
-//         try {
-//             e.preventDefault();
-//             await fetch(`${URL}/${id}`, {
-//                 method: "PUT",
-//                 headers: {
-//                     "Content-Type": "application/json"
-//                 },
-//                 body: JSON.stringify(allergy)
-//             });
-//             return navigate(`/allergies/${id}`);
-//         } catch (err) {
-//             console.log(err);
-//         }
-//     }
+    async function getAllergy() {
+        try {
+            let myAllergy = await fetch(`${URL}/allergies/${id}`);
+            myAllergy = await myAllergy.json();
+            setAllergy(myAllergy);
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
-//     function loaded() {
-//         return (
-//             <>
-//                 <h2>Edit {allergy.name}</h2>
-//                 <form onSubmit={handleSumbit}>
-//                     Allergy: <input type="text" value={allergy.name} name="name" onChange={handleChange} />
-//                     Reaction: <input type="text" value={allergy.reaction} name="reaction" onChange={handleChange} />
-//                     Notes: <input type="number" value={allergy.notes} name="notes" onChange={handleChange} />
-//                     <button>Submit</button>
-//                 </form>
-//             </>
-//         )
-//     }
+    function handleChange(e) {
+        setAllergy((currentState) => ({
+            ...currentState,
+            [e.target.name]: e.target.value
+        }))
+    }
 
-//     function loading() {
-//         return (
-//             <h1>Loading...</h1>
-//         )
-//     }
+    async function handleSumbit(e) {
+        try {
+            e.preventDefault();
+            await fetch(`${URL}/allergies/${id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(allergy)
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
-//     useEffect(() => {
-//         getAllergy();
-//     }, []);
+    function loaded() {
+        return (
+            <Container fluid>
+                <h1 className='fs-1 fw-normal text-center my-5'>Edit Allergy</h1>
+                <div className='d-flex justify-content-center mb-5'>
+                    <Card border="dark" className='text-center' id='card'>
+                        <Form onSubmit={handleSumbit} className='mx-5'>
+                            <Form.Group className="my-3">
+                                <Form.Label className="fs-3 ms-4">Allergy <span className='text-danger'>*</span></Form.Label>
+                                <Form.Control required name="name" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{allergy.name}</Form.Control>
+                            </Form.Group>
+                            <Form.Group className="mb-3">
+                                <Form.Label className="fs-3 ms-4">Reaction <span className='text-danger'>*</span></Form.Label>
+                                <Form.Control required name="reaction" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{allergy.reaction}</Form.Control>
+                            </Form.Group>
+                            <Form.Group className="mb-3">
+                                <Form.Label className="fs-3">Notes</Form.Label>
+                                <Form.Control name="notes" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{allergy.notes}</Form.Control>
+                            </Form.Group>
+                            <Form.Group className="mb-3">
+                                <Form.Label className="fs-3">Actions</Form.Label>
+                                <div>
+                                    <button type="submit" className="btn btn-success text-white fs-5 fw-light me-3 mb-3 px-3 py-1 border border-dark rounded-3" onClick={goBack}>Edit</button>
+                                    <button type="button" className="btn btn-secondary text-white fs-5 fw-light ms-3 mb-3 px-3 py-1 border border-dark rounded-3" onClick={goBack}>Cancel</button>
+                                </div>
+                            </Form.Group>
+                        </Form>
+                    </Card>
+                </div>
+            </Container>
+        )
+    }
 
-//     return (
-//         <>
-//             {allergy ? loaded() : loading()}
-//         </>
-//     )
-// }
+    function loading() {
+        return (
+            <h1>Loading...</h1>
+        )
+    }
 
-// export default AllergiesEdit;
+    function goBack() {
+        window.history.back();
+    }
+
+    useEffect(() => {
+        getAllergy();
+    }, []);
+
+    return (
+        <>
+            {allergy ? loaded() : loading()}
+        </>
+    )
+}
+
+export default AllergiesEdit;
