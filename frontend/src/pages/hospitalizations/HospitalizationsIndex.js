@@ -40,7 +40,7 @@ function HospitalizationsIndex() {
                                 <Card.Header className='fs-3' id='card-header'>{hospitalization.name}</Card.Header>
                                 <Card.Body>
                                     <Card.Title className='fs-4'>Address</Card.Title>
-                                    <Card.Text className='fs-5 fw-light'>{hospitalization.location} {hospitalization.nameOfProvider}</Card.Text>
+                                    <Card.Text className='fs-5 fw-light'>{hospitalization.location}</Card.Text>
                                     <Card.Title className='fs-4'>Dates</Card.Title>
                                     <Card.Text className='fs-5 fw-light'>{hospitalization.dates}</Card.Text>
                                     <Card.Title className='fs-4'>Reason</Card.Title>
