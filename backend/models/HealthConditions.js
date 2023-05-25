@@ -8,23 +8,29 @@ const healthConditionsSchema = new mongoose.Schema(
         },
         currentOrPast: {
             current: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             past: {
-                type: String
+                type: String,
+                default: "N/A"
             }
         },
         ageOfDiagnosis: {
-            type: Number
+            type: Number,
+            default: "N/A"
         },
         symptoms: {
-            type: String
+            type: String,
+            default: "N/A"
         },
         treatment: {
-            type: String
+            type: String,
+            default: "N/A"
         },
         notes: {
-            type: String
+            type: String,
+            default: "None"
         }
     },
     {

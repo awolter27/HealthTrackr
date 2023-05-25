@@ -15,7 +15,8 @@ const appointmentsSchema = new mongoose.Schema(
             required: [true, 'You must enter the name of the provider you are seeing during your appointment']
         },
         specialty: {
-            type: String
+            type: String,
+            default: "N/A"
         },
         address: {
             type: String,
@@ -30,10 +31,12 @@ const appointmentsSchema = new mongoose.Schema(
             required: [true, 'You must enter the time of your appointment']
         },
         reason: {
-            type: String
+            type: String,
+            default: "N/A"
         },
         notes: {
-            type: String
+            type: String,
+            default: "None"
         }
     },
     {

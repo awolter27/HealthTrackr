@@ -4,120 +4,155 @@ const socialHistorySchema = new mongoose.Schema(
     {
         education: {
             location: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             degree: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             startDate: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             endDate: {
-                type: String
+                type: String,
+                default: "N/A"
             }
         },
         occupation: {
             title: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             employer: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             startDate: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             endDate: {
-                type: String
+                type: String,
+                default: "N/A"
             }
         },
         maritalStatus: {
-            type: String
+            type: String,
+            default: "N/A"
         },
         children: {
-            type: Number
+            type: Number,
+            default: "N/A"
         },
         diet: {
-            type: String
+            type: String,
+            default: "N/A"
         },
         exercise: {
             type: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             duration: {
-                type: Number
+                type: Number,
+                default: "N/A"
             },
             frequency: {
-                type: Number
+                type: Number,
+                default: "N/A"
             }
         },
         sleep: {
-            type: Number
+            type: Number,
+            default: "N/A"
         },
         tobacco: {
             current: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             past: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             type: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             amount: {
-                type: Number
+                type: Number,
+                default: "N/A"
             },
             startDate: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             quitDate: {
-                type: String
+                type: String,
+                default: "N/A"
             }
         },
         alcohol: {
             current: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             past: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             type: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             amount: {
-                type: Number
+                type: Number,
+                default: "N/A"
             },
             startDate: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             quitDate: {
-                type: String
+                type: String,
+                default: "N/A"
             }
         },
         substances: {
             current: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             past: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             type: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             route: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             amount: {
-                type: Number
+                type: Number,
+                default: "N/A"
             },
             startDate: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             quitDate: {
-                type: String
+                type: String,
+                default: "N/A"
             }
         },
         notes: {
-            type: String
+            type: String,
+            default: "Notes"
         }
     },
     {

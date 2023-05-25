@@ -15,22 +15,28 @@ const careTeamSchema = new mongoose.Schema(
             required: [true, 'You must enter the specialty of your healthcare provider']
         },
         address: {
-            type: String
+            type: String,
+            default: "N/A"
         },
         phoneNumber: {
-            type: String
+            type: String,
+            default: "N/A"
         },
         email: {
-            type: String
+            type: String,
+            default: "N/A"
         },
         lastAppointment: {
-            type: String
+            type: String,
+            default: "N/A"
         },
         nextAppointment: {
-            type: String
+            type: String,
+            default: "N/A"
         },
         notes: {
-            type: String
+            type: String,
+            default: "None"
         }
     },
     {

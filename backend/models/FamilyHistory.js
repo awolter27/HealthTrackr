@@ -8,18 +8,22 @@ const familyHistorySchema = new mongoose.Schema(
         },
         living: {
             living: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             age: {
-                type: Number
+                type: Number,
+                default: "N/A"
             }
         },
         deceased: {
             deceased: {
-                type: String
+                type: String,
+                default: "N/A"
             },
             ageAtDeath: {
-                type: Number
+                type: Number,
+                default: "N/A"
             }
         },
         healthCondition: {
@@ -27,10 +31,12 @@ const familyHistorySchema = new mongoose.Schema(
             required: [true, 'You must enter the health condition of your family member']
         },
         ageOfDiagnosis: {
-            type: Number
+            type: Number,
+            default: "N/A"
         },
         notes: {
-            type: String
+            type: String,
+            default: "None"
         }
     },
     {

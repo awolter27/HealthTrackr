@@ -7,7 +7,8 @@ const hospitalizationsSchema = new mongoose.Schema(
             required: [true, 'You must enter the name of the hospital']
         },
         location: {
-            type: String
+            type: String,
+            default: "N/A"
         },
         dates: {
             type: String,
@@ -18,7 +19,8 @@ const hospitalizationsSchema = new mongoose.Schema(
             required: [true, 'You must enter the reason for your hospitaization']
         },
         notes: {
-            type: String
+            type: String,
+            default: "Notes"
         }
     },
     {

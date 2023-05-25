@@ -11,7 +11,8 @@ const allergiesSchema = new mongoose.Schema(
             required: [true, 'You must enter the reaction to your allergy']
         },
         notes: {
-            type: String
+            type: String,
+            default: "None"
         }
     },
     {

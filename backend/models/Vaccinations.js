@@ -7,17 +7,20 @@ const vaccinationsSchema = new mongoose.Schema(
             required: [true, 'You must enter the name of your vaccination']
         },
         manufacturer: {
-            type: String
+            type: String,
+            default: "N/A"
         },
         lotNumber: {
-            type: String
+            type: String,
+            default: "N/A"
         },
         date: {
             type: String,
             required: [true, 'You must enter the date you recieved your vaccination']
         },
         notes: {
-            type: String
+            type: String,
+            default: "Notes"
         }
     },
     {

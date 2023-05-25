@@ -23,10 +23,12 @@ const medicationsSchema = new mongoose.Schema(
             required: [true, 'You must enter the frequency of your medication']
         },
         reason: {
-            type: String
+            type: String,
+            default: "N/A"
         },
         notes: {
-            type: String
+            type: String,
+            default: "None"
         }
     },
     {
