@@ -24,22 +24,63 @@ function HealthConditionsEdit() {
     function handleChange(e) {
         const { name, value } = e.target;
         const nestedKeys = name.split('.');
-        if (nestedKeys.length > 1) {
-            let updatedValue = value;
-            const updatedHealthCondition = { ...healthCondition };
-            let currentLevel = updatedHealthCondition;
-            for (let i = 0; i < nestedKeys.length - 1; i++) {
-                currentLevel = currentLevel[nestedKeys[i]];
-            }
-            currentLevel[nestedKeys[nestedKeys.length - 1]] = updatedValue;
-            setHealthCondition(updatedHealthCondition);
-        } else {
+        let updatedValue = value;
+        if (name === "currentOrPast.current" && value === "") {
             setHealthCondition((currentState) => ({
                 ...currentState,
-                [name]: value
+                currentOrPast: {
+                    ...currentState.currentOrPast,
+                    current: "N/A"
+                }
             }));
+        } else if (name === "currentOrPast.past" && value === "") {
+            setHealthCondition((currentState) => ({
+                ...currentState,
+                currentOrPast: {
+                    ...currentState.currentOrPast,
+                    past: "N/A"
+                }
+            }));
+        } else if (name === "ageOfDiagnosis" && value === "") {
+            setHealthCondition((currentState) => ({
+                ...currentState,
+                ageOfDiagnosis: 0
+            }));
+        } else if (name === "symptoms" && value === "") {
+            setHealthCondition((currentState) => ({
+                ...currentState,
+                symptoms: "N/A"
+            }));
+        } else if (name === "treatment" && value === "") {
+            setHealthCondition((currentState) => ({
+                ...currentState,
+                treatment: "N/A"
+            }));
+        } else if (name === "notes" && value === "") {
+            setHealthCondition((currentState) => ({
+                ...currentState,
+                notes: "None"
+            }));
+        } else {
+            if (nestedKeys.length > 1) {
+                setHealthCondition((currentState) => {
+                    const updatedHealthCondition = { ...currentState };
+                    let currentLevel = updatedHealthCondition;
+                    for (let i = 0; i < nestedKeys.length - 1; i++) {
+                        currentLevel = currentLevel[nestedKeys[i]];
+                    }
+                    currentLevel[nestedKeys[nestedKeys.length - 1]] = updatedValue;
+                    return updatedHealthCondition;
+                });
+            } else {
+                setHealthCondition((currentState) => ({
+                    ...currentState,
+                    [name]: updatedValue,
+                }));
+            }
         }
     }
+
     async function handleSumbit(e) {
         try {
             e.preventDefault();
@@ -64,32 +105,32 @@ function HealthConditionsEdit() {
                         <Form onSubmit={handleSumbit} className='mx-5'>
                             <Form.Group className="my-3">
                                 <Form.Label className="fs-3 ms-4">Health Condition <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name='name' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{healthCondition.name}</Form.Control>
+                                <Form.Control required name='name' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={healthCondition.name} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Current</Form.Label>
-                                <Form.Control name='currentOrPast.current' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{healthCondition.currentOrPast.current}</Form.Control>
+                                <Form.Control name='currentOrPast.current' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={healthCondition.currentOrPast.current} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Past</Form.Label>
-                                <Form.Control name='currentOrPast.past' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{healthCondition.currentOrPast.past}</Form.Control>
+                                <Form.Control name='currentOrPast.past' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={healthCondition.currentOrPast.past} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Age At Diagnosis</Form.Label>
-                                <Form.Control name='ageOfDiagnosis' onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center">{healthCondition.ageOfDiagnosis}</Form.Control>
+                                <Form.Control name='ageOfDiagnosis' onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center" value={healthCondition.ageOfDiagnosis} />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Symptoms</Form.Label>
-                                <Form.Control name='symptoms' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{healthCondition.symptoms}</Form.Control>
+                                <Form.Control name='symptoms' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={healthCondition.symptoms} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Treatment</Form.Label>
-                                <Form.Control name='treatment' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{healthCondition.treatment}</Form.Control>
+                                <Form.Control name='treatment' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={healthCondition.treatment} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Notes</Form.Label>
-                                <Form.Control name='notes' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{healthCondition.notes}</Form.Control>
+                                <Form.Control name='notes' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={healthCondition.notes} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Actions</Form.Label>

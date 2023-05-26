@@ -24,20 +24,66 @@ function FamilyHistoryEdit() {
     function handleChange(e) {
         const { name, value } = e.target;
         const nestedKeys = name.split('.');
-        if (nestedKeys.length > 1) {
-            let updatedValue = value;
-            const updatedFamilyHistory = { ...familyHistory };
-            let currentLevel = updatedFamilyHistory;
-            for (let i = 0; i < nestedKeys.length - 1; i++) {
-                currentLevel = currentLevel[nestedKeys[i]];
-            }
-            currentLevel[nestedKeys[nestedKeys.length - 1]] = updatedValue;
-            setFamilyHistory(updatedFamilyHistory);
-        } else {
+        let updatedValue = value;
+        if (name === "living.living" && value === "") {
             setFamilyHistory((currentState) => ({
                 ...currentState,
-                [name]: value
+                living: {
+                    ...currentState.living,
+                    living: "N/A"
+                }
             }));
+        } else if (name === "living.age" && value === "") {
+            setFamilyHistory((currentState) => ({
+                ...currentState,
+                living: {
+                    ...currentState.living,
+                    age: 0
+                }
+            }));
+        } else if (name === "deceased.deceased" && value === "") {
+            setFamilyHistory((currentState) => ({
+                ...currentState,
+                deceased: {
+                    ...currentState.deceased,
+                    deceased: "N/A"
+                }
+            }));
+        } else if (name === "deceased.ageAtDeath" && value === "") {
+            setFamilyHistory((currentState) => ({
+                ...currentState,
+                deceased: {
+                    ...currentState.deceased,
+                    ageAtDeath: 0
+                }
+            }));
+        } else if (name === "ageOfDiagnosis" && value === "") {
+            setFamilyHistory((currentState) => ({
+                ...currentState,
+                ageOfDiagnosis: 0
+            }));
+        } else if (name === "notes" && value === "") {
+            setFamilyHistory((currentState) => ({
+                ...currentState,
+                notes: "None"
+            }));
+        } else {
+            if (nestedKeys.length > 1) {
+                setFamilyHistory((currentState) => {
+                    const updatedFamilyHistory = { ...currentState };
+                    let currentLevel = updatedFamilyHistory;
+                    for (let i = 0; i < nestedKeys.length - 1; i++) {
+                        currentLevel = currentLevel[nestedKeys[i]];
+                    }
+                    currentLevel[nestedKeys[nestedKeys.length - 1]] = updatedValue;
+                    return updatedFamilyHistory;
+                });
+            } else {
+                setFamilyHistory((currentState) => ({
+                    ...currentState,
+                    [name]: updatedValue,
+                }));
+            }
         }
     }
 
@@ -65,38 +111,38 @@ function FamilyHistoryEdit() {
                         <Form onSubmit={handleSumbit} className='mx-5'>
                             <Form.Group className="my-3">
                                 <Form.Label className="fs-3 ms-4">Relationship <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name='relationship' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{familyHistory.relationship}</Form.Control>
+                                <Form.Control required name='relationship' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={familyHistory.relationship} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Living</Form.Label>
-                                <Form.Control name='living.living' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{familyHistory.living.living}</Form.Control>
+                                <Form.Control name='living.living' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={familyHistory.living.living} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Age</Form.Label>
-                                <Form.Control name='living.age' onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center">{familyHistory.living.age}</Form.Control>
+                                <Form.Control name='living.age' onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center" value={familyHistory.living.age} />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Deceased</Form.Label>
-                                <Form.Control name='deceased.deceased' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{familyHistory.deceased.deceased}</Form.Control>
+                                <Form.Control name='deceased.deceased' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={familyHistory.deceased.deceased} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Age At Death</Form.Label>
-                                <Form.Control name='deceased.ageAtDeath' onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center">{familyHistory.deceased.ageAtDeath}</Form.Control>
+                                <Form.Control name='deceased.ageAtDeath' onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center" value={familyHistory.deceased.ageAtDeath} />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3 ms-4">Health Condition <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name='healthCondition' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{familyHistory.healthCondition}</Form.Control>
+                                <Form.Control required name='healthCondition' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={familyHistory.healthCondition} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Age At Diagnosis</Form.Label>
-                                <Form.Control name='ageOfDiagnosis' onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center">{familyHistory.ageOfDiagnosis}</Form.Control>
+                                <Form.Control name='ageOfDiagnosis' onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center" value={familyHistory.ageOfDiagnosis} />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Notes</Form.Label>
-                                <Form.Control name='notes' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{familyHistory.notes}</Form.Control>
+                                <Form.Control name='notes' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={familyHistory.notes} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Actions</Form.Label>

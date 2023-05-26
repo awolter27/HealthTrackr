@@ -7,9 +7,19 @@ import Form from 'react-bootstrap/Form';
 function MedicationsEdit() {
     const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
 
-    const [medication, setMedication] = useState(null);
+    ////////////////////// NEW CODE //////////////////////
+    const [medication, setMedication] = useState({});
 
     const { id } = useParams();
+
+    ////////////////////// NEW CODE //////////////////////
+    function required() {
+        if (medication.name && medication.dose && medication.unitOfMeasurement && medication.route && medication.frequency) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     async function getMedication() {
         try {
@@ -22,10 +32,22 @@ function MedicationsEdit() {
     }
 
     function handleChange(e) {
-        setMedication((currentState) => ({
-            ...currentState,
-            [e.target.name]: e.target.value
-        }))
+        if (e.target.name === "reason" && e.target.value === "") {
+            setMedication((currentState) => ({
+                ...currentState,
+                reason: "N/A"
+            }));
+        } else if (e.target.name === "notes" && e.target.value === "") {
+            setMedication((currentState) => ({
+                ...currentState,
+                notes: "None"
+            }));
+        } else {
+            setMedication((currentState) => ({
+                ...currentState,
+                [e.target.name]: e.target.value
+            }));
+        }
     }
 
     async function handleSumbit(e) {
@@ -52,37 +74,39 @@ function MedicationsEdit() {
                         <Form onSubmit={handleSumbit} className='mx-5'>
                             <Form.Group className="my-3">
                                 <Form.Label className="fs-3 ms-4">Medication <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name="name" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{medication.name}</Form.Control>
+                                <Form.Control required name="name" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={medication.name} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3 ms-4">Dose <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name="dose" onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center">{medication.dose}</Form.Control>
+                                {/* ////////////////////// NEW CODE ////////////////////// */}
+                                <Form.Control required name="dose" as="input" onChange={handleChange} type="number" className="fs-5 fw-light text-center" value={medication.dose} />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3 ms-4">Unit Of Measurement <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name="unitOfMeasurement" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{medication.unitOfMeasurement}</Form.Control>
+                                <Form.Control required name="unitOfMeasurement" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={medication.unitOfMeasurement} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3 ms-4">Route <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name="route" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{medication.route}</Form.Control>
+                                <Form.Control required name="route" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={medication.route} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3 ms-4">Frequency <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name="frequency" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{medication.frequency}</Form.Control>
+                                <Form.Control required name="frequency" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={medication.frequency} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Reason</Form.Label>
-                                <Form.Control name="reason" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{medication.reason}</Form.Control>
+                                <Form.Control name="reason" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={medication.reason} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Notes</Form.Label>
-                                <Form.Control name="notes" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{medication.notes}</Form.Control>
+                                <Form.Control name="notes" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={medication.notes} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Actions</Form.Label>
                                 <div>
-                                    <button type="submit" className="btn btn-success text-white fs-5 fw-light me-3 mb-3 px-3 py-1 border border-dark rounded-3" onClick={goBack}>Edit</button>
+                                    {/* //////////////////////NEW CODE ////////////////////// */}
+                                    <button type="submit" disabled={!required()} className="btn btn-success text-white fs-5 fw-light me-3 mb-3 px-3 py-1 border border-dark rounded-3" onClick={goBack}>Edit</button>
                                     <button type="button" className="btn btn-secondary text-white fs-5 fw-light ms-3 mb-3 px-3 py-1 border border-dark rounded-3" onClick={goBack}>Cancel</button>
                                 </div>
                             </Form.Group>

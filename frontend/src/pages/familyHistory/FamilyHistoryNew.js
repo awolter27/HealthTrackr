@@ -12,16 +12,16 @@ function FamilyHistoryNew() {
     const [familyHistoryForm, setFamilyHistoryForm] = useState({
         relationship: "",
         living: {
-            living: "",
+            living: "N/A",
             age: 0
         },
         deceased: {
-            deceased: "",
+            deceased: "N/A",
             ageAtDeath: 0
         },
         healthCondition: "",
         ageOfDiagnosis: 0,
-        notes: ""
+        notes: "N/A"
     })
 
     const navigate = useNavigate();

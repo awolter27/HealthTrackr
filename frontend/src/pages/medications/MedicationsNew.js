@@ -15,8 +15,8 @@ function MedicationsNew() {
         unitOfMeasurement: "",
         route: "",
         frequency: "",
-        reason: "",
-        notes: ""
+        reason: "N/A",
+        notes: "None"
     })
 
     const navigate = useNavigate();

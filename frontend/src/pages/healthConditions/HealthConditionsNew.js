@@ -12,13 +12,13 @@ function HealthConditionsNew() {
     const [healthConditionsForm, setHealthConditionsForm] = useState({
         name: "",
         currentOrPast: {
-            current: "",
-            past: ""
+            current: "N/A",
+            past: "N/A"
         },
-        ageOfDiagnosis: "",
-        symptoms: "",
-        treatment: "",
-        notes: ""
+        ageOfDiagnosis: 0,
+        symptoms: "N/A",
+        treatment: "N/A",
+        notes: "None"
     })
 
     const navigate = useNavigate();
