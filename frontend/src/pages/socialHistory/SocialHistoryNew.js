@@ -11,52 +11,52 @@ function SocialHistoryNew() {
 
     const [socialHistoryForm, setSocialHistoryForm] = useState({
         education: {
-            location: "",
-            degree: "",
-            startDate: "",
-            endDate: ""
+            location: "N/A",
+            degree: "N/A",
+            startDate: "N/A",
+            endDate: "N/A"
         },
         occupation: {
-            title: "",
-            employer: "",
-            startDate: "",
-            endDate: ""
+            title: "N/A",
+            employer: "N/A",
+            startDate: "N/A",
+            endDate: "N/A"
         },
-        maritalStatus: "",
+        maritalStatus: "N/A",
         children: 0,
-        diet: "",
+        diet: "N/A",
         exercise: {
-            type: "",
+            type: "N/A",
             duration: 0,
             frequency: 0
         },
         sleep: 0,
         tobacco: {
-            current: "",
-            past: "",
-            type: "",
+            current: "N/A",
+            past: "N/A",
+            type: "N/A",
             amount: 0,
-            startDate: "",
-            quitDate: ""
+            startDate: "N/A",
+            quitDate: "N/A"
         },
         alcohol: {
-            current: "",
-            past: "",
-            type: "",
+            current: "N/A",
+            past: "N/A",
+            type: "N/A",
             amount: 0,
-            startDate: "",
-            quitDate: ""
+            startDate: "N/A",
+            quitDate: "N/A"
         },
         substances: {
-            current: "",
-            past: "",
-            type: "",
-            route: "",
+            current: "N/A",
+            past: "N/A",
+            type: "N/A",
+            route: "N/A",
             amount: 0,
-            startDate: "",
-            quitDate: ""
+            startDate: "N/A",
+            quitDate: "N/A"
         },
-        notes: ""
+        notes: "None"
     })
 
     const navigate = useNavigate();
