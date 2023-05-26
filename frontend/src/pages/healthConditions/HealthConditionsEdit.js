@@ -96,10 +96,18 @@ function HealthConditionsEdit() {
         }
     }
 
+    function requiredInput() {
+        if (healthCondition.name) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function loaded() {
         return (
             <Container fluid>
-                <h1 className='fs-1 fw-normal text-center my-5'>Edit Healt Condition</h1>
+                <h1 className='fs-1 fw-normal text-center my-5'>Edit Health Condition</h1>
                 <div className='d-flex justify-content-center mb-5'>
                     <Card border="dark" className='text-center' id='card'>
                         <Form onSubmit={handleSumbit} className='mx-5'>
@@ -135,7 +143,7 @@ function HealthConditionsEdit() {
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Actions</Form.Label>
                                 <div>
-                                    <button type="submit" className="btn btn-success text-white fs-5 fw-light me-3 mb-3 px-3 py-1 border border-dark rounded-3" onClick={goBack}>Edit</button>
+                                    <button type="submit" disabled={!requiredInput()} className="btn btn-success text-white fs-5 fw-light me-3 mb-3 px-3 py-1 border border-dark rounded-3" onClick={goBack}>Edit</button>
                                     <button type="button" className="btn btn-secondary text-white fs-5 fw-light ms-3 mb-3 px-3 py-1 border border-dark rounded-3" onClick={goBack}>Cancel</button>
                                 </div>
                             </Form.Group>

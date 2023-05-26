@@ -7,19 +7,9 @@ import Form from 'react-bootstrap/Form';
 function MedicationsEdit() {
     const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
 
-    ////////////////////// NEW CODE //////////////////////
-    const [medication, setMedication] = useState({});
+    const [medication, setMedication] = useState(null);
 
     const { id } = useParams();
-
-    ////////////////////// NEW CODE //////////////////////
-    function required() {
-        if (medication.name && medication.dose && medication.unitOfMeasurement && medication.route && medication.frequency) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
     async function getMedication() {
         try {
@@ -65,6 +55,14 @@ function MedicationsEdit() {
         }
     }
 
+    function requiredInput() {
+        if (medication.name && medication.dose && medication.unitOfMeasurement && medication.route && medication.frequency) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function loaded() {
         return (
             <Container fluid>
@@ -105,8 +103,7 @@ function MedicationsEdit() {
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Actions</Form.Label>
                                 <div>
-                                    {/* //////////////////////NEW CODE ////////////////////// */}
-                                    <button type="submit" disabled={!required()} className="btn btn-success text-white fs-5 fw-light me-3 mb-3 px-3 py-1 border border-dark rounded-3" onClick={goBack}>Edit</button>
+                                    <button type="submit" disabled={!requiredInput()} className="btn btn-success text-white fs-5 fw-light me-3 mb-3 px-3 py-1 border border-dark rounded-3" onClick={goBack}>Edit</button>
                                     <button type="button" className="btn btn-secondary text-white fs-5 fw-light ms-3 mb-3 px-3 py-1 border border-dark rounded-3" onClick={goBack}>Cancel</button>
                                 </div>
                             </Form.Group>
