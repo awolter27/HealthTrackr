@@ -13,7 +13,7 @@ const familyHistorySchema = new mongoose.Schema(
             },
             age: {
                 type: Number,
-                default: "N/A"
+                default: 0
             }
         },
         deceased: {
@@ -23,7 +23,7 @@ const familyHistorySchema = new mongoose.Schema(
             },
             ageAtDeath: {
                 type: Number,
-                default: "N/A"
+                default: 0
             }
         },
         healthCondition: {
@@ -32,7 +32,7 @@ const familyHistorySchema = new mongoose.Schema(
         },
         ageOfDiagnosis: {
             type: Number,
-            default: "N/A"
+            default: 0
         },
         notes: {
             type: String,

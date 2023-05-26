@@ -12,7 +12,7 @@ function AllergiesNew() {
     const [allergiesForm, setAllergiesForm] = useState({
         name: "",
         reaction: "",
-        notes: ""
+        notes: "None"
     })
     
     const navigate = useNavigate();

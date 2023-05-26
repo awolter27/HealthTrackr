@@ -18,7 +18,7 @@ const healthConditionsSchema = new mongoose.Schema(
         },
         ageOfDiagnosis: {
             type: Number,
-            default: "N/A"
+            default: 0
         },
         symptoms: {
             type: String,

@@ -44,7 +44,7 @@ const socialHistorySchema = new mongoose.Schema(
         },
         children: {
             type: Number,
-            default: "N/A"
+            default: 0
         },
         diet: {
             type: String,
@@ -57,16 +57,16 @@ const socialHistorySchema = new mongoose.Schema(
             },
             duration: {
                 type: Number,
-                default: "N/A"
+                default: 0
             },
             frequency: {
                 type: Number,
-                default: "N/A"
+                default: 0
             }
         },
         sleep: {
             type: Number,
-            default: "N/A"
+            default: 0
         },
         tobacco: {
             current: {
@@ -83,7 +83,7 @@ const socialHistorySchema = new mongoose.Schema(
             },
             amount: {
                 type: Number,
-                default: "N/A"
+                default: 0
             },
             startDate: {
                 type: String,
@@ -109,7 +109,7 @@ const socialHistorySchema = new mongoose.Schema(
             },
             amount: {
                 type: Number,
-                default: "N/A"
+                default: 0
             },
             startDate: {
                 type: String,
