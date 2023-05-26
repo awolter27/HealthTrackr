@@ -76,8 +76,7 @@ function MedicationsEdit() {
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3 ms-4">Dose <span className='text-danger'>*</span></Form.Label>
-                                {/* ////////////////////// NEW CODE ////////////////////// */}
-                                <Form.Control required name="dose" as="input" onChange={handleChange} type="number" className="fs-5 fw-light text-center" value={medication.dose} />
+                                <Form.Control required name="dose" as="input" onChange={handleChange} type="number" className="fs-5 fw-light pb-5 text-center" value={medication.dose} />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3">

@@ -125,7 +125,7 @@ function HealthConditionsEdit() {
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Age At Diagnosis</Form.Label>
-                                <Form.Control name='ageOfDiagnosis' onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center" value={healthCondition.ageOfDiagnosis} />
+                                <Form.Control name='ageOfDiagnosis' onChange={handleChange} as="input" type="number" className="fs-5 fw-light pb-5 text-center" value={healthCondition.ageOfDiagnosis} />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3">

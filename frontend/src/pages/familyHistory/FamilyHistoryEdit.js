@@ -127,7 +127,7 @@ function FamilyHistoryEdit() {
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Age</Form.Label>
-                                <Form.Control name='living.age' onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center" value={familyHistory.living.age} />
+                                <Form.Control name='living.age' onChange={handleChange} as="input" type="number" className="fs-5 fw-light pb-5 text-center" value={familyHistory.living.age} />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3">
@@ -136,7 +136,7 @@ function FamilyHistoryEdit() {
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Age At Death</Form.Label>
-                                <Form.Control name='deceased.ageAtDeath' onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center" value={familyHistory.deceased.ageAtDeath} />
+                                <Form.Control name='deceased.ageAtDeath' onChange={handleChange} as="input" type="number" className="fs-5 fw-light pb-5 text-center" value={familyHistory.deceased.ageAtDeath} />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3">
@@ -145,7 +145,7 @@ function FamilyHistoryEdit() {
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Age At Diagnosis</Form.Label>
-                                <Form.Control name='ageOfDiagnosis' onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center" value={familyHistory.ageOfDiagnosis} />
+                                <Form.Control name='ageOfDiagnosis' onChange={handleChange} as="input" type="number" className="fs-5 fw-light pb-5 text-center" value={familyHistory.ageOfDiagnosis} />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3">

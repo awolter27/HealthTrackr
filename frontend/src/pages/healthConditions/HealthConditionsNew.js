@@ -82,7 +82,7 @@ function HealthConditionsNew() {
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Age At Diagnosis</Form.Label>
-                                <Form.Control name='ageOfDiagnosis' onChange={handleChange} as="textarea" type="number" placeholder="52" className="fs-5 fw-light text-center" />
+                                <Form.Control name='ageOfDiagnosis' onChange={handleChange} as="input" type="number" placeholder="52" className="fs-5 pb-5 fw-light text-center" />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3">

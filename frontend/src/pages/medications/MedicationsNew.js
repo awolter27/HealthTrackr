@@ -72,7 +72,7 @@ function MedicationsNew() {
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3 ms-4">Dose <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name="dose" onChange={handleChange} as="textarea" type="number" placeholder="1000" className="fs-5 fw-light text-center" />
+                                <Form.Control required name="dose" onChange={handleChange} as="input" type="number" placeholder="1000" className="fs-5 fw-light pb-5 text-center" />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3">

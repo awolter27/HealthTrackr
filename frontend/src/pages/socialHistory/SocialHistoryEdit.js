@@ -175,7 +175,7 @@ function SocialHistoryEdit() {
                             </Form.Group>
                             <Form.Group className="my-2">
                                 <Card.Header className='fs-3 mb-4 border-bottom border-top border-dark rounded-1' id='card-header'>Children</Card.Header>
-                                <Form.Control name="children" onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center" value={socialHistory.children} />
+                                <Form.Control name="children" onChange={handleChange} as="input" type="number" className="fs-5 fw-light pb-5 text-center" value={socialHistory.children} />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="mt-2 mb-4">
@@ -189,17 +189,17 @@ function SocialHistoryEdit() {
                             </Form.Group>
                             <Form.Group className="mt-2">
                                 <Form.Label className="fs-4">Duration</Form.Label>
-                                <Form.Control name="exercise.duration" onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center" value={socialHistory.exercise.duration} />
+                                <Form.Control name="exercise.duration" onChange={handleChange} as="input" type="number" className="fs-5 fw-light pb-5 text-center" value={socialHistory.exercise.duration} />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="mt-2 mb-1">
                                 <Form.Label className="fs-4">Frequency</Form.Label>
-                                <Form.Control name="exercise.frequency" onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center" value={socialHistory.exercise.frequency} />
+                                <Form.Control name="exercise.frequency" onChange={handleChange} as="input" type="number" className="fs-5 fw-light pb-5 text-center" value={socialHistory.exercise.frequency} />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="my-3">
                                 <Card.Header className='fs-3 mb-4 border-bottom border-top border-dark rounded-1' id='card-header'>Sleep</Card.Header>
-                                <Form.Control name="sleep" onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center" value={socialHistory.sleep} />
+                                <Form.Control name="sleep" onChange={handleChange} as="input" type="number" className="fs-5 fw-light pb-5 text-center" value={socialHistory.sleep} />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Card.Header className='fs-3 border-bottom border-top border-dark rounded-1' id='card-header'>Tobacco</Card.Header>
@@ -217,7 +217,7 @@ function SocialHistoryEdit() {
                             </Form.Group>
                             <Form.Group className="mt-2 mb-1">
                                 <Form.Label className="fs-4">Amount</Form.Label>
-                                <Form.Control name="tobacco.amount" onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center" value={socialHistory.tobacco.amount} />
+                                <Form.Control name="tobacco.amount" onChange={handleChange} as="input" type="number" className="fs-5 fw-light pb-5 text-center" value={socialHistory.tobacco.amount} />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="my-2">
@@ -243,7 +243,7 @@ function SocialHistoryEdit() {
                             </Form.Group>
                             <Form.Group className="mt-2 mb-1">
                                 <Form.Label className="fs-4">Amount</Form.Label>
-                                <Form.Control name="alcohol.amount" onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center" value={socialHistory.alcohol.amount} />
+                                <Form.Control name="alcohol.amount" onChange={handleChange} as="input" type="number" className="fs-5 fw-light pb-5 text-center" value={socialHistory.alcohol.amount} />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="my-2">
@@ -273,7 +273,7 @@ function SocialHistoryEdit() {
                             </Form.Group>
                             <Form.Group className="mt-2 mb-1">
                                 <Form.Label className="fs-4">Amount</Form.Label>
-                                <Form.Control name="substances.amount" onChange={handleChange} as="textarea" type="number" className="fs-5 fw-light text-center" value={socialHistory.substances.amount} />
+                                <Form.Control name="substances.amount" onChange={handleChange} as="input" type="number" className="fs-5 fw-light pb-5 text-center" value={socialHistory.substances.amount} />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="my-2">
