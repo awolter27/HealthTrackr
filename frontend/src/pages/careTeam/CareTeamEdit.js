@@ -22,10 +22,42 @@ function CareTeamEdit() {
     }
 
     function handleChange(e) {
-        setCareTeam((currentState) => ({
-            ...currentState,
-            [e.target.name]: e.target.value
-        }))
+        if (e.target.name === "address" && e.target.value === "") {
+            setCareTeam((currentState) => ({
+                ...currentState,
+                address: "N/A"
+            }));
+        } else if (e.target.name === "phoneNumber" && e.target.value === "") {
+            setCareTeam((currentState) => ({
+                ...currentState,
+                phoneNumber: "N/A"
+            }));
+        } else if (e.target.name === "email" && e.target.value === "") {
+            setCareTeam((currentState) => ({
+                ...currentState,
+                email: "N/A"
+            }));
+        } else if (e.target.name === "lastAppointment" && e.target.value === "") {
+            setCareTeam((currentState) => ({
+                ...currentState,
+                lastAppointment: "N/A"
+            }));
+        } else if (e.target.name === "nextAppointment" && e.target.value === "") {
+            setCareTeam((currentState) => ({
+                ...currentState,
+                nextAppointment: "N/A"
+            }));
+        } else if (e.target.name === "notes" && e.target.value === "") {
+            setCareTeam((currentState) => ({
+                ...currentState,
+                notes: "None"
+            }));
+        } else {
+            setCareTeam((currentState) => ({
+                ...currentState,
+                [e.target.name]: e.target.value
+            }));
+        }
     }
 
     async function handleSumbit(e) {
@@ -52,39 +84,39 @@ function CareTeamEdit() {
                         <Form onSubmit={handleSumbit} className='mx-5'>
                             <Form.Group className="my-3">
                                 <Form.Label className="fs-3 ms-4">Provider Title <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name='title' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{careTeam.title}</Form.Control>
+                                <Form.Control required name='title' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={careTeam.title} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3 ms-4">Provider Name <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name='name' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{careTeam.name}</Form.Control>
+                                <Form.Control required name='name' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={careTeam.name} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3 ms-4">Specialty <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name='specialty' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{careTeam.specialty}</Form.Control>
+                                <Form.Control required name='specialty' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={careTeam.specialty} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Address</Form.Label>
-                                <Form.Control name='address' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{careTeam.address}</Form.Control>
+                                <Form.Control name='address' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={careTeam.address} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Phone Number</Form.Label>
-                                <Form.Control name='phoneNumber' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{careTeam.phoneNumber}</Form.Control>
+                                <Form.Control name='phoneNumber' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={careTeam.phoneNumber} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Email</Form.Label>
-                                <Form.Control name='email' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{careTeam.email}</Form.Control>
+                                <Form.Control name='email' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={careTeam.email} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Last Appointment</Form.Label>
-                                <Form.Control name='lastAppointment' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{careTeam.lastAppointment}</Form.Control>
+                                <Form.Control name='lastAppointment' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={careTeam.lastAppointment} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Next Appointment</Form.Label>
-                                <Form.Control name='nextAppointment' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{careTeam.nextAppointment}</Form.Control>
+                                <Form.Control name='nextAppointment' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={careTeam.nextAppointment} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Notes</Form.Label>
-                                <Form.Control name='notes' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{careTeam.notes}</Form.Control>
+                                <Form.Control name='notes' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={careTeam.notes} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Actions</Form.Label>

@@ -13,12 +13,12 @@ function CareTeamNew() {
         title: "",
         name: "",
         specialty: "",
-        address: "",
-        phoneNumber: "",
-        email: "",
-        lastAppointment: "",
-        nextAppointment: "",
-        notes: ""
+        address: "N/A",
+        phoneNumber: "N/A",
+        email: "N/A",
+        lastAppointment: "N/A",
+        nextAppointment: "N/A",
+        notes: "None"
     })
 
     const navigate = useNavigate();
