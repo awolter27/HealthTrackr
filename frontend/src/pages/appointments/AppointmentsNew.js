@@ -13,12 +13,12 @@ function AppointmentsNew() {
         nameOfAppointment: "",
         title: "",
         nameOfProvider: "",
-        specialty: "",
+        specialty: "N/A",
         address: "",
         date: "",
         time: "",
-        reason: "",
-        notes: ""
+        reason: "N/A",
+        notes: "None"
     })
 
     const navigate = useNavigate();

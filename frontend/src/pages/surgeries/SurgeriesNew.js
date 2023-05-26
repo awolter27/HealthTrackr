@@ -11,11 +11,11 @@ function SurgeriesNew() {
 
     const [surgeriesForm, setSurgeriesForm] = useState({
         name: "",
-        location: "",
+        location: "N/A",
         date: "",
-        surgeon: "",
+        surgeon: "N/A",
         reason: "",
-        notes: ""
+        notes: "None"
     })
 
     const navigate = useNavigate();

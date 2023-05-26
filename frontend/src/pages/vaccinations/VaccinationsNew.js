@@ -11,10 +11,10 @@ function VaccinationsNew() {
 
     const [vaccinationsForm, setVaccinationsForm] = useState({
         name: "",
-        manufacturer: "",
-        lotNumber: "",
+        manufacturer: "N/A",
+        lotNumber: "N/A",
         date: "",
-        notes: ""
+        notes: "None"
     })
 
     const navigate = useNavigate();

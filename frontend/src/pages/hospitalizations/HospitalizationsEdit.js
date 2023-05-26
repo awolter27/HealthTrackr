@@ -22,10 +22,22 @@ function HospitalizationsEdit() {
     }
 
     function handleChange(e) {
-        setHospitalization((currentState) => ({
-            ...currentState,
-            [e.target.name]: e.target.value
-        }))
+        if (e.target.name === "location" && e.target.value === "") {
+            setHospitalization((currentState) => ({
+                ...currentState,
+                location: "N/A"
+            }));
+        } else if (e.target.name === "notes" && e.target.value === "") {
+            setHospitalization((currentState) => ({
+                ...currentState,
+                notes: "None"
+            }));
+        } else {
+            setHospitalization((currentState) => ({
+                ...currentState,
+                [e.target.name]: e.target.value
+            }));
+        }
     }
 
     async function handleSumbit(e) {
@@ -52,23 +64,23 @@ function HospitalizationsEdit() {
                         <Form onSubmit={handleSumbit} className='mx-5'>
                             <Form.Group className="my-3">
                                 <Form.Label className="fs-3 ms-4">Hospital <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name="name" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{hospitalization.name}</Form.Control>
+                                <Form.Control required name="name" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={hospitalization.name} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Address</Form.Label>
-                                <Form.Control name="location" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{hospitalization.location}</Form.Control>
+                                <Form.Control name="location" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={hospitalization.location} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3 ms-4">Dates <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name="dates" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{hospitalization.dates}</Form.Control>
+                                <Form.Control required name="dates" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={hospitalization.dates} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3 ms-4">Reason <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name="reason" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{hospitalization.reason}</Form.Control>
+                                <Form.Control required name="reason" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={hospitalization.reason} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Notes</Form.Label>
-                                <Form.Control name="notes" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{hospitalization.notes}</Form.Control>
+                                <Form.Control name="notes" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={hospitalization.notes} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Actions</Form.Label>

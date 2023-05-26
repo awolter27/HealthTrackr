@@ -22,10 +22,27 @@ function VaccinationsEdit() {
     }
 
     function handleChange(e) {
-        setVaccination((currentState) => ({
-            ...currentState,
-            [e.target.name]: e.target.value
-        }))
+        if (e.target.name === "manufacturer" && e.target.value === "") {
+            setVaccination((currentState) => ({
+                ...currentState,
+                manufacturer: "N/A"
+            }));
+        } else if (e.target.name === "lotNumber" && e.target.value === "") {
+            setVaccination((currentState) => ({
+                ...currentState,
+                lotNumber: "N/A"
+            }));
+        } else if (e.target.name === "notes" && e.target.value === "") {
+            setVaccination((currentState) => ({
+                ...currentState,
+                notes: "None"
+            }));
+        } else {
+            setVaccination((currentState) => ({
+                ...currentState,
+                [e.target.name]: e.target.value
+            }));
+        }
     }
 
     async function handleSumbit(e) {
@@ -52,23 +69,23 @@ function VaccinationsEdit() {
                         <Form onSubmit={handleSumbit} className='mx-5'>
                             <Form.Group className="my-3">
                                 <Form.Label className="fs-3 ms-4">Vaccination <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name="name" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{vaccination.name}</Form.Control>
+                                <Form.Control required name="name" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={vaccination.name} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Manufacturer</Form.Label>
-                                <Form.Control name="manufacturer" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{vaccination.manufacturer}</Form.Control>
+                                <Form.Control name="manufacturer" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={vaccination.manufacturer} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Lot Number</Form.Label>
-                                <Form.Control name="lotNumber" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{vaccination.lotNumber}</Form.Control>
+                                <Form.Control name="lotNumber" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={vaccination.lotNumber} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3 ms-4">Date <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name="date" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{vaccination.date}</Form.Control>
+                                <Form.Control required name="date" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={vaccination.date} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Notes</Form.Label>
-                                <Form.Control name="notes" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center">{vaccination.notes}</Form.Control>
+                                <Form.Control name="notes" onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={vaccination.notes} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Actions</Form.Label>

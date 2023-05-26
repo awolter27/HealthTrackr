@@ -11,10 +11,10 @@ function HospitalizationsNew() {
 
     const [hospitaizationsForm, setHospitalizationsForm] = useState({
         name: "",
-        location: "",
+        location: "N/A",
         dates: "",
         reason: "",
-        notes: ""
+        notes: "None"
     })
 
     const navigate = useNavigate();
