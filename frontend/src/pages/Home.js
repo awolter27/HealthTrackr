@@ -18,6 +18,12 @@ function Home() {
                     <p className="fs-3 fw-light text-dark ">Appointments</p>
                 </Link>
             </div>
+            <div className='d-flex flex-column align-items-center rounded-4 bg-white' id='home-div'>
+                <Link to={`/careteam`} className='d-flex flex-column align-items-center text-decoration-none'>
+                    <Image src="/icons/careteam.png" className='px-4 pt-3 pb-1 rounded-4' alt='icon' id='home-image' />
+                    <p className="fs-3 fw-light text-dark ">Appointments</p>
+                </Link>
+            </div>
         </Container>
     );
 }
