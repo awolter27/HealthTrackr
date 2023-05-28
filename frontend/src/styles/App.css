@@ -46,3 +46,7 @@ div .navbar-nav {
 #index-delete-link {
   background-color: rgb(38, 146, 121);
 }
+
+#home-image {
+  max-height: 200px;
+}
