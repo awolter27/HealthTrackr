@@ -44,8 +44,23 @@ import CareTeamNew from "./pages/careTeam/CareTeamNew";
 import CareTeamEdit from "./pages/careTeam/CareTeamEdit";
 import CareTeamDelete from "./pages/careTeam/CareTeamDelete";
 import { Route, Routes } from "react-router-dom";
+import {useState} from "react";
 
 function App() {
+  const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
+
+  const [allergies, setAllergies] = useState([]);
+
+  async function getAllergies() {
+      try {
+          let myAllergies = await fetch(`${URL}/allergies`);
+          myAllergies = await myAllergies.json();
+          setAllergies(myAllergies);
+      } catch (err) {
+          console.log(err);
+      }
+  }
+  
   return (
     <>
       <Header />
@@ -58,9 +73,9 @@ function App() {
           <Route path=":id/delete" element={<HealthConditionsDelete />} />
         </Route>
         <Route path="/allergies">
-          <Route path="" element={<AllergiesIndex />} />
+          <Route path="" element={<AllergiesIndex URL={URL} getAllergies={getAllergies} allergies={allergies} setAllergies={setAllergies} />} />
           <Route path="new" element={<AllergiesNew />} />
-          <Route path=":id/edit" element={<AllergiesEdit />} />
+          <Route path=":id/edit" element={<AllergiesEdit URL={URL} getAllergies={getAllergies} allergies={allergies} setAllergies={setAllergies}/>} />
           <Route path=":id/delete" element={<AllergiesDelete />} />
         </Route>
         <Route path="/medications">

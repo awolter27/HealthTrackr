@@ -1,25 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-function AllergiesIndex() {
-    const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
-
-    const [allergies, setAllergies] = useState([]);
-
-    async function getAllergies() {
-        try {
-            let myAllergies = await fetch(`${URL}/allergies`);
-            myAllergies = await myAllergies.json();
-            setAllergies(myAllergies);
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
+function AllergiesIndex({ getAllergies, allergies }) {
     function loaded(allergies) {
         return (
             <Container fluid>
@@ -35,8 +21,8 @@ function AllergiesIndex() {
                 </Row>
                 {allergies.map((allergy, idx) => {
                     return (
-                        <div className='d-flex justify-content-center'>
-                            <Card key={idx} border="dark" className='mb-5 text-center' id='card'>
+                        <div key={idx} className='d-flex justify-content-center'>
+                            <Card border="dark" className='mb-5 text-center' id='card'>
                                 <Card.Header className='fs-3' id='card-header'>{allergy.name}</Card.Header>
                                 <Card.Body>
                                     <Card.Title className='fs-4'>Reaction</Card.Title>

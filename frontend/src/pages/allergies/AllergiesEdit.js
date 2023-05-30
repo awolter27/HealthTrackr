@@ -4,9 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 
-function AllergiesEdit() {
-    const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
-
+function AllergiesEdit({ URL, getAllergies }) {
     const [allergy, setAllergy] = useState(null);
 
     const { id } = useParams();
@@ -48,6 +46,7 @@ function AllergiesEdit() {
         } catch (err) {
             console.log(err);
         }
+        getAllergies();
     }
 
     function requiredInput() {
