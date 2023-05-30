@@ -3,7 +3,7 @@ body {
   background-image: linear-gradient(0deg, rgba(224, 225, 205, 1) 35%, rgba(213, 228, 211, 1) 65%, rgba(204, 230, 220, 1) 100%);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 100%;
   color: black;
   font-family: 'Lato', sans-serif;
 }
@@ -14,7 +14,6 @@ body {
 
 #nav-menu {
   color: white;
-  text-align: right;
 }
 
 #nav-heading:hover,
@@ -45,8 +44,4 @@ div .navbar-nav {
 #index-edit-link,
 #index-delete-link {
   background-color: rgb(38, 146, 121);
-}
-
-#home-image {
-  max-height: 200px;
 }
