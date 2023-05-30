@@ -4,9 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
-function AllergiesDelete() {
-    const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
-
+function AllergiesDelete({ getAllergies }) {
     const [allergy, setAllergy] = useState(null);
 
     const { id } = useParams();
@@ -32,6 +30,7 @@ function AllergiesDelete() {
         } catch (err) {
             console.log(err);
         }
+        getAllergies();
     };
 
     function loaded() {
