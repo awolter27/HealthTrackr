@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const surgeriesSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            required: [true, 'You must enter the name of your procedure or surgery']
+            required: [true, "You must enter the name of your procedure or surgery"]
         },
         location: {
             type: String,
@@ -12,7 +12,7 @@ const surgeriesSchema = new mongoose.Schema(
         },
         date: {
             type: String,
-            required: [true, 'You must enter the date of your procedure or surgery']
+            required: [true, "You must enter the date of your procedure or surgery"]
         },
         surgeon: {
             type: String,
@@ -20,7 +20,7 @@ const surgeriesSchema = new mongoose.Schema(
         },
         reason: {
             type: String,
-            required: [true, 'You must enter the reason for your procedure or surgery']
+            required: [true, "You must enter the reason for your procedure or surgery"]
         },
         notes: {
             type: String,
@@ -32,6 +32,6 @@ const surgeriesSchema = new mongoose.Schema(
     }
 );
 
-const Surgeries = mongoose.model('surgery', surgeriesSchema);
+const Surgeries = mongoose.model("surgery", surgeriesSchema);
 
 module.exports = Surgeries;

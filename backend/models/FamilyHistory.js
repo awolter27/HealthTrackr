@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const familyHistorySchema = new mongoose.Schema(
     {
         relationship: {
             type: String,
-            required: [true, 'You must enter the relationship to your family member']
+            required: [true, "You must enter the relationship to your family member"]
         },
         living: {
             living: {
@@ -28,7 +28,7 @@ const familyHistorySchema = new mongoose.Schema(
         },
         healthCondition: {
             type: String,
-            required: [true, 'You must enter the health condition of your family member']
+            required: [true, "You must enter the health condition of your family member"]
         },
         ageOfDiagnosis: {
             type: Number,
@@ -44,6 +44,6 @@ const familyHistorySchema = new mongoose.Schema(
     }
 );
 
-const FamilyHistory = mongoose.model('familyHistory', familyHistorySchema);
+const FamilyHistory = mongoose.model("familyHistory", familyHistorySchema);
 
 module.exports = FamilyHistory;

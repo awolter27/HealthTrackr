@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const healthConditionsSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            required: [true, 'You must enter the name of your health condition']
+            required: [true, "You must enter the name of your health condition"]
         },
         currentOrPast: {
             current: {
@@ -38,6 +38,6 @@ const healthConditionsSchema = new mongoose.Schema(
     }
 );
 
-const HealthConditions = mongoose.model('healthCondition', healthConditionsSchema);
+const HealthConditions = mongoose.model("healthCondition", healthConditionsSchema);
 
 module.exports = HealthConditions;

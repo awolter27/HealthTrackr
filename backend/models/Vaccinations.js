@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const vaccinationsSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            required: [true, 'You must enter the name of your vaccination']
+            required: [true, "You must enter the name of your vaccination"]
         },
         manufacturer: {
             type: String,
@@ -16,7 +16,7 @@ const vaccinationsSchema = new mongoose.Schema(
         },
         date: {
             type: String,
-            required: [true, 'You must enter the date you recieved your vaccination']
+            required: [true, "You must enter the date you recieved your vaccination"]
         },
         notes: {
             type: String,
@@ -28,6 +28,6 @@ const vaccinationsSchema = new mongoose.Schema(
     }
 );
 
-const Vaccinations = mongoose.model('vaccination', vaccinationsSchema);
+const Vaccinations = mongoose.model("vaccination", vaccinationsSchema);
 
 module.exports = Vaccinations;

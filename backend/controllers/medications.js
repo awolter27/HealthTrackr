@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { Medications } = require('../models');
+const { Medications } = require("../models");
 
 const seededData = [
     {
@@ -39,9 +39,9 @@ const seededData = [
         reason: "Seasonal Allergies",
         notes: "I need to go to the store to buy more anti-histamines."
     }
-]
+];
 
-router.get('', async (req, res, next) => {
+router.get("", async (req, res, next) => {
     try {
         const myMedications = await Medications.find({});
         res.json(myMedications);
@@ -49,31 +49,31 @@ router.get('', async (req, res, next) => {
         next();
         console.log(err);
     }
-})
+});
 
-router.get('/seed', async (req, res, next) => {
+router.get("/seed", async (req, res, next) => {
     try {
         await Medications.deleteMany({});
         await Medications.insertMany(seededData);
-        res.redirect('/medications');
-    } catch(err) {
-        next();
-        console.log(err);
-    }
-})
-
-router.post('', async (req, res, next) => {
-    try {
-        const newMedication = req.body;
-        await Medications.create(req.body);
-        res.redirect('/medications');
+        res.redirect("/medications");
     } catch (err) {
         next();
         console.log(err);
     }
-})
+});
 
-router.get('/:id', async (req, res, next) => {
+router.post("", async (req, res, next) => {
+    try {
+        const newMedication = req.body;
+        await Medications.create(req.body);
+        res.redirect("/medications");
+    } catch (err) {
+        next();
+        console.log(err);
+    }
+});
+
+router.get("/:id", async (req, res, next) => {
     try {
         const myMedication = await Medications.findById(req.params.id);
         res.json(myMedication);
@@ -81,9 +81,9 @@ router.get('/:id', async (req, res, next) => {
         next();
         console.log(err);
     }
-})
+});
 
-router.put('/:id', async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
     try {
         const updatedMedication = await Medications.findByIdAndUpdate(req.params.id, req.body);
         res.redirect(`/medications/${req.params.id}`);
@@ -91,16 +91,16 @@ router.put('/:id', async (req, res, next) => {
         next();
         console.log(err);
     }
-})
+});
 
-router.delete('/:id', async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
     try {
         const deletedMedication = await Medications.findByIdAndDelete(req.params.id);
-        res.redirect('/medications');
+        res.redirect("/medications");
     } catch (err) {
         next();
         console.log(err);
     }
-})
+});
 
 module.exports = router;

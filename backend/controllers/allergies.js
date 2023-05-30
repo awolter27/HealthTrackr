@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { Allergies } = require('../models');
+const { Allergies } = require("../models");
 
 const seededData = [
     {
@@ -23,9 +23,9 @@ const seededData = [
         reaction: "Sinus Congestion, Nasal Congestion, Sneezing",
         notes: "Last Allergic Reaction: Seasonal"
     }
-]
+];
 
-router.get('', async (req, res, next) => {
+router.get("", async (req, res, next) => {
     try {
         const myAllergies = await Allergies.find({});
         res.json(myAllergies);
@@ -33,31 +33,31 @@ router.get('', async (req, res, next) => {
         next();
         console.log(err);
     }
-})
+});
 
-router.get('/seed', async (req, res, next) => {
+router.get("/seed", async (req, res, next) => {
     try {
         await Allergies.deleteMany({});
         await Allergies.insertMany(seededData);
-        res.redirect('/allergies');
-    } catch(err) {
-        next();
-        console.log(err);
-    }
-})
-
-router.post('', async (req, res, next) => {
-    try {
-        const newAllergy = req.body;
-        await Allergies.create(req.body);
-        res.redirect('/allergies');
+        res.redirect("/allergies");
     } catch (err) {
         next();
         console.log(err);
     }
-})
+});
 
-router.get('/:id', async (req, res, next) => {
+router.post("", async (req, res, next) => {
+    try {
+        const newAllergy = req.body;
+        await Allergies.create(req.body);
+        res.redirect("/allergies");
+    } catch (err) {
+        next();
+        console.log(err);
+    }
+});
+
+router.get("/:id", async (req, res, next) => {
     try {
         const myAllergy = await Allergies.findById(req.params.id);
         res.json(myAllergy);
@@ -65,9 +65,9 @@ router.get('/:id', async (req, res, next) => {
         next();
         console.log(err);
     }
-})
+});
 
-router.put('/:id', async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
     try {
         const updatedAllergy = await Allergies.findByIdAndUpdate(req.params.id, req.body);
         res.redirect(`/allergies/${req.params.id}`);
@@ -75,16 +75,16 @@ router.put('/:id', async (req, res, next) => {
         next();
         console.log(err);
     }
-})
+});
 
-router.delete('/:id', async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
     try {
         const deletedAllergy = await Allergies.findByIdAndDelete(req.params.id);
-        res.redirect('/allergies');
+        res.redirect("/allergies");
     } catch (err) {
         next();
         console.log(err);
     }
-})
+});
 
 module.exports = router;

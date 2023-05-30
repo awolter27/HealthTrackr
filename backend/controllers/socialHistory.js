@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { SocialHistory } = require('../models');
+const { SocialHistory } = require("../models");
 
 const seededData = [
     {
@@ -44,17 +44,17 @@ const seededData = [
         substances: {
             current: "False",
             past: "False",
-            type: "n/a",
-            route: "n/a",
+            type: "N/A",
+            route: "N/A",
             amount: 0,
-            startDate: "n/a",
-            quitDate: "n/a"
+            startDate: "N/A",
+            quitDAte: "N/A"
         },
         notes: "I am interested in quiting tobacco."
     }
-]
+];
 
-router.get('', async (req, res, next) => {
+router.get("", async (req, res, next) => {
     try {
         const mySocialHistory = await SocialHistory.find({});
         res.json(mySocialHistory);
@@ -62,31 +62,31 @@ router.get('', async (req, res, next) => {
         next();
         console.log(err);
     }
-})
+});
 
-router.get('/seed', async (req, res, next) => {
+router.get("/seed", async (req, res, next) => {
     try {
         await SocialHistory.deleteMany({});
         await SocialHistory.insertMany(seededData);
-        res.redirect('/socialhistory');
-    } catch(err) {
-        next();
-        console.log(err);
-    }
-})
-
-router.post('', async (req, res, next) => {
-    try {
-        const newSocialHistory = req.body;
-        await SocialHistory.create(req.body);
-        res.redirect('/socialhistory');
+        res.redirect("/socialhistory");
     } catch (err) {
         next();
         console.log(err);
     }
-})
+});
 
-router.get('/:id', async (req, res, next) => {
+router.post("", async (req, res, next) => {
+    try {
+        const newSocialHistory = req.body;
+        await SocialHistory.create(req.body);
+        res.redirect("/socialhistory");
+    } catch (err) {
+        next();
+        console.log(err);
+    }
+});
+
+router.get("/:id", async (req, res, next) => {
     try {
         const mySocialHistory = await SocialHistory.findById(req.params.id);
         res.json(mySocialHistory);
@@ -94,9 +94,9 @@ router.get('/:id', async (req, res, next) => {
         next();
         console.log(err);
     }
-})
+});
 
-router.put('/:id', async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
     try {
         const updatedSocialHistory = await SocialHistory.findByIdAndUpdate(req.params.id, req.body);
         res.redirect(`/socialhistory/${req.params.id}`);
@@ -104,16 +104,16 @@ router.put('/:id', async (req, res, next) => {
         next();
         console.log(err);
     }
-})
+});
 
-router.delete('/:id', async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
     try {
         const deletedSocialHistory = await SocialHistory.findByIdAndDelete(req.params.id);
-        res.redirect('/socialhistory');
+        res.redirect("/socialhistory");
     } catch (err) {
         next();
         console.log(err);
     }
-})
+});
 
 module.exports = router;

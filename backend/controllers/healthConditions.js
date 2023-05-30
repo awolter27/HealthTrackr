@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { HealthConditions } = require('../models');
+const { HealthConditions } = require("../models");
 
 const seededData = [
     {
@@ -45,7 +45,7 @@ const seededData = [
         ageOfDiagnosis: 13,
         symptoms: "Sinus Congestion, Nasal Congestion, Sneezing",
         treatment: "OTC Claritin",
-        notes: "I'm allergic to pollen'."
+        notes: "I'm allergic to pollen."
     },
     {
         name: "Chickenpox",
@@ -58,9 +58,9 @@ const seededData = [
         treatment: "Symptomatic Care",
         notes: "I was never vaccinated for varicella."
     }
-]
+];
 
-router.get('', async (req, res, next) => {
+router.get("", async (req, res, next) => {
     try {
         const myHealthConditions = await HealthConditions.find({});
         res.json(myHealthConditions);
@@ -68,31 +68,31 @@ router.get('', async (req, res, next) => {
         next();
         console.log(err);
     }
-})
+});
 
-router.get('/seed', async (req, res, next) => {
+router.get("/seed", async (req, res, next) => {
     try {
         await HealthConditions.deleteMany({});
         await HealthConditions.insertMany(seededData);
-        res.redirect('/healthconditions');
+        res.redirect("/healthconditions");
     } catch (err) {
         next();
         console.log(err);
     }
-})
+});
 
-router.post('', async (req, res, next) => {
+router.post("", async (req, res, next) => {
     try {
         const newHealthCondition = req.body;
         await HealthConditions.create(req.body);
-        res.redirect('/healthconditions');
+        res.redirect("/healthconditions");
     } catch (err) {
         next();
         console.log(err);
     }
-})
+});
 
-router.get('/:id', async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
     try {
         const myHealthCondition = await HealthConditions.findById(req.params.id);
         res.json(myHealthCondition);
@@ -100,9 +100,9 @@ router.get('/:id', async (req, res, next) => {
         next();
         console.log(err);
     }
-})
+});
 
-router.put('/:id', async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
     try {
         const updatedHealthCondition = await HealthConditions.findByIdAndUpdate(req.params.id, req.body);
         res.redirect(`/healthconditions/${req.params.id}`);
@@ -110,16 +110,16 @@ router.put('/:id', async (req, res, next) => {
         next();
         console.log(err);
     }
-})
+});
 
-router.delete('/:id', async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
     try {
         const deletedHealthCondition = await HealthConditions.findByIdAndDelete(req.params.id);
-        res.redirect('/healthconditions');
+        res.redirect("/healthconditions");
     } catch (err) {
         next();
         console.log(err);
     }
-})
+});
 
 module.exports = router;

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const socialHistorySchema = new mongoose.Schema(
     {
@@ -160,6 +160,6 @@ const socialHistorySchema = new mongoose.Schema(
     }
 );
 
-const SocialHistory = mongoose.model('socialHistory', socialHistorySchema);
+const SocialHistory = mongoose.model("socialHistory", socialHistorySchema);
 
 module.exports = SocialHistory;

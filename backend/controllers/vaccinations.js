@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { Vaccinations } = require('../models');
+const { Vaccinations } = require("../models");
 
 const seededData = [
     {
@@ -37,10 +37,10 @@ const seededData = [
         lotNumber: "MS2382",
         date: "07/06/2015",
         notes: "Right Deltoid"
-    },
-]
+    }
+];
 
-router.get('', async (req, res, next) => {
+router.get("", async (req, res, next) => {
     try {
         const myVaccinations = await Vaccinations.find({});
         res.json(myVaccinations);
@@ -48,31 +48,31 @@ router.get('', async (req, res, next) => {
         next();
         console.log(err);
     }
-})
+});
 
-router.get('/seed', async (req, res, next) => {
+router.get("/seed", async (req, res, next) => {
     try {
         await Vaccinations.deleteMany({});
         await Vaccinations.insertMany(seededData);
-        res.redirect('/vaccinations');
-    } catch(err) {
-        next();
-        console.log(err);
-    }
-})
-
-router.post('', async (req, res, next) => {
-    try {
-        const newVaccination = req.body;
-        await Vaccinations.create(req.body);
-        res.redirect('/vaccinations');
+        res.redirect("/vaccinations");
     } catch (err) {
         next();
         console.log(err);
     }
-})
+});
 
-router.get('/:id', async (req, res, next) => {
+router.post("", async (req, res, next) => {
+    try {
+        const newVaccination = req.body;
+        await Vaccinations.create(req.body);
+        res.redirect("/vaccinations");
+    } catch (err) {
+        next();
+        console.log(err);
+    }
+});
+
+router.get("/:id", async (req, res, next) => {
     try {
         const myVaccination = await Vaccinations.findById(req.params.id);
         res.json(myVaccination);
@@ -80,9 +80,9 @@ router.get('/:id', async (req, res, next) => {
         next();
         console.log(err);
     }
-})
+});
 
-router.put('/:id', async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
     try {
         const updatedVaccination = await Vaccinations.findByIdAndUpdate(req.params.id, req.body);
         res.redirect(`/vaccinations/${req.params.id}`);
@@ -90,16 +90,16 @@ router.put('/:id', async (req, res, next) => {
         next();
         console.log(err);
     }
-})
+});
 
-router.delete('/:id', async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
     try {
         const deletedVaccination = await Vaccinations.findByIdAndDelete(req.params.id);
-        res.redirect('/vaccinations');
+        res.redirect("/vaccinations");
     } catch (err) {
         next();
         console.log(err);
     }
-})
+});
 
 module.exports = router;

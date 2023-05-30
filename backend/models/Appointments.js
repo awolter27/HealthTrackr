@@ -1,18 +1,18 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const appointmentsSchema = new mongoose.Schema(
     {
         nameOfAppointment: {
             type: String,
-            required: [true, 'You must enter the name of your appointment']
+            required: [true, "You must enter the name of your appointment"]
         },
         title: {
             type: String,
-            required: [true, 'You must enter the title of your healthcare provider']
+            required: [true, "You must enter the title of your healthcare provider"]
         },
         nameOfProvider: {
             type: String,
-            required: [true, 'You must enter the name of the provider you are seeing during your appointment']
+            required: [true, "You must enter the name of the healthcare provider you are seeing during your appointment"]
         },
         specialty: {
             type: String,
@@ -20,15 +20,15 @@ const appointmentsSchema = new mongoose.Schema(
         },
         address: {
             type: String,
-            required: [true, 'You must enter the address of your appointment']
+            required: [true, "You must enter the address of your appointment"]
         },
         date: {
             type: String,
-            required: [true, 'You must enter the date of your appointment']
+            required: [true, "You must enter the date of your appointment"]
         },
         time: {
             type: String,
-            required: [true, 'You must enter the time of your appointment']
+            required: [true, "You must enter the time of your appointment"]
         },
         reason: {
             type: String,
@@ -44,6 +44,6 @@ const appointmentsSchema = new mongoose.Schema(
     }
 );
 
-const Appointments = mongoose.model('appointment', appointmentsSchema);
+const Appointments = mongoose.model("appointment", appointmentsSchema);
 
 module.exports = Appointments;
