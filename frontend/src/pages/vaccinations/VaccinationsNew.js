@@ -1,14 +1,10 @@
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
+import Loading from "../../components/Loading";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
-function VaccinationsNew() {
-    const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
-
-    const [vaccinations, setVaccinations] = useState([]);
-
+function VaccinationsNew({ vaccinations, getVaccinations, URL, navigate, goBack }) {
     const [vaccinationsForm, setVaccinationsForm] = useState({
         name: "",
         manufacturer: "N/A",
@@ -16,18 +12,6 @@ function VaccinationsNew() {
         date: "",
         notes: "None"
     });
-
-    const navigate = useNavigate();
-
-    async function getVaccinations() {
-        try {
-            let myVaccinations = await fetch(`${URL}/vaccinations`);
-            myVaccinations = await myVaccinations.json();
-            setVaccinations(myVaccinations);
-        } catch (err) {
-            console.log(err);
-        }
-    };
 
     function handleChange(e) {
         setVaccinationsForm((previousFormState) => ({
@@ -51,10 +35,6 @@ function VaccinationsNew() {
         } catch (err) {
             console.log(err);
         }
-    };
-
-    function goBack() {
-        window.history.back();
     };
 
     function loaded() {
@@ -87,8 +67,8 @@ function VaccinationsNew() {
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Actions</Form.Label>
                                 <div>
-                                    <button type="submit" className="btn btn-success border border-dark rounded-3 text-white fs-5 fw-light me-3 mb-3 px-3 py-1">Submit</button>
-                                    <button type="button" className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light ms-3 mb-3 px-3 py-1" onClick={goBack}>Cancel</button>
+                                    <button type="submit" className="btn btn-success border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 me-3 mb-3">Submit</button>
+                                    <button type="button" onClick={goBack} className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 ms-3 mb-3">Cancel</button>
                                 </div>
                             </Form.Group>
                         </Form>
@@ -98,19 +78,13 @@ function VaccinationsNew() {
         );
     };
 
-    function loading() {
-        return (
-            <h1>Loading...</h1>
-        );
-    };
-
     useEffect(() => {
         getVaccinations();
     }, []);
 
     return (
         <>
-            {vaccinations ? loaded() : loading()}
+            {vaccinations ? loaded() : <Loading />}
         </>
     );
 };

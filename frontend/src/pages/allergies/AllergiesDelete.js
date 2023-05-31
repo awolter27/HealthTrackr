@@ -6,18 +6,18 @@ import { useParams } from "react-router";
 
 function AllergiesDelete({ getAllergies, URL, navigate, goBack }) {
     const { id } = useParams();
-    
+
     const [allergy, setAllergy] = useState(null);
 
     async function getAllergy() {
         try {
-          let myAllergy = await fetch(`${URL}/allergies/${id}`);
-          myAllergy = await myAllergy.json();
-          setAllergy(myAllergy);
+            let myAllergy = await fetch(`${URL}/allergies/${id}`);
+            myAllergy = await myAllergy.json();
+            setAllergy(myAllergy);
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
-      };
+    };
 
     async function deleteMyAllergy() {
         try {

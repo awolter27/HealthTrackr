@@ -1,21 +1,19 @@
-import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
+import Loading from "../../components/Loading";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
 
-function HealthConditionsDelete() {
-    const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
-
-    const [healthCondition, setHealthConditions] = useState(null);
-
+function HealthConditionsDelete({ getHealthConditions, URL, navigate, goBack }) {
     const { id } = useParams();
 
-    async function getHealthConditions() {
+    const [healthCondition, setHealthCondition] = useState(null);
+
+    async function getHealthCondition() {
         try {
-            let myHealthConditions = await fetch(`${URL}/healthconditions/${id}`);
-            myHealthConditions = await myHealthConditions.json();
-            setHealthConditions(myHealthConditions);
+            let myHealthCondition = await fetch(`${URL}/healthconditions/${id}`);
+            myHealthCondition = await myHealthCondition.json();
+            setHealthCondition(myHealthCondition);
         } catch (err) {
             console.log(err);
         }
@@ -29,9 +27,11 @@ function HealthConditionsDelete() {
                     "Content-Type": "application/json"
                 }
             });
+            navigate(`/healthconditions`);
         } catch (err) {
             console.log(err);
         }
+        getHealthConditions();
     };
 
     function loaded() {
@@ -56,12 +56,8 @@ function HealthConditionsDelete() {
                             <Card.Text className="fs-5 fw-light">{healthCondition.notes}</Card.Text>
                             <Card.Title className="fs-4">Actions</Card.Title>
                             <div className="d-flex justify-content-center">
-                                <Link className="me-3" to={`/healthconditions`}>
-                                    <button type="button" onClick={deleteMyHealthConditions} className="btn btn-danger border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1">Delete</button>
-                                </Link>
-                                <Link className="ms-3" to={`/healthconditions`}>
-                                    <button type="button" className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1">Cancel</button>
-                                </Link>
+                                <button type="button" onClick={deleteMyHealthConditions} className="btn btn-danger border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 me-3">Delete</button>
+                                <button type="button" onClick={goBack} className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 ms-3">Cancel</button>
                             </div>
                         </Card.Body>
                     </Card>
@@ -70,19 +66,13 @@ function HealthConditionsDelete() {
         );
     };
 
-    function loading() {
-        return (
-            <h1>Loading...</h1>
-        );
-    };
-
     useEffect(() => {
-        getHealthConditions();
+        getHealthCondition();
     }, []);
 
     return (
         <>
-            {healthCondition ? loaded() : loading()}
+            {healthCondition ? loaded() : <Loading />}
         </>
     );
 };

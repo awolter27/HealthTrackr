@@ -16,7 +16,7 @@ function AllergiesIndex({ allergies, getAllergies }) {
                     </Col>
                     <Col sm={4} className="text-center text-sm-end pe-sm-3">
                         <Link to={"/allergies/new"}>
-                            <button className="text-white rounded-3 fs-5 fw-light px-3 py-1" id="index-new-link">Add Allergy</button>
+                            <button className="rounded-3 text-white fs-5 fw-light px-3 py-1" id="index-new-link">Add Allergy</button>
                         </Link>
                     </Col>
                 </Row>
@@ -33,10 +33,10 @@ function AllergiesIndex({ allergies, getAllergies }) {
                                     <Card.Title className="fs-4">Actions</Card.Title>
                                     <div className="d-flex justify-content-center">
                                         <Link className="me-3" to={`/allergies/${allergy._id}/edit`}>
-                                            <button type="button" className="text-white rounded-3 fs-5 fw-light px-3 py-1" id="index-edit-link">Edit</button>
+                                            <button type="button" className="rounded-3 text-white fs-5 fw-light px-3 py-1" id="index-edit-link">Edit</button>
                                         </Link>
                                         <Link className="ms-3" to={`/allergies/${allergy._id}/delete`}>
-                                            <button type="button" className="text-white rounded-3 fs-5 fw-light px-3 py-1" id="index-delete-link">Delete</button>
+                                            <button type="button" className="rounded-3 text-white fs-5 fw-light px-3 py-1" id="index-delete-link">Delete</button>
                                         </Link>
                                     </div>
                                 </Card.Body>

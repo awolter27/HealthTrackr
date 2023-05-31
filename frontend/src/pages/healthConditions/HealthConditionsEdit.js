@@ -1,15 +1,14 @@
-import { useEffect, useState } from "react";
+import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
+import Form from "react-bootstrap/Form";
+import Loading from "../../components/Loading";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import Container from 'react-bootstrap/Container';
-import Card from 'react-bootstrap/Card';
-import Form from 'react-bootstrap/Form';
 
-function HealthConditionsEdit() {
-    const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
+function HealthConditionsEdit({ getHealthConditions, URL, navigate, goBack }) {
+    const { id } = useParams();
 
     const [healthCondition, setHealthCondition] = useState(null);
-
-    const { id } = useParams();
 
     async function getHealthCondition() {
         try {
@@ -19,11 +18,11 @@ function HealthConditionsEdit() {
         } catch (err) {
             console.log(err);
         }
-    }
+    };
 
     function handleChange(e) {
         const { name, value } = e.target;
-        const nestedKeys = name.split('.');
+        const nestedKeys = name.split(".");
         let updatedValue = value;
         if (name === "currentOrPast.current" && value === "") {
             setHealthCondition((currentState) => ({
@@ -79,7 +78,7 @@ function HealthConditionsEdit() {
                 }));
             }
         }
-    }
+    };
 
     async function handleSumbit(e) {
         try {
@@ -91,10 +90,12 @@ function HealthConditionsEdit() {
                 },
                 body: JSON.stringify(healthCondition)
             });
+            navigate(`/healthconditions`);
         } catch (err) {
             console.log(err);
         }
-    }
+        getHealthConditions();
+    };
 
     function requiredInput() {
         if (healthCondition.name) {
@@ -102,67 +103,57 @@ function HealthConditionsEdit() {
         } else {
             return false;
         }
-    }
+    };
 
     function loaded() {
         return (
             <Container fluid>
-                <h1 className='fs-1 fw-normal text-center my-5'>Edit Health Condition</h1>
-                <div className='d-flex justify-content-center mb-5'>
-                    <Card border="dark" className='text-center' id='card'>
-                        <Form onSubmit={handleSumbit} className='mx-5'>
+                <h1 className="text-center fs-1 fw-normal my-5">Edit Health Condition</h1>
+                <div className="d-flex justify-content-center mb-5">
+                    <Card border="dark" className="text-center" id="card">
+                        <Form onSubmit={handleSumbit} className="mx-5">
                             <Form.Group className="my-3">
-                                <Form.Label className="fs-3 ms-4">Health Condition <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name='name' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={healthCondition.name} />
+                                <Form.Label className="fs-3 ms-4">Health Condition <span className="text-danger">*</span></Form.Label>
+                                <Form.Control required name="name" onChange={handleChange} as="textarea" type="text" className="text-center fs-5 fw-light" value={healthCondition.name} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Current</Form.Label>
-                                <Form.Control name='currentOrPast.current' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={healthCondition.currentOrPast.current} />
+                                <Form.Control name="currentOrPast.current" onChange={handleChange} as="textarea" type="text" className="text-center fs-5 fw-light" value={healthCondition.currentOrPast.current} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Past</Form.Label>
-                                <Form.Control name='currentOrPast.past' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={healthCondition.currentOrPast.past} />
+                                <Form.Control name="currentOrPast.past" onChange={handleChange} as="textarea" type="text" className="text-center fs-5 fw-light" value={healthCondition.currentOrPast.past} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Age At Diagnosis</Form.Label>
-                                <Form.Control name='ageOfDiagnosis' onChange={handleChange} as="input" type="number" className="fs-5 fw-light pb-5 text-center" value={healthCondition.ageOfDiagnosis} />
+                                <Form.Control name="ageOfDiagnosis" onChange={handleChange} as="input" type="number" className="text-center fs-5 fw-light pb-5" value={healthCondition.ageOfDiagnosis} />
                                 <Form.Text className="text-muted">* You must enter a number</Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Symptoms</Form.Label>
-                                <Form.Control name='symptoms' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={healthCondition.symptoms} />
+                                <Form.Control name="symptoms" onChange={handleChange} as="textarea" type="text" className="text-center fs-5 fw-light" value={healthCondition.symptoms} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Treatment</Form.Label>
-                                <Form.Control name='treatment' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={healthCondition.treatment} />
+                                <Form.Control name="treatment" onChange={handleChange} as="textarea" type="text" className="text-center fs-5 fw-light" value={healthCondition.treatment} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Notes</Form.Label>
-                                <Form.Control name='notes' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={healthCondition.notes} />
+                                <Form.Control name="notes" onChange={handleChange} as="textarea" type="text" className="text-center fs-5 fw-light" value={healthCondition.notes} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Actions</Form.Label>
                                 <div>
-                                    <button type="submit" disabled={!requiredInput()} className="btn btn-success text-white fs-5 fw-light me-3 mb-3 px-3 py-1 border border-dark rounded-3" onClick={goBack}>Edit</button>
-                                    <button type="button" className="btn btn-secondary text-white fs-5 fw-light ms-3 mb-3 px-3 py-1 border border-dark rounded-3" onClick={goBack}>Cancel</button>
+                                    <button type="submit" disabled={!requiredInput()} className="btn btn-success border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 me-3 mb-3">Edit</button>
+                                    <button type="button" onClick={goBack} className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 ms-3 mb-3">Cancel</button>
                                 </div>
                             </Form.Group>
                         </Form>
                     </Card>
                 </div>
             </Container>
-        )
-    }
-
-    function loading() {
-        return (
-            <h1>Loading...</h1>
-        )
-    }
-
-    function goBack() {
-        window.history.back();
-    }
+        );
+    };
 
     useEffect(() => {
         getHealthCondition();
@@ -170,9 +161,9 @@ function HealthConditionsEdit() {
 
     return (
         <>
-            {healthCondition ? loaded() : loading()}
+            {healthCondition ? loaded() : <Loading />}
         </>
-    )
-}
+    );
+};
 
 export default HealthConditionsEdit;

@@ -1,15 +1,14 @@
-import { useEffect, useState } from "react";
+import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
+import Form from "react-bootstrap/Form";
+import Loading from "../../components/Loading";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import Container from 'react-bootstrap/Container';
-import Card from 'react-bootstrap/Card';
-import Form from 'react-bootstrap/Form';
 
-function CareTeamEdit() {
-    const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
+function CareTeamEdit({ getCareTeam, URL, navigate, goBack }) {
+    const { id } = useParams();
 
     const [careTeam, setCareTeam] = useState(null);
-
-    const { id } = useParams();
 
     async function getCareTeam() {
         try {
@@ -19,7 +18,7 @@ function CareTeamEdit() {
         } catch (err) {
             console.log(err);
         }
-    }
+    };
 
     function handleChange(e) {
         if (e.target.name === "address" && e.target.value === "") {
@@ -58,7 +57,7 @@ function CareTeamEdit() {
                 [e.target.name]: e.target.value
             }));
         }
-    }
+    };
 
     async function handleSumbit(e) {
         try {
@@ -70,10 +69,12 @@ function CareTeamEdit() {
                 },
                 body: JSON.stringify(careTeam)
             });
+            navigate(`/careteam`);
         } catch (err) {
             console.log(err);
         }
-    }
+        getCareTeam();
+    };
 
     function requiredInput() {
         if (careTeam.title && careTeam.name && careTeam.specialty) {
@@ -81,74 +82,64 @@ function CareTeamEdit() {
         } else {
             return false;
         }
-    }
+    };
 
     function loaded() {
         return (
             <Container fluid>
-                <h1 className='fs-1 fw-normal text-center my-5'>Edit CareTeam</h1>
-                <div className='d-flex justify-content-center mb-5'>
-                    <Card border="dark" className='text-center' id='card'>
-                        <Form onSubmit={handleSumbit} className='mx-5'>
+                <h1 className="text-center fs-1 fw-normal my-5">Edit Care Team</h1>
+                <div className="d-flex justify-content-center mb-5">
+                    <Card border="dark" className="text-center" id="card">
+                        <Form onSubmit={handleSumbit} className="mx-5">
                             <Form.Group className="my-3">
-                                <Form.Label className="fs-3 ms-4">Provider Title <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name='title' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={careTeam.title} />
+                                <Form.Label className="fs-3 ms-4">Provider Title <span className="text-danger">*</span></Form.Label>
+                                <Form.Control required name="title" onChange={handleChange} as="textarea" type="text" className="text-center fs-5 fw-light" value={careTeam.title} />
                             </Form.Group>
                             <Form.Group className="mb-3">
-                                <Form.Label className="fs-3 ms-4">Provider Name <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name='name' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={careTeam.name} />
+                                <Form.Label className="fs-3 ms-4">Provider Name <span className="text-danger">*</span></Form.Label>
+                                <Form.Control required name="name" onChange={handleChange} as="textarea" type="text" className="text-center fs-5 fw-light" value={careTeam.name} />
                             </Form.Group>
                             <Form.Group className="mb-3">
-                                <Form.Label className="fs-3 ms-4">Specialty <span className='text-danger'>*</span></Form.Label>
-                                <Form.Control required name='specialty' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={careTeam.specialty} />
+                                <Form.Label className="fs-3 ms-4">Specialty <span className="text-danger">*</span></Form.Label>
+                                <Form.Control required name="specialty" onChange={handleChange} as="textarea" type="text" className="text-center fs-5 fw-light" value={careTeam.specialty} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Address</Form.Label>
-                                <Form.Control name='address' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={careTeam.address} />
+                                <Form.Control name="address" onChange={handleChange} as="textarea" type="text" className="text-center fs-5 fw-light" value={careTeam.address} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Phone Number</Form.Label>
-                                <Form.Control name='phoneNumber' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={careTeam.phoneNumber} />
+                                <Form.Control name="phoneNumber" onChange={handleChange} as="textarea" type="text" className="text-center fs-5 fw-light" value={careTeam.phoneNumber} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Email</Form.Label>
-                                <Form.Control name='email' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={careTeam.email} />
+                                <Form.Control name="email" onChange={handleChange} as="textarea" type="text" className="text-center fs-5 fw-light" value={careTeam.email} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Last Appointment</Form.Label>
-                                <Form.Control name='lastAppointment' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={careTeam.lastAppointment} />
+                                <Form.Control name="lastAppointment" onChange={handleChange} as="textarea" type="text" className="text-center fs-5 fw-light" value={careTeam.lastAppointment} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Next Appointment</Form.Label>
-                                <Form.Control name='nextAppointment' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={careTeam.nextAppointment} />
+                                <Form.Control name="nextAppointment" onChange={handleChange} as="textarea" type="text" className="text-center fs-5 fw-light" value={careTeam.nextAppointment} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Notes</Form.Label>
-                                <Form.Control name='notes' onChange={handleChange} as="textarea" type="text" className="fs-5 fw-light text-center" value={careTeam.notes} />
+                                <Form.Control name="notes" onChange={handleChange} as="textarea" type="text" className="text-center fs-5 fw-light" value={careTeam.notes} />
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Actions</Form.Label>
                                 <div>
-                                    <button type="submit" disabled={!requiredInput()} className="btn btn-success text-white fs-5 fw-light me-3 mb-3 px-3 py-1 border border-dark rounded-3" onClick={goBack}>Edit</button>
-                                    <button type="button" className="btn btn-secondary text-white fs-5 fw-light ms-3 mb-3 px-3 py-1 border border-dark rounded-3" onClick={goBack}>Cancel</button>
+                                    <button type="submit" disabled={!requiredInput()} className="btn btn-success border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 me-3 mb-3" onClick={goBack}>Edit</button>
+                                    <button type="button" className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 ms-3 mb-3" onClick={goBack}>Cancel</button>
                                 </div>
                             </Form.Group>
                         </Form>
                     </Card>
                 </div>
             </Container>
-        )
-    }
-
-    function loading() {
-        return (
-            <h1>Loading...</h1>
-        )
-    }
-
-    function goBack() {
-        window.history.back();
-    }
+        );
+    };
 
     useEffect(() => {
         getCareTeam();
@@ -156,9 +147,9 @@ function CareTeamEdit() {
 
     return (
         <>
-            {careTeam ? loaded() : loading()}
+            {careTeam ? loaded() : <Loading />}
         </>
-    )
-}
+    );
+};
 
 export default CareTeamEdit;
