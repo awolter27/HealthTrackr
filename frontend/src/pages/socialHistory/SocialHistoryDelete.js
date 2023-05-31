@@ -1,15 +1,13 @@
-import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
+import Loading from "../../components/Loading";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
 
-function SocialHistoryDelete() {
-    const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
+function SocialHistoryDelete({ getSocialHistory, URL, navigate, goBack }) {
+    const { id } = useParams();
 
     const [socialHistory, setSocialHistory] = useState(null);
-
-    const { id } = useParams();
 
     async function getSocialHistory() {
         try {
@@ -29,9 +27,11 @@ function SocialHistoryDelete() {
                     "Content-Type": "application/json"
                 }
             });
+            navigate(`/socialhistory`);
         } catch (err) {
             console.log(err);
         }
+        getSocialHistory();
     };
 
     function loaded() {
@@ -139,23 +139,13 @@ function SocialHistoryDelete() {
                             <Card.Text className="fs-5 fw-light">{socialHistory.notes}</Card.Text>
                         </Card.Body>
                         <Card.Header className="border-bottom border-top border-dark rounded-1 fs-3" id="card-header">Actions</Card.Header>
-                        <div className="d-flex justify-content-center">
-                            <Link className="me-3" to={`/socialhistory`}>
-                                <button type="button" onClick={deleteMySocialHistory} className="btn btn-danger border border-dark rounded-3 text-white fs-5 fw-light me-2 my-3 px-3 py-1">Delete</button>
-                            </Link>
-                            <Link className="ms-3" to={`/socialhistory`}>
-                                <button type="button" className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light ms-2 my-3 px-3 py-1">Cancel</button>
-                            </Link>
+                        <div className="d-flex justify-content-center my-3">
+                            <button type="button" onClick={deleteMySocialHistory} className="btn btn-danger border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 me-3">Delete</button>
+                            <button onClick={goBack} type="button" className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 ms-3">Cancel</button>
                         </div>
                     </Card>
                 </div>
             </Container>
-        );
-    };
-
-    function loading() {
-        return (
-            <h1>Loading...</h1>
         );
     };
 
@@ -165,7 +155,7 @@ function SocialHistoryDelete() {
 
     return (
         <>
-            {socialHistory ? loaded() : loading()}
+            {socialHistory ? loaded() : <Loading />}
         </>
     );
 };

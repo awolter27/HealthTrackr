@@ -72,12 +72,12 @@ function VaccinationsEdit({ getVaccinations, URL, navigate, goBack }) {
     function loaded() {
         return (
             <Container fluid>
-                <h1 className='text-center fs-1 fw-normal my-5'>Edit Vaccination</h1>
-                <div className='d-flex justify-content-center mb-5'>
-                    <Card border="dark" className='text-center' id='card'>
-                        <Form onSubmit={handleSumbit} className='mx-5'>
+                <h1 className="text-center fs-1 fw-normal my-5">Edit Vaccination</h1>
+                <div className="d-flex justify-content-center mb-5">
+                    <Card border="dark" className="text-center" id="card">
+                        <Form onSubmit={handleSumbit} className="mx-5">
                             <Form.Group className="my-3">
-                                <Form.Label className="fs-3 ms-4">Vaccination <span className='text-danger'>*</span></Form.Label>
+                                <Form.Label className="fs-3 ms-4">Vaccination <span className="text-danger">*</span></Form.Label>
                                 <Form.Control required name="name" onChange={handleChange} as="textarea" type="text" className="text-center fs-5 fw-light" value={vaccination.name} />
                             </Form.Group>
                             <Form.Group className="mb-3">
@@ -89,7 +89,7 @@ function VaccinationsEdit({ getVaccinations, URL, navigate, goBack }) {
                                 <Form.Control name="lotNumber" onChange={handleChange} as="textarea" type="text" className="text-center fs-5 fw-light" value={vaccination.lotNumber} />
                             </Form.Group>
                             <Form.Group className="mb-3">
-                                <Form.Label className="fs-3 ms-4">Date <span className='text-danger'>*</span></Form.Label>
+                                <Form.Label className="fs-3 ms-4">Date <span className="text-danger">*</span></Form.Label>
                                 <Form.Control required name="date" onChange={handleChange} as="textarea" type="text" className="text-center fs-5 fw-light" value={vaccination.date} />
                             </Form.Group>
                             <Form.Group className="mb-3">

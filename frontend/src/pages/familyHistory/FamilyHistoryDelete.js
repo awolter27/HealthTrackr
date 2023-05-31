@@ -1,15 +1,13 @@
-import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
+import Loading from "../../components/Loading";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
 
-function FamilyHistoryDelete() {
-    const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
+function FamilyHistoryDelete({ getFamilyHistory, URL, navigate, goBack }) {
+    const { id } = useParams();
 
     const [familyHistory, setFamilyHistory] = useState(null);
-
-    const { id } = useParams();
 
     async function getFamilyHistory() {
         try {
@@ -29,9 +27,11 @@ function FamilyHistoryDelete() {
                     "Content-Type": "application/json"
                 }
             });
+            navigate(`/familyhistory`);
         } catch (err) {
             console.log(err);
         }
+        getFamilyHistory();
     };
 
     function loaded() {
@@ -58,23 +58,13 @@ function FamilyHistoryDelete() {
                             <Card.Text className="fs-5 fw-light">{familyHistory.notes}</Card.Text>
                             <Card.Title className="fs-4">Actions</Card.Title>
                             <div className="d-flex justify-content-center">
-                                <Link className="me-3" to={`/familyhistory`}>
-                                    <button type="button" onClick={deleteMyFamilyHistory} className="btn btn-danger border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1">Delete</button>
-                                </Link>
-                                <Link className="ms-3" to={`/familyhistory`}>
-                                    <button type="button" className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1">Cancel</button>
-                                </Link>
+                                <button type="button" onClick={deleteMyFamilyHistory} className="btn btn-danger border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 me-3">Delete</button>
+                                <button onClick={goBack} type="button" className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 ms-3">Cancel</button>
                             </div>
                         </Card.Body>
                     </Card>
                 </div>
             </Container>
-        );
-    };
-
-    function loading() {
-        return (
-            <h1>Loading...</h1>
         );
     };
 
@@ -84,7 +74,7 @@ function FamilyHistoryDelete() {
 
     return (
         <>
-            {familyHistory ? loaded() : loading()}
+            {familyHistory ? loaded() : <Loading />}
         </>
     );
 };

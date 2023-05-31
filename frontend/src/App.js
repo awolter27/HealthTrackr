@@ -55,9 +55,11 @@ function App() {
   const [allergies, setAllergies] = useState([]);
   const [appointments, setAppointments] = useState([]);
   const [careTeam, setCareTeam] = useState([]);
+  const [familyHistory, setFamilyHistory] = useState([]);
   const [healthConditions, setHealthConditions] = useState([]);
   const [hospitalizations, setHospitalizations] = useState([]);
   const [medications, setMedications] = useState([]);
+  const [socialHistory, setSocialHistory] = useState([]);
   const [surgeries, setSurgeries] = useState([]);
   const [vaccinations, setVaccinations] = useState([]);
 
@@ -89,7 +91,17 @@ function App() {
     } catch (err) {
       console.log(err);
     }
-  }
+  };
+
+  async function getFamilyHistory() {
+    try {
+      let myFamilyHistory = await fetch(`${URL}/familyhistory`);
+      myFamilyHistory = await myFamilyHistory.json();
+      setFamilyHistory(myFamilyHistory);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   async function getHealthConditions() {
     try {
@@ -99,7 +111,7 @@ function App() {
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   async function getHospitalizations() {
     try {
@@ -109,7 +121,7 @@ function App() {
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   async function getMedications() {
     try {
@@ -119,7 +131,17 @@ function App() {
     } catch (err) {
       console.log(err);
     }
-  }
+  };
+
+  async function getSocialHistory() {
+    try {
+      let mySocialHistory = await fetch(`${URL}/socialhistory`);
+      mySocialHistory = await mySocialHistory.json();
+      setSocialHistory(mySocialHistory);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   async function getSurgeries() {
     try {
@@ -129,7 +151,7 @@ function App() {
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   async function getVaccinations() {
     try {
@@ -139,7 +161,7 @@ function App() {
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   function goBack() {
     window.history.back();
@@ -181,16 +203,16 @@ function App() {
           <Route path=":id/delete" element={<HospitalizationsDelete getHospitalizations={getHospitalizations} URL={URL} navigate={navigate} goBack={goBack} />} />
         </Route>
         <Route path="/socialhistory">
-          <Route path="" element={<SocialHistoryIndex />} />
-          <Route path="new" element={<SocialHistoryNew />} />
-          <Route path=":id/edit" element={<SocialHistoryEdit />} />
-          <Route path=":id/delete" element={<SocialHistoryDelete />} />
+          <Route path="" element={<SocialHistoryIndex socialHistory={socialHistory} getSocialHistory={getSocialHistory} />} />
+          <Route path="new" element={<SocialHistoryNew socialHistory={socialHistory} getSocialHistory={getSocialHistory} URL={URL} navigate={navigate} goBack={goBack} />} />
+          <Route path=":id/edit" element={<SocialHistoryEdit getSocialHistory={getSocialHistory} URL={URL} navigate={navigate} goBack={goBack} />} />
+          <Route path=":id/delete" element={<SocialHistoryDelete getSocialHistory={getSocialHistory} URL={URL} navigate={navigate} goBack={goBack} />} />
         </Route>
         <Route path="/familyhistory">
-          <Route path="" element={<FamilyHistoryIndex />} />
-          <Route path="new" element={<FamilyHistoryNew />} />
-          <Route path=":id/edit" element={<FamilyHistoryEdit />} />
-          <Route path=":id/delete" element={<FamilyHistoryDelete />} />
+          <Route path="" element={<FamilyHistoryIndex familyHistory={familyHistory} getFamilyHistory={getFamilyHistory} />} />
+          <Route path="new" element={<FamilyHistoryNew familyHistory={familyHistory} getFamilyHistory={getFamilyHistory} URL={URL} navigate={navigate} goBack={goBack} />} />
+          <Route path=":id/edit" element={<FamilyHistoryEdit getFamilyHistory={getFamilyHistory} URL={URL} navigate={navigate} goBack={goBack} />} />
+          <Route path=":id/delete" element={<FamilyHistoryDelete getFamilyHistory={getFamilyHistory} URL={URL} navigate={navigate} goBack={goBack} />} />
         </Route>
         <Route path="/vaccinations">
           <Route path="" element={<VaccinationsIndex vaccinations={vaccinations} getVaccinations={getVaccinations} />} />

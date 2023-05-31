@@ -8,7 +8,7 @@ Project 3
 
 ## Goal
 
-- I’m a physician assistant with experience working with diverse patient populations. I’ve observed a recurring issue where patients are often unable to provide complete and accurate information about their past medical histories. This poses a significant challenge to healthcare providers in delivering optimal care. I understand how difficult it can be to keep track of so much health related information, especially those with complex medical histories featuring numerous diagnoses, medications, allergies, hospitalizations, specialists, etc. So to address this issue, I’m developing an app that simplifies the process of tracking and sharing one’s medical history with healthcare providers across all health networks. 
+- I’m a physician assistant. I’ve observed a recurring issue where patients are often unable to provide complete and accurate information about their past medical histories. This poses a significant challenge to healthcare providers in delivering optimal care. I empathize with the difficulties individuals face in keeping track of a vast array of health-related information, particularly those with intricate medical backgrounds encompassing numerous diagnoses, medications, allergies, hospitalizations, and specialists, among other factors. To address this issue, I developed an application that streamlines and simplifies the process of tracking and sharing one’s medical history with healthcare providers across all health networks. 
 
 ## User Story
 
@@ -24,6 +24,7 @@ Project 3
 
 ## Stretch Goals
 
+- I'd like to fix a bug within the add and edit routes (If a user types in a non-required field and then deletes what was written, it won't enter the default value).
 - I'd like to update the schemas to be more comprehensive.
 - I'd like to add in additional controllers, models, and pages, such as vitals, to be more comprehensive.
 - I'd like to have an emergency contact section where users authorize these individuals to have access to their medical histories.
@@ -44,9 +45,6 @@ Project 3
 - React-DOM
 - React-Router
 - React-Router-DOM
-- React-Scripts
-- Save
-- Web-Vitals
 
 ## Initial Wireframe
 

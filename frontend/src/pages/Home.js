@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
     return (
-        <Container className="pb-5">
+        <Container fluid className="pb-5">
             <h1 className="text-center py-5">Dashboard</h1>
             <div className="d-flex flex-row flex-wrap justify-content-center">
                 <Card style={{ width: "13rem" }} className="border border-dark mx-4 mb-4">
