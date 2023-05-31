@@ -86,7 +86,7 @@ router.get("/:id", async (req, res, next) => {
 router.put("/:id", async (req, res, next) => {
     try {
         const updatedMedication = await Medications.findByIdAndUpdate(req.params.id, req.body);
-        res.redirect(`/medications/${req.params.id}`);
+        res.json(updatedMedication);
     } catch (err) {
         next();
         console.log(err);
@@ -96,7 +96,7 @@ router.put("/:id", async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
     try {
         const deletedMedication = await Medications.findByIdAndDelete(req.params.id);
-        res.redirect("/medications");
+        res.json(deletedMedication);
     } catch (err) {
         next();
         console.log(err);

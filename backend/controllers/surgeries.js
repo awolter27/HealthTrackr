@@ -66,7 +66,7 @@ router.get("/:id", async (req, res, next) => {
 router.put("/:id", async (req, res, next) => {
     try {
         const updatedSurgery = await Surgeries.findByIdAndUpdate(req.params.id, req.body);
-        res.redirect(`/surgeries/${req.params.id}`);
+        res.json(updatedSurgery);
     } catch (err) {
         next();
         console.log(err);
@@ -76,7 +76,7 @@ router.put("/:id", async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
     try {
         const deletedSurgery = await Surgeries.findByIdAndDelete(req.params.id);
-        res.redirect("/surgeries");
+        res.json(deletedSurgery);
     } catch (err) {
         next();
         console.log(err);

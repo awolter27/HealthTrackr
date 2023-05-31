@@ -92,7 +92,7 @@ router.get("/:id", async (req, res, next) => {
 router.put("/:id", async (req, res, next) => {
     try {
         const updatedFamilyHistory = await FamilyHistory.findByIdAndUpdate(req.params.id, req.body);
-        res.redirect(`/familyhistory/${req.params.id}`);
+        res.json(updatedFamilyHistory);
     } catch (err) {
         next();
         console.log(err);
@@ -102,7 +102,7 @@ router.put("/:id", async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
     try {
         const deletedFamilyHistory = await FamilyHistory.findByIdAndDelete(req.params.id);
-        res.redirect("/familyhistory");
+        res.json(deletedFamilyHistory);
     } catch (err) {
         next();
         console.log(err);

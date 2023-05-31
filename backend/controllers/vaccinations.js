@@ -85,7 +85,7 @@ router.get("/:id", async (req, res, next) => {
 router.put("/:id", async (req, res, next) => {
     try {
         const updatedVaccination = await Vaccinations.findByIdAndUpdate(req.params.id, req.body);
-        res.redirect(`/vaccinations/${req.params.id}`);
+        res.json(updatedVaccination);
     } catch (err) {
         next();
         console.log(err);
@@ -95,7 +95,7 @@ router.put("/:id", async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
     try {
         const deletedVaccination = await Vaccinations.findByIdAndDelete(req.params.id);
-        res.redirect("/vaccinations");
+        res.json(deletedVaccination);
     } catch (err) {
         next();
         console.log(err);

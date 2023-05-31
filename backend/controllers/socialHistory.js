@@ -99,7 +99,7 @@ router.get("/:id", async (req, res, next) => {
 router.put("/:id", async (req, res, next) => {
     try {
         const updatedSocialHistory = await SocialHistory.findByIdAndUpdate(req.params.id, req.body);
-        res.redirect(`/socialhistory/${req.params.id}`);
+        res.json(updatedSocialHistory);
     } catch (err) {
         next();
         console.log(err);
@@ -109,7 +109,7 @@ router.put("/:id", async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
     try {
         const deletedSocialHistory = await SocialHistory.findByIdAndDelete(req.params.id);
-        res.redirect("/socialhistory");
+        res.json(deletedSocialHistory);
     } catch (err) {
         next();
         console.log(err);

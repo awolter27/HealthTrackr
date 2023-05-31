@@ -1,24 +1,9 @@
-import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
-import { useState, useEffect } from "react";
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import Loading from "../../components/Loading";
+import { useEffect } from "react";
 
-function AllergiesDelete({ URL, getAllergies }) {
-    const [allergy, setAllergy] = useState(null);
-
-    const { id } = useParams();
-
-    async function getAllergy() {
-        try {
-            let myAllergy = await fetch(`${URL}/allergies/${id}`);
-            myAllergy = await myAllergy.json();
-            setAllergy(myAllergy);
-        } catch (err) {
-            console.log(err);
-        }
-    };
-
+function AllergiesDelete({ allergy, getAllergy, getAllergies, URL, id, goBack }) {
     async function deleteMyAllergy() {
         try {
             await fetch(`${URL}/allergies/${id}`, {
@@ -47,23 +32,13 @@ function AllergiesDelete({ URL, getAllergies }) {
                             <Card.Text className="fs-5 fw-light">{allergy.notes}</Card.Text>
                             <Card.Title className="fs-4">Actions</Card.Title>
                             <div className="d-flex justify-content-center">
-                                <Link className="me-3" to={`/allergies`}>
-                                    <button type="button" onClick={deleteMyAllergy} className="btn btn-danger border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1">Delete</button>
-                                </Link>
-                                <Link className="ms-3" to={`/allergies`}>
-                                    <button type="button" className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1">Cancel</button>
-                                </Link>
+                                <button type="button" onClick={deleteMyAllergy} className="btn btn-danger border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1">Delete</button>
+                                <button type="button" onClick={goBack} className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1">Cancel</button>
                             </div>
                         </Card.Body>
                     </Card>
                 </div>
             </Container>
-        );
-    };
-
-    function loading() {
-        return (
-            <h1>Loading...</h1>
         );
     };
 
@@ -73,7 +48,7 @@ function AllergiesDelete({ URL, getAllergies }) {
 
     return (
         <>
-            {allergy ? loaded() : loading()}
+            {allergy ? loaded() : <Loading />}
         </>
     );
 };

@@ -83,7 +83,7 @@ router.get("/:id", async (req, res, next) => {
 router.put("/:id", async (req, res, next) => {
     try {
         const updatedAppointment = await Appointments.findByIdAndUpdate(req.params.id, req.body);
-        res.redirect(`/appointments/${req.params.id}`);
+        res.json(updatedAppointment);
     } catch (err) {
         next();
         console.log(err);
@@ -93,7 +93,7 @@ router.put("/:id", async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
     try {
         const deletedAppointment = await Appointments.findByIdAndDelete(req.params.id);
-        res.redirect("/appointments");
+        res.json(deletedAppointment);
     } catch (err) {
         next();
         console.log(err);

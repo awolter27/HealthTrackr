@@ -1,26 +1,9 @@
-import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
-import { useState, useEffect } from "react";
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import Loading from "../../components/Loading";
+import { useEffect } from "react";
 
-function AppointmentsDelete() {
-    const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
-
-    const [appointment, setAppointment] = useState(null);
-
-    const { id } = useParams();
-
-    async function getAppointment() {
-        try {
-            let myAppointment = await fetch(`${URL}/appointments/${id}`);
-            myAppointment = await myAppointment.json();
-            setAppointment(myAppointment);
-        } catch (err) {
-            console.log(err);
-        }
-    };
-
+function AppointmentsDelete({ appointment, getAppointment, getAppointments, URL, id, goBack }) {
     async function deleteMyAppointment() {
         try {
             await fetch(`${URL}/appointments/${id}`, {
@@ -32,6 +15,7 @@ function AppointmentsDelete() {
         } catch (err) {
             console.log(err);
         }
+        getAppointments();
     };
 
     function loaded() {
@@ -56,23 +40,13 @@ function AppointmentsDelete() {
                             <Card.Text className="fs-5 fw-light">{appointment.notes}</Card.Text>
                             <Card.Title className="fs-4">Actions</Card.Title>
                             <div className="d-flex justify-content-center">
-                                <Link className="me-3" to={`/appointments`}>
-                                    <button type="button" onClick={deleteMyAppointment} className="btn btn-danger border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1">Delete</button>
-                                </Link>
-                                <Link className="ms-3" to={`/appointments`}>
-                                    <button type="button" className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1">Cancel</button>
-                                </Link>
+                                <button type="button" onClick={deleteMyAppointment} className="btn btn-danger border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1">Delete</button>
+                                <button type="button" onClick={goBack} className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1">Cancel</button>
                             </div>
                         </Card.Body>
                     </Card>
                 </div>
             </Container>
-        );
-    };
-
-    function loading() {
-        return (
-            <h1>Loading...</h1>
         );
     };
 
@@ -82,7 +56,7 @@ function AppointmentsDelete() {
 
     return (
         <>
-            {appointment ? loaded() : loading()}
+            {appointment ? loaded() : <Loading />}
         </>
     );
 };
