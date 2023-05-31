@@ -10,6 +10,7 @@ function AllergiesEdit({ URL, getAllergies }) {
     const { id } = useParams();
 
     async function getAllergy() {
+        console.log(URL);
         try {
             let myAllergy = await fetch(`${URL}/allergies/${id}`);
             myAllergy = await myAllergy.json();
