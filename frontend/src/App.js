@@ -76,7 +76,7 @@ function App() {
           <Route path="" element={<AllergiesIndex URL={URL} getAllergies={getAllergies} allergies={allergies} setAllergies={setAllergies} />} />
           <Route path="new" element={<AllergiesNew />} />
           <Route path=":id/edit" element={<AllergiesEdit URL={URL} getAllergies={getAllergies} allergies={allergies} setAllergies={setAllergies}/>} />
-          <Route path=":id/delete" element={<AllergiesDelete />} />
+          <Route path=":id/delete" element={<AllergiesDelete URL={URL} getAllergies={getAllergies} allergies={allergies} setAllergies={setAllergies} />} />
         </Route>
         <Route path="/medications">
           <Route path="" element={<MedicationsIndex />} />
