@@ -2,9 +2,24 @@ import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Loading from "../../components/Loading";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router";
 
-function AppointmentsEdit({ appointment, getAppointment, getAppointments, setAppointment, URL, id, navigate, goBack }) {
+function AppointmentsEdit({ getAppointments, URL, navigate, goBack }) {
+    const { id } = useParams();
+
+    const [appointment, setAppointment] = useState(null);
+
+    async function getAppointment() {
+        try {
+            let myAppointment = await fetch(`${URL}/appointments/${id}`);
+            myAppointment = await myAppointment.json();
+            setAppointment(myAppointment);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     function handleChange(e) {
         if (e.target.name === "specialty" && e.target.value === "") {
             setAppointment((currentState) => ({
@@ -39,7 +54,7 @@ function AppointmentsEdit({ appointment, getAppointment, getAppointments, setApp
                 },
                 body: JSON.stringify(appointment)
             });
-            return navigate(`/appointments`);
+            navigate(`/appointments`);
         } catch (err) {
             console.log(err);
         }
@@ -100,8 +115,8 @@ function AppointmentsEdit({ appointment, getAppointment, getAppointments, setApp
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Actions</Form.Label>
                                 <div>
-                                    <button type="submit" disabled={!requiredInput()} className="btn btn-success border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 me-3 mb-3" onClick={goBack}>Edit</button>
-                                    <button type="button" className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 ms-3 mb-3" onClick={goBack}>Cancel</button>
+                                    <button type="submit" disabled={!requiredInput()} className="btn btn-success border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 me-3 mb-3">Edit</button>
+                                    <button type="button" onClick={goBack} className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 ms-3 mb-3">Cancel</button>
                                 </div>
                             </Form.Group>
                         </Form>

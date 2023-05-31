@@ -1,9 +1,24 @@
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Loading from "../../components/Loading";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router";
 
-function AllergiesDelete({ allergy, getAllergy, getAllergies, URL, id, goBack }) {
+function AllergiesDelete({ getAllergies, URL, navigate, goBack }) {
+    const { id } = useParams();
+    
+    const [allergy, setAllergy] = useState(null);
+
+    async function getAllergy() {
+        try {
+          let myAllergy = await fetch(`${URL}/allergies/${id}`);
+          myAllergy = await myAllergy.json();
+          setAllergy(myAllergy);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
     async function deleteMyAllergy() {
         try {
             await fetch(`${URL}/allergies/${id}`, {
@@ -12,6 +27,7 @@ function AllergiesDelete({ allergy, getAllergy, getAllergies, URL, id, goBack })
                     "Content-Type": "application/json"
                 }
             });
+            navigate(`/allergies`);
         } catch (err) {
             console.log(err);
         }
@@ -32,8 +48,8 @@ function AllergiesDelete({ allergy, getAllergy, getAllergies, URL, id, goBack })
                             <Card.Text className="fs-5 fw-light">{allergy.notes}</Card.Text>
                             <Card.Title className="fs-4">Actions</Card.Title>
                             <div className="d-flex justify-content-center">
-                                <button type="button" onClick={deleteMyAllergy} className="btn btn-danger border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1">Delete</button>
-                                <button type="button" onClick={goBack} className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1">Cancel</button>
+                                <button type="button" onClick={deleteMyAllergy} className="btn btn-danger border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 me-3">Delete</button>
+                                <button type="button" onClick={goBack} className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 ms-3">Cancel</button>
                             </div>
                         </Card.Body>
                     </Card>

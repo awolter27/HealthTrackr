@@ -58,7 +58,7 @@ function AllergiesNew({ allergies, getAllergies, URL, navigate, goBack }) {
                                 <Form.Label className="fs-3">Actions</Form.Label>
                                 <div>
                                     <button type="submit" className="btn btn-success border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 me-3 mb-3">Submit</button>
-                                    <button type="button" onClick={goBack} className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-ligh px-3 py-1 ms-3 mb-3">Cancel</button>
+                                    <button type="button" onClick={goBack} className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 ms-3 mb-3">Cancel</button>
                                 </div>
                             </Form.Group>
                         </Form>

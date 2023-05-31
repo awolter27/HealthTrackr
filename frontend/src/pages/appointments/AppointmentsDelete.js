@@ -1,9 +1,24 @@
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Loading from "../../components/Loading";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router";
 
-function AppointmentsDelete({ appointment, getAppointment, getAppointments, URL, id, goBack }) {
+function AppointmentsDelete({ getAppointments, URL, navigate, goBack }) {
+    const { id } = useParams();
+
+    const [appointment, setAppointment] = useState(null);
+
+    async function getAppointment() {
+        try {
+            let myAppointment = await fetch(`${URL}/appointments/${id}`);
+            myAppointment = await myAppointment.json();
+            setAppointment(myAppointment);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     async function deleteMyAppointment() {
         try {
             await fetch(`${URL}/appointments/${id}`, {
@@ -12,6 +27,7 @@ function AppointmentsDelete({ appointment, getAppointment, getAppointments, URL,
                     "Content-Type": "application/json"
                 }
             });
+            navigate(`/appointments`);
         } catch (err) {
             console.log(err);
         }
@@ -40,8 +56,8 @@ function AppointmentsDelete({ appointment, getAppointment, getAppointments, URL,
                             <Card.Text className="fs-5 fw-light">{appointment.notes}</Card.Text>
                             <Card.Title className="fs-4">Actions</Card.Title>
                             <div className="d-flex justify-content-center">
-                                <button type="button" onClick={deleteMyAppointment} className="btn btn-danger border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1">Delete</button>
-                                <button type="button" onClick={goBack} className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1">Cancel</button>
+                                <button type="button" onClick={deleteMyAppointment} className="btn btn-danger border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 me-3">Delete</button>
+                                <button type="button" onClick={goBack} className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 ms-3">Cancel</button>
                             </div>
                         </Card.Body>
                     </Card>

@@ -1,6 +1,6 @@
 function Loading() {
     return (
-        <h1>Loading...</h1>
+        <h1 className="text-center p-5">Loading...</h1>
     );
 };
 

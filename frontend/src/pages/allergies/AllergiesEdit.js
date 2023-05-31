@@ -2,34 +2,23 @@ import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Loading from "../../components/Loading";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 
-function AllergiesEdit({  URL, navigate, goBack }) {
+function AllergiesEdit({ getAllergies, URL, navigate, goBack }) {
     const { id } = useParams();
 
     const [allergy, setAllergy] = useState(null);
-    const [allergies, setAllergies] = useState([]);
 
     async function getAllergy() {
         try {
-          let myAllergy = await fetch(`${URL}/allergies/${id}`);
-          myAllergy = await myAllergy.json();
-          setAllergy(myAllergy);
+            let myAllergy = await fetch(`${URL}/allergies/${id}`);
+            myAllergy = await myAllergy.json();
+            setAllergy(myAllergy);
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
-      };
-
-      async function getAllergies() {
-        try {
-          let myAllergies = await fetch(`${URL}/allergies`);
-          myAllergies = await myAllergies.json();
-          setAllergies(myAllergies);
-        } catch (err) {
-          console.log(err);
-        }
-      };
+    };
 
     function handleChange(e) {
         if (e.target.name === "notes" && e.target.value === "") {
@@ -92,7 +81,7 @@ function AllergiesEdit({  URL, navigate, goBack }) {
                             <Form.Group className="mb-3">
                                 <Form.Label className="fs-3">Actions</Form.Label>
                                 <div>
-                                    <button type="submit" disabled={!requiredInput()} className="btn btn-success border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 me-3 mb-3 ">Edit</button>
+                                    <button type="submit" disabled={!requiredInput()} className="btn btn-success border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 me-3 mb-3">Edit</button>
                                     <button type="button" onClick={goBack} className="btn btn-secondary border border-dark rounded-3 text-white fs-5 fw-light px-3 py-1 ms-3 mb-3">Cancel</button>
                                 </div>
                             </Form.Group>

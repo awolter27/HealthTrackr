@@ -45,46 +45,21 @@ import CareTeamEdit from "./pages/careTeam/CareTeamEdit";
 import CareTeamDelete from "./pages/careTeam/CareTeamDelete";
 import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
-import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 
 function App() {
   const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
 
-  const { id } = useParams();
-
   const navigate = useNavigate();
-
-  const [allergy, setAllergy] = useState(null);
+  
   const [allergies, setAllergies] = useState([]);
-  const [appointment, setAppointment] = useState(null);
   const [appointments, setAppointments] = useState([]);
-
-  async function getAllergy() {
-    try {
-      let myAllergy = await fetch(`${URL}/allergies/${id}`);
-      myAllergy = await myAllergy.json();
-      setAllergy(myAllergy);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   async function getAllergies() {
     try {
       let myAllergies = await fetch(`${URL}/allergies`);
       myAllergies = await myAllergies.json();
       setAllergies(myAllergies);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  async function getAppointment() {
-    try {
-      let myAppointment = await fetch(`${URL}/appointments/${id}`);
-      myAppointment = await myAppointment.json();
-      setAppointment(myAppointment);
     } catch (err) {
       console.log(err);
     }
@@ -118,8 +93,8 @@ function App() {
         <Route path="/allergies">
           <Route path="" element={<AllergiesIndex allergies={allergies} getAllergies={getAllergies} />} />
           <Route path="new" element={<AllergiesNew allergies={allergies} getAllergies={getAllergies} URL={URL} navigate={navigate} goBack={goBack} />} />
-          <Route path=":id/edit" element={<AllergiesEdit allergy={allergy} getAllergy={getAllergy} getAllergies={getAllergies} setAllergy={setAllergy} URL={URL} navigate={navigate} goBack={goBack} />} />
-          <Route path=":id/delete" element={<AllergiesDelete allergy={allergy} allergies={allergies} getAllergy={getAllergy} getAllergies={getAllergies} setAllergies={setAllergies} URL={URL} id={id} navigate={navigate} goBack={goBack} />} />
+          <Route path=":id/edit" element={<AllergiesEdit getAllergies={getAllergies} URL={URL} navigate={navigate} goBack={goBack} />} />
+          <Route path=":id/delete" element={<AllergiesDelete getAllergies={getAllergies} URL={URL} navigate={navigate} goBack={goBack} />} />
         </Route>
         <Route path="/medications">
           <Route path="" element={<MedicationsIndex />} />
@@ -160,8 +135,8 @@ function App() {
         <Route path="/appointments">
           <Route path="" element={<AppointmentsIndex appointments={appointments} getAppointments={getAppointments} />} />
           <Route path="new" element={<AppointmentsNew appointments={appointments} getAppointments={getAppointments} URL={URL} navigate={navigate} goBack={goBack} />} />
-          <Route path=":id/edit" element={<AppointmentsEdit appointment={appointment} getAppointment={getAppointment} getAppointments={getAppointments} setAppointment={setAppointment} URL={URL} id={id} navigate={navigate} goBack={goBack} />} />
-          <Route path=":id/delete" element={<AppointmentsDelete URL={URL} getAppointments={getAppointments} goBack={goBack} />} />
+          <Route path=":id/edit" element={<AppointmentsEdit getAppointments={getAppointments} URL={URL} navigate={navigate} goBack={goBack} />} />
+          <Route path=":id/delete" element={<AppointmentsDelete getAppointments={getAppointments} URL={URL} navigate={navigate} goBack={goBack} />} />
         </Route>
         <Route path="/careteam">
           <Route path="" element={<CareTeamIndex />} />
