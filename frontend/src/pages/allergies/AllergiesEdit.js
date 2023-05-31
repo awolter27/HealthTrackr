@@ -2,9 +2,35 @@ import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Loading from "../../components/Loading";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 
-function AllergiesEdit({ allergy, getAllergy, getAllergies, setAllergy, URL, id, navigate, goBack }) {
+function AllergiesEdit({  URL, navigate, goBack }) {
+    const { id } = useParams();
+
+    const [allergy, setAllergy] = useState(null);
+    const [allergies, setAllergies] = useState([]);
+
+    async function getAllergy() {
+        try {
+          let myAllergy = await fetch(`${URL}/allergies/${id}`);
+          myAllergy = await myAllergy.json();
+          setAllergy(myAllergy);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
+      async function getAllergies() {
+        try {
+          let myAllergies = await fetch(`${URL}/allergies`);
+          myAllergies = await myAllergies.json();
+          setAllergies(myAllergies);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
     function handleChange(e) {
         if (e.target.name === "notes" && e.target.value === "") {
             setAllergy((currentState) => ({
@@ -29,7 +55,7 @@ function AllergiesEdit({ allergy, getAllergy, getAllergies, setAllergy, URL, id,
                 },
                 body: JSON.stringify(allergy)
             });
-            return navigate(`/allergies`);
+            navigate(`/allergies`);
         } catch (err) {
             console.log(err);
         }

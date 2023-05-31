@@ -118,7 +118,7 @@ function App() {
         <Route path="/allergies">
           <Route path="" element={<AllergiesIndex allergies={allergies} getAllergies={getAllergies} />} />
           <Route path="new" element={<AllergiesNew allergies={allergies} getAllergies={getAllergies} URL={URL} navigate={navigate} goBack={goBack} />} />
-          <Route path=":id/edit" element={<AllergiesEdit allergy={allergy} getAllergy={getAllergy} getAllergies={getAllergies} setAllergy={setAllergy} URL={URL} id={id} navigate={navigate} goBack={goBack} />} />
+          <Route path=":id/edit" element={<AllergiesEdit allergy={allergy} getAllergy={getAllergy} getAllergies={getAllergies} setAllergy={setAllergy} URL={URL} navigate={navigate} goBack={goBack} />} />
           <Route path=":id/delete" element={<AllergiesDelete allergy={allergy} allergies={allergies} getAllergy={getAllergy} getAllergies={getAllergies} setAllergies={setAllergies} URL={URL} id={id} navigate={navigate} goBack={goBack} />} />
         </Route>
         <Route path="/medications">
