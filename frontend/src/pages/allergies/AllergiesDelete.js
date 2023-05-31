@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
-function AllergiesDelete({ getAllergies }) {
+function AllergiesDelete({ URL, getAllergies }) {
     const [allergy, setAllergy] = useState(null);
 
     const { id } = useParams();

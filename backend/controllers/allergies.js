@@ -80,7 +80,7 @@ router.put("/:id", async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
     try {
         const deletedAllergy = await Allergies.findByIdAndDelete(req.params.id);
-        res.redirect("/allergies");
+        res.json(deletedAllergy);
     } catch (err) {
         next();
         console.log(err);
