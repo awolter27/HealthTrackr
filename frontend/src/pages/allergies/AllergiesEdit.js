@@ -20,6 +20,7 @@ function AllergiesEdit({ getAllergies, URL, navigate, goBack }) {
         }
     };
 
+    // I have some version of the following code across all my edit pages because I want the index pages to be streamlined. So, if the user decides not to enter any information in the non-required fields, instead of having a header with a blank space beneath it, it will auto-populate to "N/A" (seen on other pages) or "None." 
     function handleChange(e) {
         if (e.target.name === "notes" && e.target.value === "") {
             setAllergy((currentState) => ({
@@ -51,6 +52,7 @@ function AllergiesEdit({ getAllergies, URL, navigate, goBack }) {
         getAllergies();
     };
 
+    // I wrote this code to fix a glitch that happens in the edit routes. In my forms, I have required fields, which are enforced when adding a new entry. But, I found that if you go to edit an existing entry, you're able to delete the content from the required field. When you hit edit, nothing updates, but it still redirects the user back to the index page, which isn't great for user experience. So, I wrote some form of this code across all the edit pages to disable the button if the user doesn't answer all of the required fields.
     function requiredInput() {
         if (allergy.name && allergy.reaction) {
             return true;

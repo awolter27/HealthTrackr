@@ -21,8 +21,11 @@ function SocialHistoryEdit({ getSocialHistory, URL, navigate, goBack }) {
     };
 
     function handleChange(e) {
+        // I'm using object destructuring so that I can use name and value instead of e.target.name and e.target.value.
         const { name, value } = e.target;
+        // I'm creating a variable called nestedKeys, which holds the value of the nested keys. For example, name = substances.startDate and nestedKeys = ["substances", "startDate"].
         const nestedKeys = name.split(".");
+        // I had to organize this edit route differently than the rest of them. Because of the size of this schema, it would've been impractical to do 35+ conditional statements. I created a variable called defaultSettings, which holds all of the default settings. Since nothing in social history is required, all of the default settings are 0, "N/A", or "None."
         const defaultSettings = {
             education: {
                 location: "N/A",
@@ -72,21 +75,30 @@ function SocialHistoryEdit({ getSocialHistory, URL, navigate, goBack }) {
             },
             notes: "None"
         };
+        // I created a variable called updatedValue, which holds the edited value from the form.
         let updatedValue = value;
+        // If value is an empty string, getDefaultValue() is invoked with name as the first parameter and defaultSettings as the second paramater, which is stored in the variable defaultValue. The first parameter will take the name, such as substances.startDate. The function will split the name at the ".", such as ["substances", "startDate"]. The function then uses a for of loop to iterate over each element in the keys array. In the example above, it would iterate over keys until it finds startDate: 03/29/23. updatedValue, which is initialized with value, is updated with the defaultValue, which in this example would be 03/29/23.
         if (value === "") {
             const defaultValue = getDefaultValue(name, defaultSettings);
             updatedValue = defaultValue;
         }
+        // If the length of nestedKeys is greater than 1, which means the schema has at least 1 nested object, run the following code. 
         if (nestedKeys.length > 1) {
+            // setSocialHistory() is the function that updates the state of socialHistory. 
             setSocialHistory((currentState) => {
+                // I created a variable called updatedSocialHistory, which holds a shallow copy of the curentState.
                 const updatedSocialHistory = { ...currentState };
+                // I created a variable called currentLevel, which holds the value of updatedSocialHistory, which holds a shallow copy of the currentState.
                 let currentLevel = updatedSocialHistory;
+                // I use a for loop to start at 0 and iterate up by 1 until nestedKeys.length - 1. This loop is iteratively updating the currentLevel until it reaches nestedKeys.length - 1.
                 for (let i = 0; i < nestedKeys.length - 1; i++) {
                     currentLevel = currentLevel[nestedKeys[i]];
                 };
+                // updatedValue is then assigned to the last property, which would be the nested key, such as startDate, which is how this code updates nested objects.
                 currentLevel[nestedKeys[nestedKeys.length - 1]] = updatedValue;
                 return updatedSocialHistory;
             });
+            // If the length of nestedKeys is less than 1, which means the schema does not have any nested objects, run the following code. 
         } else {
             setSocialHistory((currentState) => ({
                 ...currentState,
@@ -95,15 +107,21 @@ function SocialHistoryEdit({ getSocialHistory, URL, navigate, goBack }) {
         }
     };
 
+    // getDefaultValue() accepts two parameters: fieldName and defaultSettings.
     function getDefaultValue(fieldName, defaultSettings) {
+        // I created a variable called keys which takes the first parameter, fieldName, and splits it at the ".". For example, fieldName = name, name = substances.startDate, and keys = ["substances", "startDate"].
         const keys = fieldName.split(".");
+        // I created a variable called defaultSetting that holds the value of the second parameter, defaultSettings.
         let defaultSetting = defaultSettings;
+        // I created a for of loop to iterate over each element in the keys array. In the example above, it would iterate over keys = ["substances", "startDate"] until access all the nested properties and keys. 
         for (const key of keys) {
             defaultSetting = defaultSetting[key];
+            // If default setting is undefined, return an empty string. 
             if (defaultSetting === undefined) {
                 return "";
             }
         };
+        // After all the nested keys have been iterated over and all the values have been accessed, the function returns default setting.
         return defaultSetting;
     };
 

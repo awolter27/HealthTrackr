@@ -48,6 +48,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function App() {
+  // I created a variable called URL which essentially allows my app to automatically toggle between the live site and localhost depending on whether process.env.REACT_APP_NODE_ENV equals development or production.
   const URL = process.env.REACT_APP_NODE_ENV === "production" ? "https://healthtrackr.onrender.com" : "http://localhost:4000";
 
   const navigate = useNavigate();

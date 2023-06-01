@@ -8,6 +8,7 @@ function Header() {
         <Navbar collapseOnSelect expand="sm" sticky="top" id="nav">
             <Container fluid>
                 <Navbar.Brand href="/" className="border border-white border-1 rounded-3 text-white fs-2 fw-normal px-2 py-1 mx-1 my-1">HealthTrackr+</Navbar.Brand>
+                {/* I used Bootstrap-React to style my app. When the screen size decreases, the nav bar collapses into a hamburger menu. I wanted the border and three lines inside the border to be white, so that's what the following lines of code are doing. I manually recreated the hamburger menu to my specifications. */}
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" className="border border-white shadow-none mx-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="white">
                         <path stroke="white" strokeWidth="2" strokeLinecap="round" d="M4 7h22M4 15h22M4 23h22"></path>

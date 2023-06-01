@@ -11,4 +11,4 @@ module.exports = {
     SocialHistory: require("./SocialHistory"),
     Surgeries: require("./Surgeries"),
     Vaccinations: require("./Vaccinations")
-}
+};
